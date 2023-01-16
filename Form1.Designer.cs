@@ -41,7 +41,6 @@
             this.buttonNewNote.TabIndex = 0;
             this.buttonNewNote.Text = "Ny note";
             this.buttonNewNote.UseVisualStyleBackColor = true;
-            this.buttonNewNote.Click += new System.EventHandler(this.buttonNewNote_Click);
             // 
             // dataGridView1
             // 
