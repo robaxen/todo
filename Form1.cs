@@ -8,6 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//notes för användning av github och visual studio
+//för att spara ändringar i visual studio -> git changes fönstret -> skriv notes över ändringar -> commit all
+//alla ändringar visas under changes i git changes fönstret
+//för att pusha ut till repo efter commit -> git changes fönstret -> push
+//då sparas alla ändringar till github repo
+
 namespace todo
 {
     public partial class Form1 : Form
