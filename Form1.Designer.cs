@@ -28,13 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.buttonNewNote = new System.Windows.Forms.Button();
+            this.checkedListBoxNotes = new System.Windows.Forms.CheckedListBox();
+            this.SuspendLayout();
+            // 
+            // buttonNewNote
+            // 
+            this.buttonNewNote.Location = new System.Drawing.Point(12, 12);
+            this.buttonNewNote.Name = "buttonNewNote";
+            this.buttonNewNote.Size = new System.Drawing.Size(75, 23);
+            this.buttonNewNote.TabIndex = 0;
+            this.buttonNewNote.Text = "Ny note";
+            this.buttonNewNote.UseVisualStyleBackColor = true;
+            this.buttonNewNote.Click += new System.EventHandler(this.buttonNewNote_Click);
+            // 
+            // checkedListBoxNotes
+            // 
+            this.checkedListBoxNotes.FormattingEnabled = true;
+            this.checkedListBoxNotes.Location = new System.Drawing.Point(12, 41);
+            this.checkedListBoxNotes.Name = "checkedListBoxNotes";
+            this.checkedListBoxNotes.Size = new System.Drawing.Size(335, 229);
+            this.checkedListBoxNotes.TabIndex = 1;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(802, 436);
+            this.Controls.Add(this.checkedListBoxNotes);
+            this.Controls.Add(this.buttonNewNote);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button buttonNewNote;
+        private System.Windows.Forms.CheckedListBox checkedListBoxNotes;
     }
 }
 

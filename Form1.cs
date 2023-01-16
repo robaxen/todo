@@ -16,5 +16,10 @@ namespace todo
         {
             InitializeComponent();
         }
+
+        private void buttonNewNote_Click(object sender, EventArgs e)
+        {
+            checkedListBoxNotes.Items.Add(checkedListBoxNotes);
+        }
     }
 }
