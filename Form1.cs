@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.IO;
 
 //notes för användning av github och visual studio
 //för att spara ändringar i visual studio -> git changes fönstret -> skriv notes över ändringar -> commit all
@@ -82,18 +83,42 @@ namespace todo
             string deadline = textBoxDeadline.Text;
             string colorCode = textBoxColorCode.Text;
 
-            //@@@ här är det meningen att lägga in data från text fälten in i xml filen @@@
+            //---------- här ska en radd sättas in i tabellen och sedan in i xml filen -----------
+            using (StreamReader reader = new StreamReader("notes.xml"))
+            {
 
+                byte[] fullByte = Encoding.ASCII.GetBytes(reader.ReadToEnd());
+                DataSet ds = new DataSet();
+                MemoryStream mStream = new MemoryStream(fullByte);
+                mStream.Position = 0;
+                ds.ReadXml(mStream);
 
-            //tömmer alla textboxar före "new note" rutan gömms undan
-            textBoxName.Clear();
-            textBoxDesc.Clear();
-            textBoxDeadline.Clear();
-            textBoxColorCode.Clear();
+                //hämtar tabellen där alla notes finns
+                DataTable dt = ds.Tables[0];
 
-            groupBoxNewNote.BackColor = DefaultBackColor;
+                Console.WriteLine(ds.GetXml());
 
-            groupBoxNewNote.Visible = false;
+                //skapar raden som ska sättas in i xml filen
+                DataRow dr = dt.NewRow();
+                dr["task"] = name;
+                dr["description"] = desc;
+                dr["deadline"] = deadline;
+                dr["color"] = colorCode;
+
+                //här sätts raden in
+                dt.Rows.Add(dr);
+
+                //tömmer alla textboxar före "new note" rutan gömms undan
+                textBoxName.Clear();
+                textBoxDesc.Clear();
+                textBoxDeadline.Clear();
+                textBoxColorCode.Clear();
+
+                groupBoxNewNote.BackColor = DefaultBackColor;
+
+                groupBoxNewNote.Visible = false;
+            }
+            //--------------------------------------------------------------------
         }
 
         

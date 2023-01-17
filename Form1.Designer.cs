@@ -186,12 +186,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1075, 664);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(643, 901);
             this.Controls.Add(this.groupBoxNewNote);
             this.Controls.Add(this.buttonDone);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonNewNote);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
