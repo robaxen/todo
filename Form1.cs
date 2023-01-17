@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 //notes för användning av github och visual studio
 //för att spara ändringar i visual studio -> git changes fönstret -> skriv notes över ändringar -> commit all
@@ -24,12 +25,15 @@ namespace todo
             InitializeComponent();
             //skapar nytt dataset som hämtar data från xml filen och visar upp i datagridview
             DataSet ds = new DataSet();
+            //läser sätter in i dataset från "notes.xml"
             ds.ReadXml(@"notes.xml");
 
-            //binder datagridview med xml filen
+            //binder datagridview med datasettet som innehåller xml filens tabell
             dataGridView1.DataSource = ds.Tables[0];
 
-            ////---------------- bort kommenterat eftersom datatable och dataset kommer göras på annat vis -------------------
+            ////------------------här skapas tabell med kolumner och rader och sätts in i xml filen --------------------------
+            ////------------------bort kommenterat eftersom datatable och dataset kommer göras på annat vis -------------------
+
             ////kod för att skapa datatable(kommer sättas in i dataset, som kommer lagras i xml fil)
             ////skapar en tabell med namnet "notes"
             //DataTable table1 = new DataTable("notes");
@@ -64,21 +68,55 @@ namespace todo
             //------------------------------------------------------------------------------------------------
         }
 
-
-        public void testasdf()
-        {
-            //använder "using dataset" för att kalla dispose metoden så fort som datasettet inte används 
-            using (DataSet set = new DataSet("tabeller"))
-            {
-
-            }
-        }
-
         private void buttonNewNote_Click(object sender, EventArgs e)
         {
-            //öppnar upp newNote, för att skapa ny note och lägga till i xml filen samt datagridview
-            newNote frm2 = new newNote();
-            frm2.Show();
+            groupBoxNewNote.Visible = true;
+    }
+
+        //lägger till inmatad info i xml filen
+        private void buttonAddNote_Click(object sender, EventArgs e)
+        {
+            //hämtar all data som användaren skrivit in
+            string name = textBoxName.Text;
+            string desc = textBoxDesc.Text;
+            string deadline = textBoxDeadline.Text;
+            string colorCode = textBoxColorCode.Text;
+
+            MessageBox.Show(name + " " + desc + " " + deadline + " " + colorCode);
+
+            XElement row = new XElement("row",
+                new XElement("name", name),
+                new XElement("desc", desc),
+                new XElement("deadline", deadline),
+                new XElement("colorCode", colorCode)
+            );
+
+            //spara ändringar till xml filen
+
+            //tömmer alla textboxar före "new note" rutan gömms undan
+            textBoxName.Clear();
+            textBoxDesc.Clear();
+            textBoxDeadline.Clear();
+            textBoxColorCode.Clear();
+
+            groupBoxNewNote.BackColor = DefaultBackColor;
+
+            groupBoxNewNote.Visible = false;
+        }
+
+        
+        private void buttonColor_Click(object sender, EventArgs e)
+        {
+            //här öppnas det upp ett fönster där man kan välja en färg, colorDialog1 används för det
+            //ändrar färg bara om man väljer "ok"
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //(ändra "buttonColor" till note)
+                groupBoxNewNote.BackColor = colorDialog1.Color;
+
+                //skriver upp vald färg i textbox
+                textBoxColorCode.Text = groupBoxNewNote.BackColor.ToString();
+            }
         }
     }
 }
