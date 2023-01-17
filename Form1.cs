@@ -22,36 +22,49 @@ namespace todo
         public Form1()
         {
             InitializeComponent();
+            //skapar nytt dataset som hämtar data från xml filen och visar upp i datagridview
+            DataSet ds = new DataSet();
+            ds.ReadXml(@"notes.xml");
 
-            //kod för att skapa datatable(kommer sättas in i dataset, som kommer lagras i xml fil)
-            //skapar en tabell med namnet "notes"
-            DataTable table1 = new DataTable("notes");
-            //lägger till kolumner till tabellen
-            table1.Columns.Add("id");
-            table1.Columns.Add("task");
-            table1.Columns.Add("description");
-            table1.Columns.Add("deadline");
-            table1.Columns.Add("color");
+            //binder datagridview med xml filen
+            dataGridView1.DataSource = ds.Tables[0];
 
-            //lägger till en test rad i tabellen
-            table1.Rows.Add("1");
-            table1.Rows.Add("yrkesprov ");
-            table1.Rows.Add("gör klart yrkesprovs projektet");
-            table1.Rows.Add("mars");
-            table1.Rows.Add("#222");
+            ////---------------- bort kommenterat eftersom datatable och dataset kommer göras på annat vis -------------------
+            ////kod för att skapa datatable(kommer sättas in i dataset, som kommer lagras i xml fil)
+            ////skapar en tabell med namnet "notes"
+            //DataTable table1 = new DataTable("notes");
+            ////lägger till kolumner till tabellen
+            //table1.Columns.Add("id");
+            //table1.Columns.Add("task");
+            //table1.Columns.Add("description");
+            //table1.Columns.Add("deadline");
+            //table1.Columns.Add("color");
 
-            //skapar ett dataset och lägger dit tabellen
-            DataSet ds = new DataSet("tabeller");
-            ds.Tables.Add(table1);
+            ////lägger till en test rad i tabellen
+            ////skapar raden
+            //DataRow task1 = table1.NewRow();
+            ////ger värden för varje kolumn
+            //task1["id"] = "1";
+            //task1["task"] = "yrkesprov";
+            //task1["description"] = "gör klart yrkesprovs projektet";
+            //task1["deadline"] = "mars";
+            //task1["color"] = "#222";
+            ////lägger till raden i tabellen
+            //table1.Rows.Add(task1);
 
-            //skriver ut dataset i console, skriver all innehåll från dataset ds
-            Console.WriteLine(ds.GetXml());
+            ////skapar ett dataset och lägger dit tabellen
+            //DataSet ds = new DataSet("tabeller");
+            //ds.Tables.Add(table1);
 
-            //tabellens innehåll sparas i notes.xml, som hamnar i debug mappen
-            table1.WriteXml("notes.xml");
+            ////skriver ut dataset i console, skriver all innehåll från dataset ds
+            //Console.WriteLine(ds.GetXml());
+
+            ////tabellens innehåll sparas i notes.xml, som hamnar i debug mappen
+            //table1.WriteXml("notes.xml");
+            //------------------------------------------------------------------------------------------------
         }
 
-        
+
         public void testasdf()
         {
             //använder "using dataset" för att kalla dispose metoden så fort som datasettet inte används 

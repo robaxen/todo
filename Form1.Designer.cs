@@ -50,12 +50,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 41);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(402, 227);
+            this.dataGridView1.Size = new System.Drawing.Size(651, 286);
             this.dataGridView1.TabIndex = 1;
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(258, 274);
+            this.buttonEdit.Location = new System.Drawing.Point(507, 333);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 23);
             this.buttonEdit.TabIndex = 3;
@@ -64,7 +64,7 @@
             // 
             // buttonDone
             // 
-            this.buttonDone.Location = new System.Drawing.Point(339, 274);
+            this.buttonDone.Location = new System.Drawing.Point(588, 333);
             this.buttonDone.Name = "buttonDone";
             this.buttonDone.Size = new System.Drawing.Size(75, 23);
             this.buttonDone.TabIndex = 4;
@@ -75,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 436);
+            this.ClientSize = new System.Drawing.Size(738, 498);
             this.Controls.Add(this.buttonDone);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.dataGridView1);
