@@ -82,16 +82,8 @@ namespace todo
             string deadline = textBoxDeadline.Text;
             string colorCode = textBoxColorCode.Text;
 
-            MessageBox.Show(name + " " + desc + " " + deadline + " " + colorCode);
+            //@@@ här är det meningen att lägga in data från text fälten in i xml filen @@@
 
-            XElement row = new XElement("row",
-                new XElement("name", name),
-                new XElement("desc", desc),
-                new XElement("deadline", deadline),
-                new XElement("colorCode", colorCode)
-            );
-
-            //spara ändringar till xml filen
 
             //tömmer alla textboxar före "new note" rutan gömms undan
             textBoxName.Clear();
