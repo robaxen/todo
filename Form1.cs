@@ -49,10 +49,6 @@ namespace todo
 
             //tabellens innehåll sparas i notes.xml, som hamnar i debug mappen
             table1.WriteXml("notes.xml");
-
-            
-
-
         }
 
         
@@ -67,19 +63,9 @@ namespace todo
 
         private void buttonNewNote_Click(object sender, EventArgs e)
         {
-
-        }
-
-        //knapp som öppnar färg ruta, (flytta till lämpligare ställe senare)
-        private void buttonColor_Click(object sender, EventArgs e)
-        {
-            //här öppnas det upp ett fönster där man kan välja en färg, colorDialog1 används för det
-            //ändrar färg bara om man väljer "ok"
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                //(ändra "buttonColor" till note)
-                buttonColor.BackColor = colorDialog1.Color;
-            }
+            //öppnar upp newNote, för att skapa ny note och lägga till i xml filen samt datagridview
+            newNote frm2 = new newNote();
+            frm2.Show();
         }
     }
 }

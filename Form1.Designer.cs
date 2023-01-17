@@ -30,8 +30,6 @@
         {
             this.buttonNewNote = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.buttonColor = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonDone = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -54,16 +52,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(402, 227);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // buttonColor
-            // 
-            this.buttonColor.Location = new System.Drawing.Point(615, 82);
-            this.buttonColor.Name = "buttonColor";
-            this.buttonColor.Size = new System.Drawing.Size(75, 23);
-            this.buttonColor.TabIndex = 2;
-            this.buttonColor.Text = "Ändra färg";
-            this.buttonColor.UseVisualStyleBackColor = true;
-            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
             // 
             // buttonEdit
             // 
@@ -90,7 +78,6 @@
             this.ClientSize = new System.Drawing.Size(802, 436);
             this.Controls.Add(this.buttonDone);
             this.Controls.Add(this.buttonEdit);
-            this.Controls.Add(this.buttonColor);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonNewNote);
             this.Name = "Form1";
@@ -104,8 +91,6 @@
 
         private System.Windows.Forms.Button buttonNewNote;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.Button buttonColor;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonDone;
     }
