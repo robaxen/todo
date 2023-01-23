@@ -26,47 +26,13 @@ namespace todo
             InitializeComponent();
             //skapar nytt dataset som hämtar data från xml filen och visar upp i datagridview
             DataSet ds = new DataSet();
+
             //läser sätter in i dataset från "notes.xml"
+            DataTable table1 = new DataTable { TableName = "table1"};
             ds.ReadXml(@"notes.xml");
 
             //binder datagridview med datasettet som innehåller xml filens tabell
             dataGridView1.DataSource = ds.Tables[0];
-
-            ////------------------här skapas tabell med kolumner och rader och sätts in i xml filen --------------------------
-            ////------------------bort kommenterat eftersom datatable och dataset kommer göras på annat vis -------------------
-
-            ////kod för att skapa datatable(kommer sättas in i dataset, som kommer lagras i xml fil)
-            ////skapar en tabell med namnet "notes"
-            //DataTable table1 = new DataTable("notes");
-            ////lägger till kolumner till tabellen
-            //table1.Columns.Add("id");
-            //table1.Columns.Add("task");
-            //table1.Columns.Add("description");
-            //table1.Columns.Add("deadline");
-            //table1.Columns.Add("color");
-
-            ////lägger till en test rad i tabellen
-            ////skapar raden
-            //DataRow task1 = table1.NewRow();
-            ////ger värden för varje kolumn
-            //task1["id"] = "1";
-            //task1["task"] = "yrkesprov";
-            //task1["description"] = "gör klart yrkesprovs projektet";
-            //task1["deadline"] = "mars";
-            //task1["color"] = "#222";
-            ////lägger till raden i tabellen
-            //table1.Rows.Add(task1);
-
-            ////skapar ett dataset och lägger dit tabellen
-            //DataSet ds = new DataSet("tabeller");
-            //ds.Tables.Add(table1);
-
-            ////skriver ut dataset i console, skriver all innehåll från dataset ds
-            //Console.WriteLine(ds.GetXml());
-
-            ////tabellens innehåll sparas i notes.xml, som hamnar i debug mappen
-            //table1.WriteXml("notes.xml");
-            //------------------------------------------------------------------------------------------------
         }
 
         private void buttonNewNote_Click(object sender, EventArgs e)
@@ -111,7 +77,7 @@ namespace todo
                 //tömmer alla textboxar före "new note" rutan gömms undan
                 textBoxName.Clear();
                 textBoxDesc.Clear();
-                textBoxDeadline.Clear();
+                textBoxDeadline.Clear(); 
                 textBoxColorCode.Clear();
 
                 groupBoxNewNote.BackColor = DefaultBackColor;
@@ -134,6 +100,49 @@ namespace todo
                 //skriver upp vald färg i textbox
                 textBoxColorCode.Text = groupBoxNewNote.BackColor.ToString();
             }
+        }
+
+        private void buttonTestAddData_Click(object sender, EventArgs e)
+        {
+            //------------------här skapas tabell med kolumner och rader och sätts in i xml filen --------------------------
+            //------------------bort kommenterat eftersom datatable och dataset kommer göras på annat vis -------------------
+
+            //kod för att skapa datatable(kommer sättas in i dataset, som kommer lagras i xml fil)
+            //skapar en tabell med namnet "notes"
+            DataTable table1 = new DataTable("notes");
+            //lägger till kolumner till tabellen
+            table1.Columns.Add("id");
+            table1.Columns.Add("task");
+            table1.Columns.Add("description");
+            table1.Columns.Add("deadline");
+            table1.Columns.Add("color");
+
+            //lägger till en test rad i tabellen
+            //skapar raden
+            DataRow task1 = table1.NewRow();
+            //ger värden för varje kolumn
+            task1["id"] = "1";
+            task1["task"] = "yrkesprov";
+            task1["description"] = "gör klart yrkesprovs projektet";
+            task1["deadline"] = "mars";
+            task1["color"] = "#222";
+            //lägger till raden i tabellen
+            table1.Rows.Add(task1);
+
+            //skapar ett dataset och lägger dit tabellen
+            DataSet ds = new DataSet("tabeller");
+            ds.Tables.Add(table1);
+
+            //skriver ut dataset i console, skriver all innehåll från dataset ds
+            Console.WriteLine(ds.GetXml());
+
+            //tabellens innehåll sparas i notes.xml, som hamnar i debug mappen
+            table1.WriteXml("notes.xml");
+
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+
+            //------------------------------------------------------------------------------------------------
         }
     }
 }

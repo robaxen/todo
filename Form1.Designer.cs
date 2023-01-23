@@ -43,6 +43,7 @@
             this.textBoxDesc = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.buttonTestAddData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxNewNote.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +95,7 @@
             this.groupBoxNewNote.Controls.Add(this.textBoxDeadline);
             this.groupBoxNewNote.Controls.Add(this.textBoxDesc);
             this.groupBoxNewNote.Controls.Add(this.textBoxName);
-            this.groupBoxNewNote.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxNewNote.Location = new System.Drawing.Point(590, 12);
             this.groupBoxNewNote.Name = "groupBoxNewNote";
             this.groupBoxNewNote.Size = new System.Drawing.Size(575, 433);
             this.groupBoxNewNote.TabIndex = 12;
@@ -182,12 +183,23 @@
             this.textBoxName.Size = new System.Drawing.Size(317, 20);
             this.textBoxName.TabIndex = 11;
             // 
+            // buttonTestAddData
+            // 
+            this.buttonTestAddData.Location = new System.Drawing.Point(244, 413);
+            this.buttonTestAddData.Name = "buttonTestAddData";
+            this.buttonTestAddData.Size = new System.Drawing.Size(75, 23);
+            this.buttonTestAddData.TabIndex = 20;
+            this.buttonTestAddData.Text = "Test kanpp";
+            this.buttonTestAddData.UseVisualStyleBackColor = true;
+            this.buttonTestAddData.Click += new System.EventHandler(this.buttonTestAddData_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(643, 901);
+            this.ClientSize = new System.Drawing.Size(1177, 901);
+            this.Controls.Add(this.buttonTestAddData);
             this.Controls.Add(this.groupBoxNewNote);
             this.Controls.Add(this.buttonDone);
             this.Controls.Add(this.buttonEdit);
@@ -220,6 +232,7 @@
         private System.Windows.Forms.TextBox textBoxDesc;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button buttonTestAddData;
     }
 }
 
