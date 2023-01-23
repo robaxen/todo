@@ -38,7 +38,7 @@ namespace todo
         private void buttonNewNote_Click(object sender, EventArgs e)
         {
             groupBoxNewNote.Visible = true;
-    }
+        }
 
         //lägger till inmatad info i xml filen
         private void buttonAddNote_Click(object sender, EventArgs e)
