@@ -62,17 +62,23 @@ namespace todo
                 //hämtar tabellen där alla notes finns
                 DataTable dt = ds.Tables[0];
 
-                Console.WriteLine(ds.GetXml());
 
-                //skapar raden som ska sättas in i xml filen
+                Console.WriteLine(ds.GetXml());
+                Console.WriteLine();
+
+                //skapar raden som ska sättas in i xml filen, hämtar data från alla ifyllda fält
                 DataRow dr = dt.NewRow();
                 dr["task"] = name;
                 dr["description"] = desc;
                 dr["deadline"] = deadline;
                 dr["color"] = colorCode;
 
-                //här sätts raden in
+                //här sätts raden in data tabellen
                 dt.Rows.Add(dr);
+
+                //######### todo: uppdatera datatablen i datasettet -> sätt in datasettet i xml filen -> refresh xml i datagridview ###########
+
+                Console.WriteLine(ds.GetXml());
 
                 //tömmer alla textboxar före "new note" rutan gömms undan
                 textBoxName.Clear();
@@ -83,6 +89,8 @@ namespace todo
                 groupBoxNewNote.BackColor = DefaultBackColor;
 
                 groupBoxNewNote.Visible = false;
+
+
             }
             //--------------------------------------------------------------------
         }
