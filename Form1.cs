@@ -17,6 +17,9 @@ using System.IO;
 //för att pusha ut till repo efter commit -> git changes fönstret -> push
 //då sparas alla ändringar till github repo
 
+//koll härifrån för att få struktur (schema) för datatable
+//https://learn.microsoft.com/en-us/dotnet/api/system.data.datatable.newrow?view=net-7.0
+
 namespace todo
 {
     public partial class Form1 : Form
@@ -53,25 +56,21 @@ namespace todo
             string deadline = textBoxDeadline.Text;
             string colorCode = textBoxColorCode.Text;
 
-            //---------- här ska en radd sättas in i tabellen och sedan sparas till xml filen -----------
-            ds.ReadXml("notes.xml");
+            //---------- här ska en radd sättas in och sparas i tabellen -----------
 
-            //hämtar tabellen där alla notes finns
-            DataTable dt = ds.Tables[0];
-
-            //bara test för att sen i konsolen hur tabellen ser ut
-            Console.WriteLine(ds.GetXml());
-            Console.WriteLine();
+            ////bara test för att sen i konsolen hur tabellen ser ut
+            //Console.WriteLine(table1.GetXml());
+            //Console.WriteLine();
 
             //skapar raden som ska sättas in i xml filen, hämtar data från alla ifyllda fält
-            DataRow dr = dt.NewRow();
+            DataRow dr = table1.NewRow();
             dr["task"] = name;
             dr["description"] = desc;
             dr["deadline"] = deadline;
             dr["color"] = colorCode;
 
-            //här sätts raden in data tabellen
-            dt.Rows.Add(dr);
+            //sätter in raden i table1 tabellen
+            table1.Rows.Add(dr);
 
             //######### todo: uppdatera datatablen i datasettet -> sätt in datasettet i xml filen -> refresh xml i datagridview ###########
 
