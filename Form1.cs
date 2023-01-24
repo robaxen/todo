@@ -21,14 +21,15 @@ namespace todo
 {
     public partial class Form1 : Form
     {
+        //skapar nytt dataset och datatable
+        DataSet ds = new DataSet();
+        DataTable table1 = new DataTable();
+
         public Form1()
         {
             InitializeComponent();
-            //skapar nytt dataset som hämtar data från xml filen och visar upp i datagridview
-            DataSet ds = new DataSet();
-
+            
             //läser sätter in i dataset från "notes.xml"
-            DataTable table1 = new DataTable { TableName = "table1"};
             ds.ReadXml(@"notes.xml");
 
             //binder datagridview med datasettet som innehåller xml filens tabell
@@ -50,48 +51,39 @@ namespace todo
             string colorCode = textBoxColorCode.Text;
 
             //---------- här ska en radd sättas in i tabellen och sedan in i xml filen -----------
-            using (StreamReader reader = new StreamReader("notes.xml"))
-            {
+            ds.ReadXml("notes.xml");
 
-                byte[] fullByte = Encoding.ASCII.GetBytes(reader.ReadToEnd());
-                DataSet ds = new DataSet();
-                MemoryStream mStream = new MemoryStream(fullByte);
-                mStream.Position = 0;
-                ds.ReadXml(mStream);
-
-                //hämtar tabellen där alla notes finns
-                DataTable dt = ds.Tables[0];
+            //hämtar tabellen där alla notes finns
+            DataTable dt = ds.Tables[0];
 
 
-                Console.WriteLine(ds.GetXml());
-                Console.WriteLine();
+            Console.WriteLine(ds.GetXml());
+            Console.WriteLine();
 
-                //skapar raden som ska sättas in i xml filen, hämtar data från alla ifyllda fält
-                DataRow dr = dt.NewRow();
-                dr["task"] = name;
-                dr["description"] = desc;
-                dr["deadline"] = deadline;
-                dr["color"] = colorCode;
+            //skapar raden som ska sättas in i xml filen, hämtar data från alla ifyllda fält
+            DataRow dr = dt.NewRow();
+            dr["task"] = name;
+            dr["description"] = desc;
+            dr["deadline"] = deadline;
+            dr["color"] = colorCode;
 
-                //här sätts raden in data tabellen
-                dt.Rows.Add(dr);
+            //här sätts raden in data tabellen
+            dt.Rows.Add(dr);
 
-                //######### todo: uppdatera datatablen i datasettet -> sätt in datasettet i xml filen -> refresh xml i datagridview ###########
+            //######### todo: uppdatera datatablen i datasettet -> sätt in datasettet i xml filen -> refresh xml i datagridview ###########
+            ds.Tables.Add("Notes");
 
-                Console.WriteLine(ds.GetXml());
+            Console.WriteLine(ds.GetXml());
 
-                //tömmer alla textboxar före "new note" rutan gömms undan
-                textBoxName.Clear();
-                textBoxDesc.Clear();
-                textBoxDeadline.Clear(); 
-                textBoxColorCode.Clear();
+            //tömmer alla textboxar före "new note" rutan gömms undan
+            textBoxName.Clear();
+            textBoxDesc.Clear();
+            textBoxDeadline.Clear(); 
+            textBoxColorCode.Clear();
 
-                groupBoxNewNote.BackColor = DefaultBackColor;
+            groupBoxNewNote.BackColor = DefaultBackColor;
 
-                groupBoxNewNote.Visible = false;
-
-
-            }
+            groupBoxNewNote.Visible = false;
             //--------------------------------------------------------------------
         }
 
