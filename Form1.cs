@@ -29,11 +29,14 @@ namespace todo
         {
             InitializeComponent();
             
+
+            //################### .readxml fungerar inte med datatable, mpste använda dataset istället. #######################
             //läser sätter in i dataset från "notes.xml"
             ds.ReadXml(@"notes.xml");
 
             //binder datagridview med datasettet som innehåller xml filens tabell
             dataGridView1.DataSource = ds.Tables[0];
+            
         }
 
         private void buttonNewNote_Click(object sender, EventArgs e)
@@ -50,13 +53,13 @@ namespace todo
             string deadline = textBoxDeadline.Text;
             string colorCode = textBoxColorCode.Text;
 
-            //---------- här ska en radd sättas in i tabellen och sedan in i xml filen -----------
+            //---------- här ska en radd sättas in i tabellen och sedan sparas till xml filen -----------
             ds.ReadXml("notes.xml");
 
             //hämtar tabellen där alla notes finns
             DataTable dt = ds.Tables[0];
 
-
+            //bara test för att sen i konsolen hur tabellen ser ut
             Console.WriteLine(ds.GetXml());
             Console.WriteLine();
 
@@ -71,8 +74,8 @@ namespace todo
             dt.Rows.Add(dr);
 
             //######### todo: uppdatera datatablen i datasettet -> sätt in datasettet i xml filen -> refresh xml i datagridview ###########
-            ds.Tables.Add("Notes");
 
+            //bara test för att sen i konsolen hur tabellen ser ut
             Console.WriteLine(ds.GetXml());
 
             //tömmer alla textboxar före "new note" rutan gömms undan
