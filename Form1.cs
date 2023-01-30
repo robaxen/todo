@@ -24,14 +24,22 @@ namespace todo
 {
     public partial class Form1 : Form
     {
+
         //skapar nytt dataset och datatable
         DataSet ds = new DataSet();
-        DataTable table1 = new DataTable();
+
+        private string filePath = "notes.xml";
+
+        //Datacolumn och datarow variabler för tabellen
+        DataColumn column;
+        DataRow row;
+        DataView view;
 
         public Form1()
         {
             InitializeComponent();
-            
+
+            CreateTable();
 
             //################### .readxml fungerar inte med datatable, mpste använda dataset istället. #######################
             //läser sätter in i dataset från "notes.xml"
@@ -40,6 +48,39 @@ namespace todo
             //binder datagridview med datasettet som innehåller xml filens tabell
             dataGridView1.DataSource = ds.Tables[0];
             
+        }
+
+        private void CreateTable()
+        {
+            DataTable table1 = new DataTable("Note");
+
+            //Skapar alla tabellens kolumner
+            //namn kolumn
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "name";
+            table1.Columns.Add(column);
+
+            //beskrivning kolumn
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "desc";
+            table1.Columns.Add(column);
+
+            //deadline kolumn
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "deadline";
+            table1.Columns.Add(column);
+
+            //färg kolumn
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "colorCode";
+            table1.Columns.Add(column);
+
+            //sätter in i datasettet
+            ds.Tables.Add(table1);
         }
 
         private void buttonNewNote_Click(object sender, EventArgs e)
@@ -56,26 +97,20 @@ namespace todo
             string deadline = textBoxDeadline.Text;
             string colorCode = textBoxColorCode.Text;
 
-            //---------- här ska en radd sättas in och sparas i tabellen -----------
+            DataTable table1 = ds.Tables["Note"];
 
-            ////bara test för att sen i konsolen hur tabellen ser ut
-            //Console.WriteLine(table1.GetXml());
-            //Console.WriteLine();
-
-            //skapar raden som ska sättas in i xml filen, hämtar data från alla ifyllda fält
+            //skapar raden som ska sättas in i tabellen, hämtar data från alla ifyllda fält
             DataRow dr = table1.NewRow();
-            dr["task"] = name;
-            dr["description"] = desc;
+            dr["name"] = name;
+            dr["desc"] = desc;
             dr["deadline"] = deadline;
-            dr["color"] = colorCode;
+            dr["colorCode"] = colorCode;
 
             //sätter in raden i table1 tabellen
             table1.Rows.Add(dr);
 
-            //######### todo: uppdatera datatablen i datasettet -> sätt in datasettet i xml filen -> refresh xml i datagridview ###########
-
-            //bara test för att sen i konsolen hur tabellen ser ut
-            Console.WriteLine(ds.GetXml());
+            //kallar metod för att spara till xml filen
+            SaveData();
 
             //tömmer alla textboxar före "new note" rutan gömms undan
             textBoxName.Clear();
@@ -87,6 +122,14 @@ namespace todo
 
             groupBoxNewNote.Visible = false;
             //--------------------------------------------------------------------
+        }
+
+        private void SaveData()
+        {
+            ds.WriteXml("notes.xml");
+
+            //bara test för att sen i konsolen hur tabellen ser ut
+            Console.WriteLine(ds.GetXml());
         }
 
         
