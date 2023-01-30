@@ -118,7 +118,7 @@ namespace todo
             //--------------------------------------------------------------------
         }
 
-        private void SaveData()
+        public static void SaveData()
         {
             //sparar data från dataset till xml filen
             ds.WriteXml("notes.xml");
@@ -139,13 +139,18 @@ namespace todo
             }
         }
 
-        private void buttonDelete_Click(object sender, EventArgs e)
+        public void buttonDelete_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        public static void Delete()
         {
             DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 //Raderar alla valda rader då man trycker på radera knappen
-                foreach (DataGridViewRow item in this.dataGridView1.SelectedRows)
+                foreach (DataGridViewRow item in dataGridView1.SelectedRows)
                 {
                     try
                     {
@@ -168,6 +173,7 @@ namespace todo
         {
             NoteItem[] noteItems = new NoteItem[dataGridView1.RowCount];
 
+            //skapar alla notes och radar upp dem i flowlayoutpanel
             for (int i = 0; i < noteItems.Length; i++)
             {
                 noteItems[i] = new NoteItem();

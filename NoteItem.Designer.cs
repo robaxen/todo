@@ -32,8 +32,8 @@
             this.labelPostDescription = new System.Windows.Forms.Label();
             this.labelPostDeadline = new System.Windows.Forms.Label();
             this.panelColor = new System.Windows.Forms.Panel();
-            this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonDone = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.panelColor.SuspendLayout();
             this.SuspendLayout();
@@ -76,16 +76,6 @@
             this.panelColor.Size = new System.Drawing.Size(145, 143);
             this.panelColor.TabIndex = 4;
             // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(571, 7);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(115, 36);
-            this.buttonDelete.TabIndex = 24;
-            this.buttonDelete.Text = "Radera";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            // 
             // buttonDone
             // 
             this.buttonDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -95,6 +85,17 @@
             this.buttonDone.TabIndex = 23;
             this.buttonDone.Text = "Klart";
             this.buttonDone.UseVisualStyleBackColor = true;
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDelete.Location = new System.Drawing.Point(571, 7);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(115, 36);
+            this.buttonDelete.TabIndex = 24;
+            this.buttonDelete.Text = "Radera";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonEdit
             // 

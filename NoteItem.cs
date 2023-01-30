@@ -22,28 +22,29 @@ namespace todo
         private string _deadline;
         private string _color;
 
-        [Category("Custom Props")]
         public string Name
         {
             get { return _name; }
             set { _name = value; labelPostName.Text = value; }
         }
 
-        [Category("Custom Props")]
         public string Description
         {
             get { return _description; }
             set { _description = value; labelPostDescription.Text = value; }
         }
 
-        [Category("Custom Props")]
         public string Deadline
         {
             get { return _deadline; }
             set { _deadline = value; labelPostDeadline.Text = value; }
         }
 
-        //[Category("Custom Props")]
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            Form1.dele
+        }
+
         //public Color Color
         //{
         //    get { return _color; }
