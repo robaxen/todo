@@ -28,80 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonNewNote = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonDone = new System.Windows.Forms.Button();
             this.groupBoxNewNote = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerDeadline = new System.Windows.Forms.DateTimePicker();
             this.textBoxColorCode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.buttonAddNote = new System.Windows.Forms.Button();
             this.buttonColor = new System.Windows.Forms.Button();
-            this.textBoxDeadline = new System.Windows.Forms.TextBox();
             this.textBoxDesc = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.buttonTestAddData = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxNewNote.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonNewNote
             // 
-            this.buttonNewNote.Location = new System.Drawing.Point(12, 12);
+            this.buttonNewNote.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonNewNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonNewNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNewNote.Location = new System.Drawing.Point(12, 333);
             this.buttonNewNote.Name = "buttonNewNote";
-            this.buttonNewNote.Size = new System.Drawing.Size(75, 23);
+            this.buttonNewNote.Size = new System.Drawing.Size(118, 36);
             this.buttonNewNote.TabIndex = 0;
             this.buttonNewNote.Text = "Ny note";
-            this.buttonNewNote.UseVisualStyleBackColor = true;
+            this.buttonNewNote.UseVisualStyleBackColor = false;
             this.buttonNewNote.Click += new System.EventHandler(this.buttonNewNote_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Location = new System.Drawing.Point(12, 41);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(556, 286);
             this.dataGridView1.TabIndex = 1;
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(412, 333);
+            this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEdit.Location = new System.Drawing.Point(332, 333);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
+            this.buttonEdit.Size = new System.Drawing.Size(115, 36);
             this.buttonEdit.TabIndex = 3;
             this.buttonEdit.Text = "Redigera";
             this.buttonEdit.UseVisualStyleBackColor = true;
             // 
             // buttonDone
             // 
-            this.buttonDone.Location = new System.Drawing.Point(493, 333);
+            this.buttonDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDone.Location = new System.Drawing.Point(453, 333);
             this.buttonDone.Name = "buttonDone";
-            this.buttonDone.Size = new System.Drawing.Size(75, 23);
+            this.buttonDone.Size = new System.Drawing.Size(115, 36);
             this.buttonDone.TabIndex = 4;
             this.buttonDone.Text = "Klart";
             this.buttonDone.UseVisualStyleBackColor = true;
             // 
             // groupBoxNewNote
             // 
+            this.groupBoxNewNote.Controls.Add(this.dateTimePickerDeadline);
             this.groupBoxNewNote.Controls.Add(this.textBoxColorCode);
             this.groupBoxNewNote.Controls.Add(this.label3);
             this.groupBoxNewNote.Controls.Add(this.label2);
             this.groupBoxNewNote.Controls.Add(this.labelName);
             this.groupBoxNewNote.Controls.Add(this.buttonAddNote);
             this.groupBoxNewNote.Controls.Add(this.buttonColor);
-            this.groupBoxNewNote.Controls.Add(this.textBoxDeadline);
             this.groupBoxNewNote.Controls.Add(this.textBoxDesc);
             this.groupBoxNewNote.Controls.Add(this.textBoxName);
-            this.groupBoxNewNote.Location = new System.Drawing.Point(590, 12);
+            this.groupBoxNewNote.Location = new System.Drawing.Point(599, 11);
             this.groupBoxNewNote.Name = "groupBoxNewNote";
             this.groupBoxNewNote.Size = new System.Drawing.Size(575, 433);
             this.groupBoxNewNote.TabIndex = 12;
             this.groupBoxNewNote.TabStop = false;
             this.groupBoxNewNote.Text = "groupBox1";
             this.groupBoxNewNote.Visible = false;
+            // 
+            // dateTimePickerDeadline
+            // 
+            this.dateTimePickerDeadline.Location = new System.Drawing.Point(156, 194);
+            this.dateTimePickerDeadline.Name = "dateTimePickerDeadline";
+            this.dateTimePickerDeadline.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerDeadline.TabIndex = 22;
             // 
             // textBoxColorCode
             // 
@@ -161,13 +184,6 @@
             this.buttonColor.UseVisualStyleBackColor = true;
             this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
             // 
-            // textBoxDeadline
-            // 
-            this.textBoxDeadline.Location = new System.Drawing.Point(156, 194);
-            this.textBoxDeadline.Name = "textBoxDeadline";
-            this.textBoxDeadline.Size = new System.Drawing.Size(317, 20);
-            this.textBoxDeadline.TabIndex = 13;
-            // 
             // textBoxDesc
             // 
             this.textBoxDesc.Location = new System.Drawing.Point(156, 115);
@@ -183,23 +199,24 @@
             this.textBoxName.Size = new System.Drawing.Size(317, 20);
             this.textBoxName.TabIndex = 11;
             // 
-            // buttonTestAddData
+            // buttonDelete
             // 
-            this.buttonTestAddData.Location = new System.Drawing.Point(244, 413);
-            this.buttonTestAddData.Name = "buttonTestAddData";
-            this.buttonTestAddData.Size = new System.Drawing.Size(75, 23);
-            this.buttonTestAddData.TabIndex = 20;
-            this.buttonTestAddData.Text = "Test kanpp";
-            this.buttonTestAddData.UseVisualStyleBackColor = true;
-            this.buttonTestAddData.Click += new System.EventHandler(this.buttonTestAddData_Click);
+            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDelete.Location = new System.Drawing.Point(211, 333);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(115, 36);
+            this.buttonDelete.TabIndex = 21;
+            this.buttonDelete.Text = "Radera";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1177, 901);
-            this.Controls.Add(this.buttonTestAddData);
+            this.ClientSize = new System.Drawing.Size(1213, 456);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.groupBoxNewNote);
             this.Controls.Add(this.buttonDone);
             this.Controls.Add(this.buttonEdit);
@@ -228,11 +245,11 @@
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Button buttonAddNote;
         private System.Windows.Forms.Button buttonColor;
-        private System.Windows.Forms.TextBox textBoxDeadline;
         private System.Windows.Forms.TextBox textBoxDesc;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.Button buttonTestAddData;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDeadline;
     }
 }
 
