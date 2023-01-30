@@ -10,6 +10,8 @@ using System.Xml;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using System.IO;
+using System.Drawing.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 //notes för användning av github och visual studio
 //för att spara ändringar i visual studio -> git changes fönstret -> skriv notes över ändringar -> commit all
@@ -21,6 +23,7 @@ namespace todo
 {
     public partial class Form1 : Form
     {
+        DataTable table1;
 
         //skapar nytt dataset och datatable
         DataSet ds = new DataSet();
@@ -159,8 +162,31 @@ namespace todo
             else if (dialogResult == DialogResult.No)
             {
             }
+        }
 
-            
+        private void populateItems()
+        {
+            NoteItem[] noteItems = new NoteItem[dataGridView1.RowCount];
+
+            for (int i = 0; i < noteItems.Length; i++)
+            {
+                noteItems[i] = new NoteItem();
+                noteItems[i].Name = "namn hit från datasource";
+                noteItems[i].Description = "beskrivning från datasource";
+                //noteItems[i].Color = "färg hit";
+
+                //lägger till i flowlayout panel
+                //if (flowLayoutPanel1.Controls.Count > 0)
+                //{
+                //    flowLayoutPanel1.Controls.Clear();
+                //}
+                flowLayoutPanel1.Controls.Add(noteItems[i]);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            populateItems();
         }
     }
 }
