@@ -185,39 +185,41 @@ namespace todo
 
         private void populateItems()
         {
-            //tömmer flowlayout panel före 
+            //tömmer flowlayout panel före nya laddas in
             flowLayoutPanel1.Controls.Clear();
 
+            //skapar noteItems från en user control
             NoteItem[] noteItems = new NoteItem[ds.Tables["Note"].Rows.Count];
 
+            //för varje rad i "note" tabellen
             for (int i = 0; i < ds.Tables["Note"].Rows.Count; i++)
             {
+                //deklarerar data variabler som kommer fyllas med rätt data beroende på rad id
                 string name = "";
                 string desc = "";
 
+                //leta i rad där id = i, börjar från 0 i for loopen ovanför
                 DataRow[] dr = ds.Tables[0].Select("id=" + i);
                 foreach (DataRow row in dr)
                 {
+                    //testar i konsolen hur datan ser ut
+                    Console.WriteLine("note nummer " + row["id"] + " (i = " + i + ")");
                     Console.WriteLine("namn: " + row["name"]);
                     Console.WriteLine("besk: " + row["desc"]);
 
+                    //delar ut värden åt variablerna
                     name = row["name"].ToString();
                     desc = row["desc"].ToString();
                 }
 
-
+                //skapar en note ruta med user controllern NoteItem
                 noteItems[i] = new NoteItem();
+                //variablernas värde sätts in i text labels som finns på user controllern, alltså note rutorna
                 noteItems[i].Name = name;
                 noteItems[i].Description = desc;
-
-                Console.WriteLine("Loaded card " + i);
                 //noteItems[i].Color = "färg hit";
 
-                //if (flowLayoutPanel1.Controls.Count > 0)
-                //{
-                //    flowLayoutPanel1.Controls.Clear();
-                //}
-                //lägger till i flowlayout panel
+                //sätter in alla skapade notes rutor i flowlayout panelen, där de radas upp under varandra
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
             }
 
