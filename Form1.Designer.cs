@@ -41,9 +41,9 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttontest = new System.Windows.Forms.Button();
             this.buttontableview = new System.Windows.Forms.Button();
+            this.buttontest = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -162,7 +162,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel2.BackColor = System.Drawing.Color.Silver;
             this.panel2.Controls.Add(this.groupBoxNewNote);
             this.panel2.Controls.Add(this.buttontableview);
             this.panel2.Controls.Add(this.buttonNewNote);
@@ -172,28 +172,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(263, 664);
             this.panel2.TabIndex = 24;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(268, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(705, 664);
-            this.flowLayoutPanel1.TabIndex = 25;
-            // 
-            // buttontest
-            // 
-            this.buttontest.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttontest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttontest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttontest.Location = new System.Drawing.Point(29, 72);
-            this.buttontest.Name = "buttontest";
-            this.buttontest.Size = new System.Drawing.Size(206, 42);
-            this.buttontest.TabIndex = 1;
-            this.buttontest.Text = "test";
-            this.buttontest.UseVisualStyleBackColor = false;
-            this.buttontest.Click += new System.EventHandler(this.buttontest_Click);
             // 
             // buttontableview
             // 
@@ -207,6 +185,28 @@
             this.buttontableview.Text = "table";
             this.buttontableview.UseVisualStyleBackColor = false;
             this.buttontableview.Click += new System.EventHandler(this.buttontableview_Click);
+            // 
+            // buttontest
+            // 
+            this.buttontest.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttontest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttontest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttontest.Location = new System.Drawing.Point(29, 72);
+            this.buttontest.Name = "buttontest";
+            this.buttontest.Size = new System.Drawing.Size(206, 42);
+            this.buttontest.TabIndex = 1;
+            this.buttontest.Text = "ladda notes";
+            this.buttontest.UseVisualStyleBackColor = false;
+            this.buttontest.Click += new System.EventHandler(this.buttontest_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(268, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(705, 664);
+            this.flowLayoutPanel1.TabIndex = 25;
             // 
             // Form1
             // 

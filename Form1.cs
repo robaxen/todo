@@ -51,6 +51,17 @@ namespace todo
             DataTable table1 = new DataTable("Note");
 
             //Skapar och sätter in  alla tabellens kolumner
+
+            //id kolumn
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.Int32");
+            column.AutoIncrement = true;
+            column.AutoIncrementSeed = 1;
+            column.AutoIncrementStep = 1;
+            column.ColumnName = "id";
+
+            table1.Columns.Add(column);
+
             //namn kolumn
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
@@ -181,8 +192,17 @@ namespace todo
 
             for (int i = 0; i < ds.Tables["Note"].Rows.Count; i++)
             {
+                DataRow[] dr = ds.Tables[0].Select("id=" + i);
+                foreach (DataRow row in dr)
+                {
+                    Console.WriteLine(row["name"]);
+                    Console.WriteLine(row["description"]);
+                }
+                table1.Select("ID=" + i);
+                var name = 
+
                 noteItems[i] = new NoteItem();
-                noteItems[i].Name = "namn hit från datasource";
+                noteItems[i].Name = "test";
                 noteItems[i].Description = "beskrivning från datasource";
 
                 Console.WriteLine("Loaded card " + i);
