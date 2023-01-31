@@ -192,18 +192,23 @@ namespace todo
 
             for (int i = 0; i < ds.Tables["Note"].Rows.Count; i++)
             {
+                string name = "";
+                string desc = "";
+
                 DataRow[] dr = ds.Tables[0].Select("id=" + i);
                 foreach (DataRow row in dr)
                 {
-                    Console.WriteLine(row["name"]);
-                    Console.WriteLine(row["description"]);
+                    Console.WriteLine("namn: " + row["name"]);
+                    Console.WriteLine("besk: " + row["desc"]);
+
+                    name = row["name"].ToString();
+                    desc = row["desc"].ToString();
                 }
-                table1.Select("ID=" + i);
-                var name = 
+
 
                 noteItems[i] = new NoteItem();
-                noteItems[i].Name = "test";
-                noteItems[i].Description = "beskrivning från datasource";
+                noteItems[i].Name = name;
+                noteItems[i].Description = desc;
 
                 Console.WriteLine("Loaded card " + i);
                 //noteItems[i].Color = "färg hit";
