@@ -200,6 +200,7 @@ namespace todo
 
                 //leta i rad där id = i, börjar från 0 i for loopen ovanför
                 DataRow[] dr = ds.Tables[0].Select("id=" + i);
+                Console.WriteLine("antal rows: " + ds.Tables[0].Rows.Count);
                 foreach (DataRow row in dr)
                 {
                     //testar i konsolen hur datan ser ut
@@ -210,6 +211,7 @@ namespace todo
                     //delar ut värden åt variablerna
                     name = row["name"].ToString();
                     desc = row["desc"].ToString();
+                    
                 }
 
                 //skapar en note ruta med user controllern NoteItem
@@ -218,6 +220,8 @@ namespace todo
                 noteItems[i].Name = name;
                 noteItems[i].Description = desc;
                 //noteItems[i].Color = "färg hit";
+
+                Console.WriteLine();
 
                 //sätter in alla skapade notes rutor i flowlayout panelen, där de radas upp under varandra
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
