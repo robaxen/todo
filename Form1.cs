@@ -173,7 +173,7 @@ namespace todo
 
         private void populateItems()
         {
-            NoteItem[] noteItems = new NoteItem[dataGridView1.RowCount];
+            NoteItem[] noteItems = new NoteItem[];
 
             for (int i = 0; i < 10; i++)
             {
