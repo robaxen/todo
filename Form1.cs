@@ -12,6 +12,7 @@ using System.Xml.Linq;
 using System.IO;
 using System.Drawing.Text;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Diagnostics;
 
 //notes för användning av github och visual studio
 //för att spara ändringar i visual studio -> git changes fönstret -> skriv notes över ändringar -> commit all
@@ -26,7 +27,7 @@ namespace todo
         DataTable table1;
 
         //skapar nytt dataset och datatable
-        DataSet ds = new DataSet();
+        public DataSet ds = new DataSet();
 
         //Datacolumn och datarow variabler för tabellen
         DataColumn column;
@@ -37,13 +38,11 @@ namespace todo
 
             CreateTable();
 
-            
-
             //läser och sätter in i dataset från "notes.xml"
             ds.ReadXml(@"notes.xml");
 
             //binder datagridview med datasettet som innehåller xml filens tabell
-            dataGridView1.DataSource = ds.Tables[0];
+            //dataGridView1.DataSource = ds.Tables[0];
         }
 
         private void CreateTable()
@@ -148,22 +147,24 @@ namespace todo
 
         public void Delete()
         {
+            Debug.WriteLine("delete method called");
+
             DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                //Raderar alla valda rader då man trycker på radera knappen
-                foreach (DataGridViewRow item in dataGridView1.SelectedRows)
-                {
-                    try
-                    {
-                        dataGridView1.Rows.RemoveAt(item.Index);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Kan inte radera vald rad, " + ex.Message);
-                    }
+                ////Raderar alla valda rader då man trycker på radera knappen
+                //foreach (DataGridViewRow item in dataGridView1.SelectedRows)
+                //{
+                //    try
+                //    {
+                //        dataGridView1.Rows.RemoveAt(item.Index);
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        MessageBox.Show("Kan inte radera vald rad, " + ex.Message);
+                //    }
 
-                }
+                //}
                 SaveData();
             }
             else if (dialogResult == DialogResult.No)
@@ -173,22 +174,25 @@ namespace todo
 
         private void populateItems()
         {
-            NoteItem[] noteItems = new NoteItem[];
+            //tömmer flowlayout panel före 
+            flowLayoutPanel1.Controls.Clear();
 
-            for (int i = 0; i < 10; i++)
+            NoteItem[] noteItems = new NoteItem[ds.Tables["Note"].Rows.Count];
+
+            for (int i = 0; i < ds.Tables["Note"].Rows.Count; i++)
             {
                 noteItems[i] = new NoteItem();
                 noteItems[i].Name = "namn hit från datasource";
                 noteItems[i].Description = "beskrivning från datasource";
 
-                Console.WriteLine("test " + i);
+                Console.WriteLine("Loaded card " + i);
                 //noteItems[i].Color = "färg hit";
 
+                //if (flowLayoutPanel1.Controls.Count > 0)
+                //{
+                //    flowLayoutPanel1.Controls.Clear();
+                //}
                 //lägger till i flowlayout panel
-                if (flowLayoutPanel1.Controls.Count > 0)
-                {
-                    flowLayoutPanel1.Controls.Clear();
-                }
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
             }
 
@@ -209,14 +213,15 @@ namespace todo
             //}
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void buttontest_Click(object sender, EventArgs e)
         {
             populateItems();
+        }
+
+        private void buttontableview_Click(object sender, EventArgs e)
+        {
+            TableView tableView = new TableView();
+            tableView.ShowDialog();
         }
     }
 }

@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonNewNote = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBoxNewNote = new System.Windows.Forms.GroupBox();
             this.dateTimePickerDeadline = new System.Windows.Forms.DateTimePicker();
             this.textBoxColorCode = new System.Windows.Forms.TextBox();
@@ -45,7 +43,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttontest = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.buttontableview = new System.Windows.Forms.Button();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -55,31 +53,13 @@
             this.buttonNewNote.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonNewNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonNewNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewNote.Location = new System.Drawing.Point(3, 12);
+            this.buttonNewNote.Location = new System.Drawing.Point(29, 20);
             this.buttonNewNote.Name = "buttonNewNote";
-            this.buttonNewNote.Size = new System.Drawing.Size(151, 42);
+            this.buttonNewNote.Size = new System.Drawing.Size(206, 42);
             this.buttonNewNote.TabIndex = 0;
             this.buttonNewNote.Text = "Ny note";
             this.buttonNewNote.UseVisualStyleBackColor = false;
             this.buttonNewNote.Click += new System.EventHandler(this.buttonNewNote_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 41);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(253, 269);
-            this.dataGridView1.TabIndex = 1;
             // 
             // groupBoxNewNote
             // 
@@ -92,9 +72,9 @@
             this.groupBoxNewNote.Controls.Add(this.buttonColor);
             this.groupBoxNewNote.Controls.Add(this.textBoxDesc);
             this.groupBoxNewNote.Controls.Add(this.textBoxName);
-            this.groupBoxNewNote.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxNewNote.Location = new System.Drawing.Point(12, 172);
             this.groupBoxNewNote.Name = "groupBoxNewNote";
-            this.groupBoxNewNote.Size = new System.Drawing.Size(253, 381);
+            this.groupBoxNewNote.Size = new System.Drawing.Size(243, 381);
             this.groupBoxNewNote.TabIndex = 12;
             this.groupBoxNewNote.TabStop = false;
             this.groupBoxNewNote.Text = "groupBox1";
@@ -182,19 +162,24 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel2.Controls.Add(this.groupBoxNewNote);
+            this.panel2.Controls.Add(this.buttontableview);
             this.panel2.Controls.Add(this.buttonNewNote);
-            this.panel2.Location = new System.Drawing.Point(280, 0);
+            this.panel2.Controls.Add(this.buttontest);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(157, 563);
+            this.panel2.Size = new System.Drawing.Size(263, 664);
             this.panel2.TabIndex = 24;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(443, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(268, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(822, 664);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(705, 664);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
             // buttontest
@@ -202,30 +187,38 @@
             this.buttontest.BackColor = System.Drawing.Color.Gainsboro;
             this.buttontest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttontest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttontest.Location = new System.Drawing.Point(68, 454);
+            this.buttontest.Location = new System.Drawing.Point(29, 72);
             this.buttontest.Name = "buttontest";
-            this.buttontest.Size = new System.Drawing.Size(151, 42);
+            this.buttontest.Size = new System.Drawing.Size(206, 42);
             this.buttontest.TabIndex = 1;
             this.buttontest.Text = "test";
             this.buttontest.UseVisualStyleBackColor = false;
             this.buttontest.Click += new System.EventHandler(this.buttontest_Click);
+            // 
+            // buttontableview
+            // 
+            this.buttontableview.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttontableview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttontableview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttontableview.Location = new System.Drawing.Point(29, 124);
+            this.buttontableview.Name = "buttontableview";
+            this.buttontableview.Size = new System.Drawing.Size(206, 42);
+            this.buttontableview.TabIndex = 26;
+            this.buttontableview.Text = "table";
+            this.buttontableview.UseVisualStyleBackColor = false;
+            this.buttontableview.Click += new System.EventHandler(this.buttontableview_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1265, 664);
-            this.Controls.Add(this.buttontest);
+            this.ClientSize = new System.Drawing.Size(973, 664);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.groupBoxNewNote);
-            this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxNewNote.ResumeLayout(false);
             this.groupBoxNewNote.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -236,7 +229,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonNewNote;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBoxNewNote;
         private System.Windows.Forms.TextBox textBoxColorCode;
         private System.Windows.Forms.Label label3;
@@ -251,6 +243,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button buttontest;
+        private System.Windows.Forms.Button buttontableview;
     }
 }
 
