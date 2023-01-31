@@ -37,6 +37,8 @@ namespace todo
 
             CreateTable();
 
+            
+
             //läser och sätter in i dataset från "notes.xml"
             ds.ReadXml(@"notes.xml");
 
@@ -118,7 +120,7 @@ namespace todo
             //--------------------------------------------------------------------
         }
 
-        public static void SaveData()
+        public void SaveData()
         {
             //sparar data från dataset till xml filen
             ds.WriteXml("notes.xml");
@@ -144,7 +146,7 @@ namespace todo
             
         }
 
-        public static void Delete()
+        public void Delete()
         {
             DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -173,24 +175,46 @@ namespace todo
         {
             NoteItem[] noteItems = new NoteItem[dataGridView1.RowCount];
 
-            //skapar alla notes och radar upp dem i flowlayoutpanel
-            for (int i = 0; i < noteItems.Length; i++)
+            for (int i = 0; i < 10; i++)
             {
                 noteItems[i] = new NoteItem();
                 noteItems[i].Name = "namn hit från datasource";
                 noteItems[i].Description = "beskrivning från datasource";
+
+                Console.WriteLine("test " + i);
                 //noteItems[i].Color = "färg hit";
 
                 //lägger till i flowlayout panel
-                //if (flowLayoutPanel1.Controls.Count > 0)
-                //{
-                //    flowLayoutPanel1.Controls.Clear();
-                //}
+                if (flowLayoutPanel1.Controls.Count > 0)
+                {
+                    flowLayoutPanel1.Controls.Clear();
+                }
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
             }
+
+            ////skapar alla notes och radar upp dem i flowlayoutpanel
+            //for (int i = 0; i < noteItems.Length - 1; i++)
+            //{
+            //    noteItems[i] = new NoteItem();
+            //    noteItems[i].Name = "namn hit från datasource";
+            //    noteItems[i].Description = "beskrivning från datasource";
+            //    //noteItems[i].Color = "färg hit";
+
+            //    //lägger till i flowlayout panel
+            //    //if (flowLayoutPanel1.Controls.Count > 0)
+            //    //{
+            //    //    flowLayoutPanel1.Controls.Clear();
+            //    //}
+            //    flowLayoutPanel1.Controls.Add(noteItems[i]);
+            //}
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttontest_Click(object sender, EventArgs e)
         {
             populateItems();
         }

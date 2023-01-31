@@ -42,8 +42,9 @@ namespace todo
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            Form1.dele
+            //klura ut hur man kallar en metod som är i en annan klass
         }
+
 
         //public Color Color
         //{
