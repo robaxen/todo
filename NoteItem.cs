@@ -13,9 +13,6 @@ namespace todo
 {
     public partial class NoteItem : UserControl
     {
-        //skapar event handler för när delete knappen trycks på
-        public event EventHandler DeleteButtonClicked;
-
         public NoteItem()
         {
             InitializeComponent();
@@ -56,8 +53,7 @@ namespace todo
         
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine("delete event recieved");
-            DeleteButtonClicked?.Invoke(this, EventArgs.Empty);
+
         }
     }
 }
