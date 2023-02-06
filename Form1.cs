@@ -101,6 +101,12 @@ namespace todo
 
         private void buttonAddNote_Click(object sender, EventArgs e)
         {
+            //knappen ska stänga 'ny note' rutan ifall den redan är uppe. 
+            if (groupBoxNewNote.Visible == true)
+            {
+
+            }
+
             //hämtar all data som användaren skrivit in
             string name = textBoxName.Text;
             string desc = textBoxDesc.Text;
@@ -109,19 +115,25 @@ namespace todo
 
             DataTable table1 = ds.Tables["Note"];
 
-            //skapar raden som ska sättas in i tabellen, hämtar data från alla ifyllda fält
+            //skapar raden som ska sättas in i tabellen. All data kommer från alla ifyllda fält
             DataRow dr = table1.NewRow();
             dr["name"] = name;
             dr["desc"] = desc;
             dr["deadline"] = deadline;
             dr["colorCode"] = colorCode;
 
-            //sätter in den skapade raden i table1 tabellen
+            //sätter in den skapade raden i tabellen
             table1.Rows.Add(dr);
 
             //kallar metod för att spara till xml filen
             SaveData();
 
+            //tömmer alla boxar från new note rutan
+            ResetNewNoteBox();
+        }
+
+        public void ResetNewNoteBox()
+        {
             //tömmer alla textboxar före "new note" rutan gömms undan
             textBoxName.Clear();
             textBoxDesc.Clear();
@@ -130,8 +142,8 @@ namespace todo
 
             groupBoxNewNote.BackColor = DefaultBackColor;
 
+            //gömmer new note rutan igen
             groupBoxNewNote.Visible = false;
-            //--------------------------------------------------------------------
         }
 
         public void SaveData()
@@ -175,20 +187,7 @@ namespace todo
             DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                ////Raderar alla valda rader då man trycker på radera knappen
-                //foreach (DataGridViewRow item in dataGridView1.SelectedRows)
-                //{
-                //    try
-                //    {
-                //        dataGridView1.Rows.RemoveAt(item.Index);
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        MessageBox.Show("Kan inte radera vald rad, " + ex.Message);
-                //    }
-
-                //}
-                SaveData();
+                //lägg hit kod för att radera en note
             }
             else if (dialogResult == DialogResult.No)
             {
