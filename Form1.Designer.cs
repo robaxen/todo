@@ -180,7 +180,7 @@
             this.buttontableview.Name = "buttontableview";
             this.buttontableview.Size = new System.Drawing.Size(206, 42);
             this.buttontableview.TabIndex = 26;
-            this.buttontableview.Text = "table";
+            this.buttontableview.Text = "tabell översikt";
             this.buttontableview.UseVisualStyleBackColor = false;
             this.buttontableview.Click += new System.EventHandler(this.buttontableview_Click);
             // 

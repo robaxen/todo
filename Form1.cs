@@ -103,6 +103,7 @@ namespace todo
             }
             else
             {
+                //visar upp rutan ifall den inte redan är synlig
                 groupBoxNewNote.Visible = true;
             }
         }
