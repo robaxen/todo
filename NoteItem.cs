@@ -44,13 +44,13 @@ namespace todo
             set { _deadline = value; labelPostDeadline.Text = value; }
         }
 
-        //public Color Color
-        //{
-        //    get { return _color; }
-        //    set { _color = value; this.BackColor = value; }
-        //}
+        public string Color
+        {
+            get { return _color; }
+            set { _color = value; }
+        }
 
-        
+
         private void buttonDelete_Click(object sender, EventArgs e)
         {
 

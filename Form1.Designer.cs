@@ -42,7 +42,6 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttontableview = new System.Windows.Forms.Button();
-            this.buttontest = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -72,9 +71,9 @@
             this.groupBoxNewNote.Controls.Add(this.buttonColor);
             this.groupBoxNewNote.Controls.Add(this.textBoxDesc);
             this.groupBoxNewNote.Controls.Add(this.textBoxName);
-            this.groupBoxNewNote.Location = new System.Drawing.Point(12, 172);
+            this.groupBoxNewNote.Location = new System.Drawing.Point(12, 125);
             this.groupBoxNewNote.Name = "groupBoxNewNote";
-            this.groupBoxNewNote.Size = new System.Drawing.Size(243, 381);
+            this.groupBoxNewNote.Size = new System.Drawing.Size(243, 388);
             this.groupBoxNewNote.TabIndex = 12;
             this.groupBoxNewNote.TabStop = false;
             this.groupBoxNewNote.Text = "groupBox1";
@@ -166,7 +165,6 @@
             this.panel2.Controls.Add(this.groupBoxNewNote);
             this.panel2.Controls.Add(this.buttontableview);
             this.panel2.Controls.Add(this.buttonNewNote);
-            this.panel2.Controls.Add(this.buttontest);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -178,26 +176,13 @@
             this.buttontableview.BackColor = System.Drawing.Color.Gainsboro;
             this.buttontableview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttontableview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttontableview.Location = new System.Drawing.Point(29, 124);
+            this.buttontableview.Location = new System.Drawing.Point(29, 68);
             this.buttontableview.Name = "buttontableview";
             this.buttontableview.Size = new System.Drawing.Size(206, 42);
             this.buttontableview.TabIndex = 26;
             this.buttontableview.Text = "table";
             this.buttontableview.UseVisualStyleBackColor = false;
             this.buttontableview.Click += new System.EventHandler(this.buttontableview_Click);
-            // 
-            // buttontest
-            // 
-            this.buttontest.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttontest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttontest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttontest.Location = new System.Drawing.Point(29, 72);
-            this.buttontest.Name = "buttontest";
-            this.buttontest.Size = new System.Drawing.Size(206, 42);
-            this.buttontest.TabIndex = 1;
-            this.buttontest.Text = "ladda notes";
-            this.buttontest.UseVisualStyleBackColor = false;
-            this.buttontest.Click += new System.EventHandler(this.buttontest_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -242,7 +227,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDeadline;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button buttontest;
         private System.Windows.Forms.Button buttontableview;
     }
 }

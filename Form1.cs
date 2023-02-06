@@ -24,13 +24,13 @@ namespace todo
 {
     public partial class Form1 : Form
     {
-        DataTable table1;
-
         //skapar nytt dataset och datatable
         public DataSet ds = new DataSet();
 
         //Datacolumn och datarow variabler för tabellen
         DataColumn column;
+
+        Color Color;
 
         public Form1()
         {
@@ -105,7 +105,7 @@ namespace todo
             string name = textBoxName.Text;
             string desc = textBoxDesc.Text;
             string deadline = dateTimePickerDeadline.Text;
-            string colorCode = textBoxColorCode.Text;
+            Color colorCode = textBoxColorCode.BackColor;
 
             DataTable table1 = ds.Tables["Note"];
 
@@ -144,6 +144,11 @@ namespace todo
         
         private void buttonColor_Click(object sender, EventArgs e)
         {
+            ChooseColor();
+        }
+
+        private void ChooseColor()
+        {
             //här öppnas det upp ett fönster där man kan välja en färg, colorDialog1 används för det
             //ändrar färg bara om man väljer "ok"
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -153,6 +158,8 @@ namespace todo
 
                 //skriver upp vald färg i textbox
                 textBoxColorCode.Text = groupBoxNewNote.BackColor.ToString();
+
+                Color color = colorDialog1.Color;
             }
         }
 
@@ -202,6 +209,8 @@ namespace todo
                 //deklarerar data variabler som kommer fyllas med rätt data beroende på rad id
                 string name = "";
                 string desc = "";
+                string deadline = "";
+                Color color;
 
                 string rownr = "";
 
@@ -218,6 +227,8 @@ namespace todo
                     //delar ut värden åt variablerna
                     name = row["name"].ToString();
                     desc = row["desc"].ToString();
+                    deadline = row["deadline"].ToString();
+
 
                     rownr = row["id"].ToString();
 
@@ -228,9 +239,10 @@ namespace todo
                 //skapar en note ruta med user controllern NoteItem
                 noteItems[i] = new NoteItem();
                 //variablernas värde sätts in i text labels som finns på user controllern, alltså note rutorna
-                noteItems[i].Name = "loop=" + i + " rowid=" + rownr + " name= " + name;
+                noteItems[i].Name = name;
                 noteItems[i].Description = desc;
-                //noteItems[i].Color = "färg hit";
+                noteItems[i].Deadline = "Deadline: " + deadline;
+                
 
                 Console.WriteLine();
 

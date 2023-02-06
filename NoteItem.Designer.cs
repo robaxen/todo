@@ -40,7 +40,7 @@
             // 
             this.labelPostName.AutoSize = true;
             this.labelPostName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPostName.Location = new System.Drawing.Point(83, 14);
+            this.labelPostName.Location = new System.Drawing.Point(72, 18);
             this.labelPostName.Name = "labelPostName";
             this.labelPostName.Size = new System.Drawing.Size(61, 24);
             this.labelPostName.TabIndex = 1;
@@ -60,7 +60,7 @@
             this.labelPostDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPostDeadline.Location = new System.Drawing.Point(72, 94);
             this.labelPostDeadline.Name = "labelPostDeadline";
-            this.labelPostDeadline.Size = new System.Drawing.Size(129, 23);
+            this.labelPostDeadline.Size = new System.Drawing.Size(372, 23);
             this.labelPostDeadline.TabIndex = 3;
             this.labelPostDeadline.Text = "Deadline";
             // 
