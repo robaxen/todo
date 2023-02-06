@@ -43,6 +43,8 @@ namespace todo
 
             //binder datagridview med datasettet som innehåller xml filens tabell
             //dataGridView1.DataSource = ds.Tables[0];
+
+            populateItems();
         }
 
         private void CreateTable()
@@ -136,6 +138,7 @@ namespace todo
         {
             //sparar data från dataset till xml filen
             ds.WriteXml("notes.xml");
+            populateItems();
         }
 
         
