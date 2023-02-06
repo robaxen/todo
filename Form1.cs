@@ -227,13 +227,7 @@ namespace todo
                     //delar ut värden åt variablerna
                     name = row["name"].ToString();
                     desc = row["desc"].ToString();
-                    deadline = row["deadline"].ToString();
-
-
-                    rownr = row["id"].ToString();
-
-                    Console.WriteLine("looped for loop nr: " + row["id"]);
-                    
+                    deadline = row["deadline"].ToString();  
                 }
 
                 //skapar en note ruta med user controllern NoteItem
@@ -242,36 +236,12 @@ namespace todo
                 noteItems[i].Name = name;
                 noteItems[i].Description = desc;
                 noteItems[i].Deadline = "Deadline: " + deadline;
-                
-
-                Console.WriteLine();
 
                 //sätter in alla skapade notes rutor i flowlayout panelen, där de radas upp under varandra
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
 
                 Console.WriteLine("");
             }
-
-            ////skapar alla notes och radar upp dem i flowlayoutpanel
-            //for (int i = 0; i < noteItems.Length - 1; i++)
-            //{
-            //    noteItems[i] = new NoteItem();
-            //    noteItems[i].Name = "namn hit från datasource";
-            //    noteItems[i].Description = "beskrivning från datasource";
-            //    //noteItems[i].Color = "färg hit";
-
-            //    //lägger till i flowlayout panel
-            //    //if (flowLayoutPanel1.Controls.Count > 0)
-            //    //{
-            //    //    flowLayoutPanel1.Controls.Clear();
-            //    //}
-            //    flowLayoutPanel1.Controls.Add(noteItems[i]);
-            //}
-        }
-
-        private void buttontest_Click(object sender, EventArgs e)
-        {
-            populateItems();
         }
 
         private void buttontableview_Click(object sender, EventArgs e)
