@@ -53,11 +53,13 @@ namespace todo
             //Skapar och sätter in  alla tabellens kolumner
 
             //id kolumn
+            //startar id vid 0 för att alla loops ska fungera
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.Int32");
             column.AutoIncrement = true;
-            column.AutoIncrementSeed = 1;
+            column.AutoIncrementSeed = 0;
             column.AutoIncrementStep = 1;
+            
             column.ColumnName = "id";
 
             table1.Columns.Add(column);
@@ -198,9 +200,11 @@ namespace todo
                 string name = "";
                 string desc = "";
 
+                string rownr = "";
+
                 //leta i rad där id = i, börjar från 0 i for loopen ovanför
                 DataRow[] dr = ds.Tables[0].Select("id=" + i);
-                Console.WriteLine("antal rows: " + ds.Tables[0].Rows.Count);
+
                 foreach (DataRow row in dr)
                 {
                     //testar i konsolen hur datan ser ut
@@ -211,13 +215,17 @@ namespace todo
                     //delar ut värden åt variablerna
                     name = row["name"].ToString();
                     desc = row["desc"].ToString();
+
+                    rownr = row["id"].ToString();
+
+                    Console.WriteLine("looped for loop nr: " + row["id"]);
                     
                 }
 
                 //skapar en note ruta med user controllern NoteItem
                 noteItems[i] = new NoteItem();
                 //variablernas värde sätts in i text labels som finns på user controllern, alltså note rutorna
-                noteItems[i].Name = name;
+                noteItems[i].Name = "loop=" + i + " rowid=" + rownr + " name= " + name;
                 noteItems[i].Description = desc;
                 //noteItems[i].Color = "färg hit";
 
@@ -225,6 +233,8 @@ namespace todo
 
                 //sätter in alla skapade notes rutor i flowlayout panelen, där de radas upp under varandra
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
+
+                Console.WriteLine("");
             }
 
             ////skapar alla notes och radar upp dem i flowlayoutpanel
