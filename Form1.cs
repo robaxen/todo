@@ -96,17 +96,21 @@ namespace todo
 
         private void buttonNewNote_Click(object sender, EventArgs e)
         {
-            groupBoxNewNote.Visible = true;
+            if (groupBoxNewNote.Visible == true)
+            {
+                //tömmer alla boxar från new note rutan
+                ResetNewNoteBox();
+            }
+            else
+            {
+                groupBoxNewNote.Visible = true;
+            }
         }
 
         private void buttonAddNote_Click(object sender, EventArgs e)
         {
             //knappen ska stänga 'ny note' rutan ifall den redan är uppe. 
-            if (groupBoxNewNote.Visible == true)
-            {
-
-            }
-
+            
             //hämtar all data som användaren skrivit in
             string name = textBoxName.Text;
             string desc = textBoxDesc.Text;
