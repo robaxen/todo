@@ -17,6 +17,8 @@ namespace todo
         {
             InitializeComponent();
 
+            
+
             Form Form1 = (this.Parent as Form);
         }
 
@@ -60,6 +62,7 @@ namespace todo
             }
                 
         }
+
 
 
         private void buttonDelete_Click(object sender, EventArgs e)

@@ -43,6 +43,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBoxDeadline = new System.Windows.Forms.CheckBox();
             this.panelColor = new System.Windows.Forms.Panel();
+            this.buttonDeleteTest = new System.Windows.Forms.Button();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -145,6 +146,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Controls.Add(this.buttonDeleteTest);
             this.panel2.Controls.Add(this.groupBoxNewNote);
             this.panel2.Controls.Add(this.buttontableview);
             this.panel2.Controls.Add(this.buttonNewNote);
@@ -194,6 +196,19 @@
             this.panelColor.Size = new System.Drawing.Size(94, 36);
             this.panelColor.TabIndex = 24;
             // 
+            // buttonDeleteTest
+            // 
+            this.buttonDeleteTest.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonDeleteTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonDeleteTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeleteTest.Location = new System.Drawing.Point(29, 529);
+            this.buttonDeleteTest.Name = "buttonDeleteTest";
+            this.buttonDeleteTest.Size = new System.Drawing.Size(206, 42);
+            this.buttonDeleteTest.TabIndex = 27;
+            this.buttonDeleteTest.Text = "test, radera en rad";
+            this.buttonDeleteTest.UseVisualStyleBackColor = false;
+            this.buttonDeleteTest.Click += new System.EventHandler(this.buttonDeleteTest_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,6 +244,7 @@
         private System.Windows.Forms.Button buttontableview;
         private System.Windows.Forms.CheckBox checkBoxDeadline;
         private System.Windows.Forms.Panel panelColor;
+        private System.Windows.Forms.Button buttonDeleteTest;
     }
 }
 

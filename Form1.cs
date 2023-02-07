@@ -190,20 +190,6 @@ namespace todo
             }
         }
 
-        public void DeleteNote()
-        {
-            Debug.WriteLine("delete method called");
-
-            DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                //lägg hit kod för att radera en note
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-            }
-        }
-
         private void populateItems()
         {
             //Sätter in varje rad från tabellen i sina egna rutor, och listar upp dem under varann i en flowlayout panel
@@ -272,6 +258,34 @@ namespace todo
             //visar upp ett fönster med tabellen, för att kolla tabellens innehåll
             TableView tableView = new TableView();
             tableView.ShowDialog();
+        }
+
+        public void DeleteNote()
+        {
+            Debug.WriteLine("delete method called");
+
+            DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DataRow[] row = ds.Tables[0].Select("id=" + 1);
+
+                for (int i = row.Length - 1; i >= 0; i--)
+                {
+                    ds.Tables["Note"].Rows.RemoveAt(1);
+                    Console.WriteLine(i);
+                }
+                ds.Tables["Note"].AcceptChanges();
+                SaveData();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                
+            }
+        }
+
+        private void buttonDeleteTest_Click(object sender, EventArgs e)
+        {
+            DeleteNote();
         }
     }
 }
