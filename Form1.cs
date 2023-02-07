@@ -37,6 +37,7 @@ namespace todo
             InitializeComponent();
 
             CreateTable();
+            SaveData();
 
             //läser och sätter in i dataset från "notes.xml"
             ds.ReadXml(@"notes.xml");
@@ -96,6 +97,7 @@ namespace todo
 
         private void buttonNewNote_Click(object sender, EventArgs e)
         {
+            //knappen ska stänga 'ny note' rutan ifall den redan är uppe. 
             if (groupBoxNewNote.Visible == true)
             {
                 //tömmer alla boxar från new note rutan
@@ -103,6 +105,8 @@ namespace todo
             }
             else
             {
+                panelColor.BackColor = Color.Gray;
+
                 //visar upp rutan ifall den inte redan är synlig
                 groupBoxNewNote.Visible = true;
             }
@@ -110,15 +114,15 @@ namespace todo
 
         private void buttonAddNote_Click(object sender, EventArgs e)
         {
-            //knappen ska stänga 'ny note' rutan ifall den redan är uppe. 
-            
             //hämtar all data som användaren skrivit in
             string name = textBoxName.Text;
             string desc = textBoxDesc.Text;
             string deadline = dateTimePickerDeadline.Text;
-            int colorCode = groupBoxNewNote.BackColor.ToArgb();
-            Console.WriteLine("detta sätts in i colorCode kolumnen: " + groupBoxNewNote.BackColor.ToArgb());
-            Console.WriteLine("ToString istället för ToArgb: " + groupBoxNewNote.BackColor.ToString());
+            int colorCode = panelColor.BackColor.ToArgb();
+
+            ////tester för att se vald färg kod i olika format
+            //Console.WriteLine("detta sätts in i colorCode kolumnen: " + panelColor.BackColor.ToArgb());
+            //Console.WriteLine("ToString istället för ToArgb: " + panelColor.BackColor.ToString());
 
             DataTable table1 = ds.Tables["Note"];
 
@@ -145,9 +149,6 @@ namespace todo
             textBoxName.Clear();
             textBoxDesc.Clear();
             dateTimePickerDeadline.ResetText();
-            textBoxColorCode.Clear();
-
-            groupBoxNewNote.BackColor = DefaultBackColor;
 
             //gömmer new note rutan igen
             groupBoxNewNote.Visible = false;
@@ -172,11 +173,8 @@ namespace todo
             //ändrar färg bara om man väljer "ok"
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                //ändrar färg för newnote rutan
-                groupBoxNewNote.BackColor = colorDialog1.Color;
-
-                //skriver upp vald färg i textbox
-                textBoxColorCode.Text = groupBoxNewNote.BackColor.ToString();
+                //ändrar färg för panel
+                panelColor.BackColor = colorDialog1.Color;
 
                 Color color = colorDialog1.Color;
             }
@@ -218,18 +216,19 @@ namespace todo
                 string name = "";
                 string desc = "";
                 string deadline = "";
+
                 color = "";
  
 
-                //leta i rad där id = i, börjar från 0 i for loopen ovanför
+                //leta i rad där id = i, börjar från 1 i for loopen ovanför
                 DataRow[] dr = ds.Tables[0].Select("id=" + i);
 
                 foreach (DataRow row in dr)
                 {
-                    //testar i konsolen hur datan ser ut
-                    Console.WriteLine("note nummer " + row["id"] + " (i = " + i + ")");
-                    Console.WriteLine("namn: " + row["name"]);
-                    Console.WriteLine("besk: " + row["desc"]);
+                    ////testar i konsolen hur datan ser ut
+                    //Console.WriteLine("note nummer " + row["id"] + " (i = " + i + ")");
+                    //Console.WriteLine("namn: " + row["name"]);
+                    //Console.WriteLine("besk: " + row["desc"]);
 
                     //delar ut värden åt variablerna
                     name = row["name"].ToString();
@@ -253,6 +252,7 @@ namespace todo
 
         private void buttontableview_Click(object sender, EventArgs e)
         {
+            //visar upp ett fönster med tabellen, för att kolla tabellens innehåll
             TableView tableView = new TableView();
             tableView.ShowDialog();
         }

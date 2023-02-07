@@ -31,8 +31,6 @@
             this.buttonNewNote = new System.Windows.Forms.Button();
             this.groupBoxNewNote = new System.Windows.Forms.GroupBox();
             this.dateTimePickerDeadline = new System.Windows.Forms.DateTimePicker();
-            this.textBoxColorCode = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.buttonAddNote = new System.Windows.Forms.Button();
@@ -43,6 +41,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttontableview = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBoxDeadline = new System.Windows.Forms.CheckBox();
+            this.panelColor = new System.Windows.Forms.Panel();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -62,9 +62,9 @@
             // 
             // groupBoxNewNote
             // 
+            this.groupBoxNewNote.Controls.Add(this.panelColor);
+            this.groupBoxNewNote.Controls.Add(this.checkBoxDeadline);
             this.groupBoxNewNote.Controls.Add(this.dateTimePickerDeadline);
-            this.groupBoxNewNote.Controls.Add(this.textBoxColorCode);
-            this.groupBoxNewNote.Controls.Add(this.label3);
             this.groupBoxNewNote.Controls.Add(this.label2);
             this.groupBoxNewNote.Controls.Add(this.labelName);
             this.groupBoxNewNote.Controls.Add(this.buttonAddNote);
@@ -81,28 +81,11 @@
             // 
             // dateTimePickerDeadline
             // 
-            this.dateTimePickerDeadline.Location = new System.Drawing.Point(23, 211);
+            this.dateTimePickerDeadline.Enabled = false;
+            this.dateTimePickerDeadline.Location = new System.Drawing.Point(23, 221);
             this.dateTimePickerDeadline.Name = "dateTimePickerDeadline";
             this.dateTimePickerDeadline.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerDeadline.TabIndex = 22;
-            // 
-            // textBoxColorCode
-            // 
-            this.textBoxColorCode.Enabled = false;
-            this.textBoxColorCode.Location = new System.Drawing.Point(23, 288);
-            this.textBoxColorCode.Name = "textBoxColorCode";
-            this.textBoxColorCode.Size = new System.Drawing.Size(200, 20);
-            this.textBoxColorCode.TabIndex = 19;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 188);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 20);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Deadline";
             // 
             // label2
             // 
@@ -126,7 +109,7 @@
             // 
             // buttonAddNote
             // 
-            this.buttonAddNote.Location = new System.Drawing.Point(23, 327);
+            this.buttonAddNote.Location = new System.Drawing.Point(23, 289);
             this.buttonAddNote.Name = "buttonAddNote";
             this.buttonAddNote.Size = new System.Drawing.Size(200, 36);
             this.buttonAddNote.TabIndex = 15;
@@ -136,7 +119,7 @@
             // 
             // buttonColor
             // 
-            this.buttonColor.Location = new System.Drawing.Point(23, 237);
+            this.buttonColor.Location = new System.Drawing.Point(23, 247);
             this.buttonColor.Name = "buttonColor";
             this.buttonColor.Size = new System.Drawing.Size(100, 36);
             this.buttonColor.TabIndex = 14;
@@ -193,6 +176,24 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(705, 664);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
+            // checkBoxDeadline
+            // 
+            this.checkBoxDeadline.AutoSize = true;
+            this.checkBoxDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxDeadline.Location = new System.Drawing.Point(23, 191);
+            this.checkBoxDeadline.Name = "checkBoxDeadline";
+            this.checkBoxDeadline.Size = new System.Drawing.Size(100, 24);
+            this.checkBoxDeadline.TabIndex = 23;
+            this.checkBoxDeadline.Text = "Deadline?";
+            this.checkBoxDeadline.UseVisualStyleBackColor = true;
+            // 
+            // panelColor
+            // 
+            this.panelColor.Location = new System.Drawing.Point(129, 247);
+            this.panelColor.Name = "panelColor";
+            this.panelColor.Size = new System.Drawing.Size(94, 36);
+            this.panelColor.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,8 +216,6 @@
 
         private System.Windows.Forms.Button buttonNewNote;
         private System.Windows.Forms.GroupBox groupBoxNewNote;
-        private System.Windows.Forms.TextBox textBoxColorCode;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Button buttonAddNote;
@@ -228,6 +227,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button buttontableview;
+        private System.Windows.Forms.CheckBox checkBoxDeadline;
+        private System.Windows.Forms.Panel panelColor;
     }
 }
 
