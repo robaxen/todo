@@ -47,10 +47,10 @@ namespace todo
         public string ColorCode
         {
             get { return _color; }
-            set { _color = value;
+            set { _color = value; 
                 try
                 {
-                    panelColor.BackColor = ColorTranslator.FromHtml("A=255, R=255, G=128, B=128");
+                    panelColor.BackColor = ColorTranslator.FromHtml(value);
                 }
                 catch
                 {

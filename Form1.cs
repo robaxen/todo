@@ -117,6 +117,8 @@ namespace todo
             string desc = textBoxDesc.Text;
             string deadline = dateTimePickerDeadline.Text;
             int colorCode = groupBoxNewNote.BackColor.ToArgb();
+            Console.WriteLine("detta sätts in i colorCode kolumnen: " + groupBoxNewNote.BackColor.ToArgb());
+            Console.WriteLine("ToString istället för ToArgb: " + groupBoxNewNote.BackColor.ToString());
 
             DataTable table1 = ds.Tables["Note"];
 
