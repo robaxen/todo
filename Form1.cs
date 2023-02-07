@@ -27,7 +27,7 @@ namespace todo
         //skapar nytt dataset och datatable
         public DataSet ds = new DataSet();
 
-        //Datacolumn och datarow variabler för tabellen
+        //Datacolumn variabel för tabellen
         DataColumn column;
 
         string color;
@@ -36,31 +36,20 @@ namespace todo
         {
             InitializeComponent();
 
+            //Skapar tabellen som kommer innehålla 
             CreateTable();
 
             //skapar xml filen om den inte redan finns
-            string notesXml = @"notes.xml";
-            Console.WriteLine("checking if notes.xml exists...");
-            if (!File.Exists(notesXml))
+            if (!File.Exists(@"notes.xml"))
             {
                 ds.WriteXml("notes.xml");
-                Console.WriteLine("notes.xml created, did not exist");
+                Console.WriteLine("notes.xml does not exist, creating...");
             }
-            else if (File.Exists(notesXml))
-            {
-                Console.WriteLine("notes.xml already exists, no file created");
-            }
-            Console.WriteLine();
-            
 
             //läser och sätter in i dataset från "notes.xml"
             ds.ReadXml(@"notes.xml");
-
-            //binder datagridview med datasettet som innehåller xml filens tabell
-            //dataGridView1.DataSource = ds.Tables[0];
-
             
-
+            //listar upp alla rader i en flowlayout panel
             populateItems();
         }
 
@@ -165,6 +154,13 @@ namespace todo
             ResetNewNoteBox();
         }
 
+        public void SaveData()
+        {
+            //sparar data från dataset till xml filen
+            ds.WriteXml("notes.xml");
+            populateItems();
+        }
+
         public void ResetNewNoteBox()
         {
             //tömmer alla textboxar före "new note" rutan gömms undan
@@ -176,14 +172,6 @@ namespace todo
             groupBoxNewNote.Visible = false;
         }
 
-        public void SaveData()
-        {
-            //sparar data från dataset till xml filen
-            ds.WriteXml("notes.xml");
-            populateItems();
-        }
-
-        
         private void buttonColor_Click(object sender, EventArgs e)
         {
             ChooseColor();
@@ -202,14 +190,7 @@ namespace todo
             }
         }
 
-        
-
-        public void buttonDelete_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        public void Delete()
+        public void DeleteNote()
         {
             Debug.WriteLine("delete method called");
 
@@ -225,6 +206,8 @@ namespace todo
 
         private void populateItems()
         {
+            //Sätter in varje rad från tabellen i sina egna rutor, och listar upp dem under varann i en flowlayout panel
+
             //tömmer flowlayout panel före nya laddas in
             flowLayoutPanel1.Controls.Clear();
 
