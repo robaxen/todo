@@ -37,13 +37,28 @@ namespace todo
             InitializeComponent();
 
             CreateTable();
-            SaveData();
+
+            //skapar xml filen om den inte redan finns
+            string notesXml = @"notes.xml";
+            Console.WriteLine("checking if notes.xml exists...");
+            if (!File.Exists(notesXml))
+            {
+                ds.WriteXml("notes.xml");
+                Console.WriteLine("notes.xml created, did not exist");
+            }
+            else if (File.Exists(notesXml))
+            {
+                Console.WriteLine("notes.xml already exists, no file created");
+            }
+            
 
             //läser och sätter in i dataset från "notes.xml"
             ds.ReadXml(@"notes.xml");
 
             //binder datagridview med datasettet som innehåller xml filens tabell
             //dataGridView1.DataSource = ds.Tables[0];
+
+            
 
             populateItems();
         }
