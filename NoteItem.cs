@@ -44,10 +44,20 @@ namespace todo
             set { _deadline = value; labelPostDeadline.Text = value; }
         }
 
-        public Color Color
+        public string ColorCode
         {
             get { return _color; }
-            set { _color = value; panelColor.BackColor = value;  }
+            set { _color = value;
+                try
+                {
+                    panelColor.BackColor = ColorTranslator.FromHtml("A=255, R=255, G=128, B=128");
+                }
+                catch
+                {
+                    panelColor.BackColor = Color.Red;
+                };
+            }
+                
         }
 
 

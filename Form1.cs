@@ -30,7 +30,7 @@ namespace todo
         //Datacolumn och datarow variabler för tabellen
         DataColumn column;
 
-        Color color;
+        string color;
 
         public Form1()
         {
@@ -116,7 +116,7 @@ namespace todo
             string name = textBoxName.Text;
             string desc = textBoxDesc.Text;
             string deadline = dateTimePickerDeadline.Text;
-            Color colorCode = groupBoxNewNote.BackColor;
+            int colorCode = groupBoxNewNote.BackColor.ToArgb();
 
             DataTable table1 = ds.Tables["Note"];
 
@@ -216,6 +216,7 @@ namespace todo
                 string name = "";
                 string desc = "";
                 string deadline = "";
+                color = "";
  
 
                 //leta i rad där id = i, börjar från 0 i for loopen ovanför
@@ -232,7 +233,7 @@ namespace todo
                     name = row["name"].ToString();
                     desc = row["desc"].ToString();
                     deadline = row["deadline"].ToString();
-                    color = (Color)row["colorCode"];
+                    color = row["colorCode"].ToString();
                 }
 
                 //skapar en note ruta med user controllern NoteItem
@@ -241,9 +242,7 @@ namespace todo
                 noteItems[i].Name = name;
                 noteItems[i].Description = desc;
                 noteItems[i].Deadline = "Deadline: " + deadline;
-                noteItems[i].Color = color;
-
-                this.BackColor = color;
+                noteItems[i].ColorCode = color;
 
                 //sätter in alla skapade notes rutor i flowlayout panelen, där de radas upp under varandra
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
