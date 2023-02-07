@@ -41,7 +41,8 @@ namespace todo
         public string Deadline
         {
             get { return _deadline; }
-            set { _deadline = value; labelPostDeadline.Text = value; }
+            set { _deadline = value; labelPostDeadline.Text = value;
+            }
         }
 
         public string ColorCode

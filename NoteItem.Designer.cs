@@ -62,7 +62,6 @@
             this.labelPostDeadline.Name = "labelPostDeadline";
             this.labelPostDeadline.Size = new System.Drawing.Size(372, 23);
             this.labelPostDeadline.TabIndex = 3;
-            this.labelPostDeadline.Text = "Deadline";
             // 
             // panelColor
             // 
@@ -99,14 +98,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.panelColor);
             this.Controls.Add(this.labelPostDeadline);
-            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.labelPostDescription);
             this.Controls.Add(this.labelPostName);
             this.Name = "NoteItem";
-            this.Size = new System.Drawing.Size(698, 143);
+            this.Size = new System.Drawing.Size(695, 143);
             this.ResumeLayout(false);
             this.PerformLayout();
 

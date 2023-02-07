@@ -50,6 +50,7 @@ namespace todo
             {
                 Console.WriteLine("notes.xml already exists, no file created");
             }
+            Console.WriteLine();
             
 
             //läser och sätter in i dataset från "notes.xml"
@@ -145,8 +146,14 @@ namespace todo
             DataRow dr = table1.NewRow();
             dr["name"] = name;
             dr["desc"] = desc;
-            dr["deadline"] = deadline;
             dr["colorCode"] = colorCode;
+
+            //sätter endast in deadline datum ifall checkbox är ikryssad
+            if (checkBoxDeadline.Checked)
+            {
+                dr["deadline"] = deadline;
+            }
+            
 
             //sätter in den skapade raden i tabellen
             table1.Rows.Add(dr);
@@ -257,8 +264,20 @@ namespace todo
                 //variablernas värde sätts in i text labels som finns på user controllern, alltså note rutorna
                 noteItems[i].Name = name;
                 noteItems[i].Description = desc;
-                noteItems[i].Deadline = "Deadline: " + deadline;
                 noteItems[i].ColorCode = color;
+
+                //skriver endast i deadline om det finns en deadline sparad i tabellen
+                //if (deadline.ToString().Length > 0)
+                Console.WriteLine("test");
+                if (deadline.ToString().Length > 0)
+                {
+                    Console.WriteLine("deadline variabel är mer än 0: (" + deadline.ToString().Length + ")");
+                    noteItems[i].Deadline = "Deadline: " + deadline;
+                }
+                else
+                {
+                    Console.WriteLine("deadline är 0, skriver inte ut deadline");
+                }
 
                 //sätter in alla skapade notes rutor i flowlayout panelen, där de radas upp under varandra
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
