@@ -276,6 +276,7 @@ namespace todo
                 }
                 ds.Tables["Note"].AcceptChanges();
                 SaveData();
+                
             }
             else if (dialogResult == DialogResult.No)
             {
