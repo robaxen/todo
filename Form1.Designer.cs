@@ -89,7 +89,7 @@
             this.groupBoxNewNote.Size = new System.Drawing.Size(243, 336);
             this.groupBoxNewNote.TabIndex = 12;
             this.groupBoxNewNote.TabStop = false;
-            this.groupBoxNewNote.Text = "groupBox1";
+            this.groupBoxNewNote.Text = "Skapa ny note";
             this.groupBoxNewNote.Visible = false;
             // 
             // panelColor
@@ -194,7 +194,7 @@
             this.buttonDeleteTest.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonDeleteTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonDeleteTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDeleteTest.Location = new System.Drawing.Point(29, 529);
+            this.buttonDeleteTest.Location = new System.Drawing.Point(29, 467);
             this.buttonDeleteTest.Name = "buttonDeleteTest";
             this.buttonDeleteTest.Size = new System.Drawing.Size(206, 42);
             this.buttonDeleteTest.TabIndex = 27;
@@ -235,12 +235,12 @@
             this.groupBoxEditNote.Controls.Add(this.button2);
             this.groupBoxEditNote.Controls.Add(this.textBoxDescEdit);
             this.groupBoxEditNote.Controls.Add(this.textBoxNameEdit);
-            this.groupBoxEditNote.Location = new System.Drawing.Point(12, 623);
+            this.groupBoxEditNote.Location = new System.Drawing.Point(12, 563);
             this.groupBoxEditNote.Name = "groupBoxEditNote";
             this.groupBoxEditNote.Size = new System.Drawing.Size(243, 336);
             this.groupBoxEditNote.TabIndex = 25;
             this.groupBoxEditNote.TabStop = false;
-            this.groupBoxEditNote.Text = "groupBox1";
+            this.groupBoxEditNote.Text = "Redigera note";
             this.groupBoxEditNote.Visible = false;
             // 
             // panelColorEdit
@@ -329,7 +329,7 @@
             this.buttonUpdateTest.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonUpdateTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonUpdateTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpdateTest.Location = new System.Drawing.Point(29, 577);
+            this.buttonUpdateTest.Location = new System.Drawing.Point(29, 515);
             this.buttonUpdateTest.Name = "buttonUpdateTest";
             this.buttonUpdateTest.Size = new System.Drawing.Size(206, 42);
             this.buttonUpdateTest.TabIndex = 28;
