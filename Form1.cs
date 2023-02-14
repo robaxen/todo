@@ -149,14 +149,17 @@ namespace todo
             //sätter in den skapade raden i tabellen
             table1.Rows.Add(dr);
 
+            //reset id och spara data
+            ResetID();
+
             //kallar metod för att spara till xml filen
-            SaveData();
+            SaveToXml();
 
             //tömmer alla boxar från new note rutan
             ResetNewNoteBox();
         }
 
-        public void SaveData()
+        public void SaveToXml()
         {
             //sparar data från dataset till xml filen
             ds.WriteXml("notes.xml");
@@ -271,14 +274,31 @@ namespace todo
                     ds.Tables["Note"].Rows.RemoveAt(1);
                     Console.WriteLine(i);
                 }
-                ds.Tables["Note"].AcceptChanges();
-                SaveData();
-                
+
+                //resettar id fälten och sparar alla ändringar
+                ResetID();
+
             }
             else if (dialogResult == DialogResult.No)
             {
                 
             }
+        }
+
+        //används för att resetta alla id fält så att inga luckor uppstår,
+        //behövs för att kunna lista upp notes enligt Id'n med loopningsmetoden jag använt
+        public void ResetID()
+        {
+            //resettar id efter deletion (väldigt dirty lösning)
+            int counter = -1;
+            foreach (DataRow noteRow in ds.Tables["Note"].Rows)
+            {
+                noteRow["id"] = ++counter;
+            }
+
+            //Sparar ändringar
+            ds.Tables["Note"].AcceptChanges();
+            SaveToXml();
         }
 
         private void buttonDeleteTest_Click(object sender, EventArgs e)
