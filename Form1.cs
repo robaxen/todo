@@ -20,6 +20,8 @@ using System.Diagnostics;
 //för att pusha ut till repo efter commit -> git changes fönstret -> push
 //då sparas alla ändringar till github repo
 
+//test för branch 
+
 namespace todo
 {
     public partial class Form1 : Form
@@ -215,11 +217,6 @@ namespace todo
 
                 foreach (DataRow row in dr)
                 {
-                    ////testar i konsolen hur datan ser ut
-                    //Console.WriteLine("note nummer " + row["id"] + " (i = " + i + ")");
-                    //Console.WriteLine("namn: " + row["name"]);
-                    //Console.WriteLine("besk: " + row["desc"]);
-
                     //delar ut värden åt variablerna
                     name = row["name"].ToString();
                     desc = row["desc"].ToString();
