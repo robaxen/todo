@@ -20,6 +20,8 @@ using System.Diagnostics;
 //för att pusha ut till repo efter commit -> git changes fönstret -> push
 //då sparas alla ändringar till github repo
 
+//test för branch 
+
 namespace todo
 {
     public partial class Form1 : Form
@@ -147,14 +149,17 @@ namespace todo
             //sätter in den skapade raden i tabellen
             table1.Rows.Add(dr);
 
+            //reset id och spara data
+            ResetID();
+
             //kallar metod för att spara till xml filen
-            SaveData();
+            SaveToXml();
 
             //tömmer alla boxar från new note rutan
             ResetNewNoteBox();
         }
 
-        public void SaveData()
+        public void SaveToXml()
         {
             //sparar data från dataset till xml filen
             ds.WriteXml("notes.xml");
@@ -209,23 +214,17 @@ namespace todo
                 string deadline = "";
 
                 color = "";
- 
 
                 //leta i rad där id = i, börjar från 1 i for loopen ovanför
                 DataRow[] dr = ds.Tables[0].Select("id=" + i);
 
                 foreach (DataRow row in dr)
                 {
-                    ////testar i konsolen hur datan ser ut
-                    //Console.WriteLine("note nummer " + row["id"] + " (i = " + i + ")");
-                    //Console.WriteLine("namn: " + row["name"]);
-                    //Console.WriteLine("besk: " + row["desc"]);
-
                     //delar ut värden åt variablerna
                     name = row["name"].ToString();
                     desc = row["desc"].ToString();
                     deadline = row["deadline"].ToString();
-                    color = row["colorCode"].ToString();
+                    color = row["colorCode"].ToString(); 
                 }
 
                 //skapar en note ruta med user controllern NoteItem
@@ -267,6 +266,7 @@ namespace todo
             DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                //byt ut '1' till id som tillhör noten man vill radera
                 DataRow[] row = ds.Tables[0].Select("id=" + 1);
 
                 for (int i = row.Length - 1; i >= 0; i--)
@@ -274,14 +274,31 @@ namespace todo
                     ds.Tables["Note"].Rows.RemoveAt(1);
                     Console.WriteLine(i);
                 }
-                ds.Tables["Note"].AcceptChanges();
-                SaveData();
-                
+
+                //resettar id fälten och sparar alla ändringar
+                ResetID();
+
             }
             else if (dialogResult == DialogResult.No)
             {
                 
             }
+        }
+
+        //används för att resetta alla id fält så att inga luckor uppstår,
+        //behövs för att kunna lista upp notes enligt Id'n med loopningsmetoden jag använt
+        public void ResetID()
+        {
+            //resettar id efter deletion (väldigt dirty lösning)
+            int counter = -1;
+            foreach (DataRow noteRow in ds.Tables["Note"].Rows)
+            {
+                noteRow["id"] = ++counter;
+            }
+
+            //Sparar ändringar
+            ds.Tables["Note"].AcceptChanges();
+            SaveToXml();
         }
 
         private void buttonDeleteTest_Click(object sender, EventArgs e)
