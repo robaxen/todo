@@ -236,15 +236,12 @@ namespace todo
 
                 //skriver endast i deadline om det finns en deadline sparad i tabellen
                 //if (deadline.ToString().Length > 0)
-                Console.WriteLine("test");
                 if (deadline.ToString().Length > 0)
                 {
-                    Console.WriteLine("deadline variabel är mer än 0: (" + deadline.ToString().Length + ")");
                     noteItems[i].Deadline = "Deadline: " + deadline;
                 }
                 else
                 {
-                    Console.WriteLine("deadline är 0, skriver inte ut deadline");
                 }
 
                 //sätter in alla skapade notes rutor i flowlayout panelen, där de radas upp under varandra
