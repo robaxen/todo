@@ -44,8 +44,20 @@
             this.buttonDeleteTest = new System.Windows.Forms.Button();
             this.buttontableview = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBoxEditNote = new System.Windows.Forms.GroupBox();
+            this.panelColorEdit = new System.Windows.Forms.Panel();
+            this.checkBoxDeadlineEdit = new System.Windows.Forms.CheckBox();
+            this.dateTimePickerDeadlineEdit = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBoxDescEdit = new System.Windows.Forms.TextBox();
+            this.textBoxNameEdit = new System.Windows.Forms.TextBox();
+            this.buttonUpdateTest = new System.Windows.Forms.Button();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBoxEditNote.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonNewNote
@@ -165,6 +177,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Controls.Add(this.buttonUpdateTest);
+            this.panel2.Controls.Add(this.groupBoxEditNote);
             this.panel2.Controls.Add(this.buttonDeleteTest);
             this.panel2.Controls.Add(this.groupBoxNewNote);
             this.panel2.Controls.Add(this.buttontableview);
@@ -172,7 +186,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(263, 664);
+            this.panel2.Size = new System.Drawing.Size(263, 1061);
             this.panel2.TabIndex = 24;
             // 
             // buttonDeleteTest
@@ -207,15 +221,128 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(268, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(705, 664);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(705, 1061);
             this.flowLayoutPanel1.TabIndex = 25;
+            // 
+            // groupBoxEditNote
+            // 
+            this.groupBoxEditNote.Controls.Add(this.panelColorEdit);
+            this.groupBoxEditNote.Controls.Add(this.checkBoxDeadlineEdit);
+            this.groupBoxEditNote.Controls.Add(this.dateTimePickerDeadlineEdit);
+            this.groupBoxEditNote.Controls.Add(this.label1);
+            this.groupBoxEditNote.Controls.Add(this.label3);
+            this.groupBoxEditNote.Controls.Add(this.buttonUpdate);
+            this.groupBoxEditNote.Controls.Add(this.button2);
+            this.groupBoxEditNote.Controls.Add(this.textBoxDescEdit);
+            this.groupBoxEditNote.Controls.Add(this.textBoxNameEdit);
+            this.groupBoxEditNote.Location = new System.Drawing.Point(12, 623);
+            this.groupBoxEditNote.Name = "groupBoxEditNote";
+            this.groupBoxEditNote.Size = new System.Drawing.Size(243, 336);
+            this.groupBoxEditNote.TabIndex = 25;
+            this.groupBoxEditNote.TabStop = false;
+            this.groupBoxEditNote.Text = "groupBox1";
+            this.groupBoxEditNote.Visible = false;
+            // 
+            // panelColorEdit
+            // 
+            this.panelColorEdit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelColorEdit.Location = new System.Drawing.Point(129, 247);
+            this.panelColorEdit.Name = "panelColorEdit";
+            this.panelColorEdit.Size = new System.Drawing.Size(94, 36);
+            this.panelColorEdit.TabIndex = 24;
+            // 
+            // checkBoxDeadlineEdit
+            // 
+            this.checkBoxDeadlineEdit.AutoSize = true;
+            this.checkBoxDeadlineEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxDeadlineEdit.Location = new System.Drawing.Point(23, 191);
+            this.checkBoxDeadlineEdit.Name = "checkBoxDeadlineEdit";
+            this.checkBoxDeadlineEdit.Size = new System.Drawing.Size(100, 24);
+            this.checkBoxDeadlineEdit.TabIndex = 23;
+            this.checkBoxDeadlineEdit.Text = "Deadline?";
+            this.checkBoxDeadlineEdit.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePickerDeadlineEdit
+            // 
+            this.dateTimePickerDeadlineEdit.Enabled = false;
+            this.dateTimePickerDeadlineEdit.Location = new System.Drawing.Point(23, 221);
+            this.dateTimePickerDeadlineEdit.Name = "dateTimePickerDeadlineEdit";
+            this.dateTimePickerDeadlineEdit.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerDeadlineEdit.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 20);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Beskrivning";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(19, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 20);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Namn";
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Location = new System.Drawing.Point(23, 289);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(200, 36);
+            this.buttonUpdate.TabIndex = 15;
+            this.buttonUpdate.Text = "Uppdatera";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(23, 247);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 36);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Ändra färg";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBoxDescEdit
+            // 
+            this.textBoxDescEdit.Location = new System.Drawing.Point(23, 114);
+            this.textBoxDescEdit.Multiline = true;
+            this.textBoxDescEdit.Name = "textBoxDescEdit";
+            this.textBoxDescEdit.Size = new System.Drawing.Size(200, 71);
+            this.textBoxDescEdit.TabIndex = 12;
+            // 
+            // textBoxNameEdit
+            // 
+            this.textBoxNameEdit.Location = new System.Drawing.Point(23, 62);
+            this.textBoxNameEdit.Name = "textBoxNameEdit";
+            this.textBoxNameEdit.Size = new System.Drawing.Size(200, 20);
+            this.textBoxNameEdit.TabIndex = 11;
+            // 
+            // buttonUpdateTest
+            // 
+            this.buttonUpdateTest.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonUpdateTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonUpdateTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUpdateTest.Location = new System.Drawing.Point(29, 577);
+            this.buttonUpdateTest.Name = "buttonUpdateTest";
+            this.buttonUpdateTest.Size = new System.Drawing.Size(206, 42);
+            this.buttonUpdateTest.TabIndex = 28;
+            this.buttonUpdateTest.Text = "redigera rad med id 1";
+            this.buttonUpdateTest.UseVisualStyleBackColor = false;
+            this.buttonUpdateTest.Click += new System.EventHandler(this.buttonUpdateTest_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(973, 664);
+            this.ClientSize = new System.Drawing.Size(973, 1061);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -224,6 +351,8 @@
             this.groupBoxNewNote.ResumeLayout(false);
             this.groupBoxNewNote.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.groupBoxEditNote.ResumeLayout(false);
+            this.groupBoxEditNote.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -246,6 +375,17 @@
         private System.Windows.Forms.CheckBox checkBoxDeadline;
         private System.Windows.Forms.Panel panelColor;
         private System.Windows.Forms.Button buttonDeleteTest;
+        private System.Windows.Forms.GroupBox groupBoxEditNote;
+        private System.Windows.Forms.Panel panelColorEdit;
+        private System.Windows.Forms.CheckBox checkBoxDeadlineEdit;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDeadlineEdit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBoxDescEdit;
+        private System.Windows.Forms.TextBox textBoxNameEdit;
+        private System.Windows.Forms.Button buttonUpdateTest;
     }
 }
 

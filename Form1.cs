@@ -25,7 +25,7 @@ using System.Diagnostics;
 -redigera post
 -radera post
     -länka radera knapp till funktion
-        -ta reda på note id och skicka till funktionen
+    -ta reda på note id och skicka till funktionen 
 -man kan inte ändra datum före checkbox är ikryssad
  
  
@@ -309,6 +309,22 @@ namespace todo
         private void buttonDeleteTest_Click(object sender, EventArgs e)
         {
             DeleteNote();
+        }
+
+        //uppdatera redigerad info
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+
+            populateItems();
+        }
+
+        private void buttonUpdateTest_Click(object sender, EventArgs e)
+        {
+            //redigerar endast note nummer 1, ändra senare
+
+
+            //visar upp rutan
+            groupBoxEditNote.Visible = true;
         }
     }
 }
