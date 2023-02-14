@@ -20,7 +20,18 @@ using System.Diagnostics;
 //för att pusha ut till repo efter commit -> git changes fönstret -> push
 //då sparas alla ändringar till github repo
 
-//test för branch 
+//To do lista för programmet
+/*
+-redigera post
+-radera post
+    -länka radera knapp till funktion
+        -ta reda på note id och skicka till funktionen
+-man kan inte ändra datum före checkbox är ikryssad
+ 
+ 
+ 
+ 
+ */
 
 namespace todo
 {

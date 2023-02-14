@@ -30,6 +30,8 @@
         {
             this.buttonNewNote = new System.Windows.Forms.Button();
             this.groupBoxNewNote = new System.Windows.Forms.GroupBox();
+            this.panelColor = new System.Windows.Forms.Panel();
+            this.checkBoxDeadline = new System.Windows.Forms.CheckBox();
             this.dateTimePickerDeadline = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
@@ -39,11 +41,9 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonDeleteTest = new System.Windows.Forms.Button();
             this.buttontableview = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBoxDeadline = new System.Windows.Forms.CheckBox();
-            this.panelColor = new System.Windows.Forms.Panel();
-            this.buttonDeleteTest = new System.Windows.Forms.Button();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -74,11 +74,30 @@
             this.groupBoxNewNote.Controls.Add(this.textBoxName);
             this.groupBoxNewNote.Location = new System.Drawing.Point(12, 125);
             this.groupBoxNewNote.Name = "groupBoxNewNote";
-            this.groupBoxNewNote.Size = new System.Drawing.Size(243, 388);
+            this.groupBoxNewNote.Size = new System.Drawing.Size(243, 336);
             this.groupBoxNewNote.TabIndex = 12;
             this.groupBoxNewNote.TabStop = false;
             this.groupBoxNewNote.Text = "groupBox1";
             this.groupBoxNewNote.Visible = false;
+            // 
+            // panelColor
+            // 
+            this.panelColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelColor.Location = new System.Drawing.Point(129, 247);
+            this.panelColor.Name = "panelColor";
+            this.panelColor.Size = new System.Drawing.Size(94, 36);
+            this.panelColor.TabIndex = 24;
+            // 
+            // checkBoxDeadline
+            // 
+            this.checkBoxDeadline.AutoSize = true;
+            this.checkBoxDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxDeadline.Location = new System.Drawing.Point(23, 191);
+            this.checkBoxDeadline.Name = "checkBoxDeadline";
+            this.checkBoxDeadline.Size = new System.Drawing.Size(100, 24);
+            this.checkBoxDeadline.TabIndex = 23;
+            this.checkBoxDeadline.Text = "Deadline?";
+            this.checkBoxDeadline.UseVisualStyleBackColor = true;
             // 
             // dateTimePickerDeadline
             // 
@@ -156,6 +175,19 @@
             this.panel2.Size = new System.Drawing.Size(263, 664);
             this.panel2.TabIndex = 24;
             // 
+            // buttonDeleteTest
+            // 
+            this.buttonDeleteTest.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonDeleteTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonDeleteTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeleteTest.Location = new System.Drawing.Point(29, 529);
+            this.buttonDeleteTest.Name = "buttonDeleteTest";
+            this.buttonDeleteTest.Size = new System.Drawing.Size(206, 42);
+            this.buttonDeleteTest.TabIndex = 27;
+            this.buttonDeleteTest.Text = "radera rad med id 1";
+            this.buttonDeleteTest.UseVisualStyleBackColor = false;
+            this.buttonDeleteTest.Click += new System.EventHandler(this.buttonDeleteTest_Click);
+            // 
             // buttontableview
             // 
             this.buttontableview.BackColor = System.Drawing.Color.Gainsboro;
@@ -177,37 +209,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(705, 664);
             this.flowLayoutPanel1.TabIndex = 25;
-            // 
-            // checkBoxDeadline
-            // 
-            this.checkBoxDeadline.AutoSize = true;
-            this.checkBoxDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxDeadline.Location = new System.Drawing.Point(23, 191);
-            this.checkBoxDeadline.Name = "checkBoxDeadline";
-            this.checkBoxDeadline.Size = new System.Drawing.Size(100, 24);
-            this.checkBoxDeadline.TabIndex = 23;
-            this.checkBoxDeadline.Text = "Deadline?";
-            this.checkBoxDeadline.UseVisualStyleBackColor = true;
-            // 
-            // panelColor
-            // 
-            this.panelColor.Location = new System.Drawing.Point(129, 247);
-            this.panelColor.Name = "panelColor";
-            this.panelColor.Size = new System.Drawing.Size(94, 36);
-            this.panelColor.TabIndex = 24;
-            // 
-            // buttonDeleteTest
-            // 
-            this.buttonDeleteTest.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonDeleteTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonDeleteTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDeleteTest.Location = new System.Drawing.Point(29, 529);
-            this.buttonDeleteTest.Name = "buttonDeleteTest";
-            this.buttonDeleteTest.Size = new System.Drawing.Size(206, 42);
-            this.buttonDeleteTest.TabIndex = 27;
-            this.buttonDeleteTest.Text = "test, radera en rad";
-            this.buttonDeleteTest.UseVisualStyleBackColor = false;
-            this.buttonDeleteTest.Click += new System.EventHandler(this.buttonDeleteTest_Click);
             // 
             // Form1
             // 

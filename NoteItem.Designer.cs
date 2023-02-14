@@ -40,7 +40,7 @@
             // 
             this.labelPostName.AutoSize = true;
             this.labelPostName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPostName.Location = new System.Drawing.Point(72, 18);
+            this.labelPostName.Location = new System.Drawing.Point(67, 15);
             this.labelPostName.Name = "labelPostName";
             this.labelPostName.Size = new System.Drawing.Size(61, 24);
             this.labelPostName.TabIndex = 1;
@@ -49,7 +49,7 @@
             // labelPostDescription
             // 
             this.labelPostDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPostDescription.Location = new System.Drawing.Point(72, 53);
+            this.labelPostDescription.Location = new System.Drawing.Point(67, 50);
             this.labelPostDescription.Name = "labelPostDescription";
             this.labelPostDescription.Size = new System.Drawing.Size(372, 28);
             this.labelPostDescription.TabIndex = 2;
@@ -58,7 +58,7 @@
             // labelPostDeadline
             // 
             this.labelPostDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPostDeadline.Location = new System.Drawing.Point(72, 94);
+            this.labelPostDeadline.Location = new System.Drawing.Point(67, 101);
             this.labelPostDeadline.Name = "labelPostDeadline";
             this.labelPostDeadline.Size = new System.Drawing.Size(372, 23);
             this.labelPostDeadline.TabIndex = 3;
@@ -69,7 +69,7 @@
             this.panelColor.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelColor.Location = new System.Drawing.Point(0, 0);
             this.panelColor.Name = "panelColor";
-            this.panelColor.Size = new System.Drawing.Size(66, 143);
+            this.panelColor.Size = new System.Drawing.Size(61, 143);
             this.panelColor.TabIndex = 4;
             // 
             // buttonDelete
