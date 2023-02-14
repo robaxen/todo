@@ -258,8 +258,6 @@ namespace todo
 
         public void DeleteNote()
         {
-            Debug.WriteLine("delete method called");
-
             DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -269,7 +267,6 @@ namespace todo
                 for (int i = row.Length - 1; i >= 0; i--)
                 {
                     ds.Tables["Note"].Rows.RemoveAt(1);
-                    Console.WriteLine(i);
                 }
 
                 //resettar id fälten och sparar alla ändringar
