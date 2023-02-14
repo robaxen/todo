@@ -315,13 +315,13 @@ namespace todo
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
 
+
             populateItems();
         }
 
         private void buttonUpdateTest_Click(object sender, EventArgs e)
         {
             //redigerar endast note nummer 1, ändra senare
-
 
             //visar upp rutan
             groupBoxEditNote.Visible = true;
