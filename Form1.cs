@@ -209,7 +209,6 @@ namespace todo
                 string deadline = "";
 
                 color = "";
- 
 
                 //leta i rad där id = i, börjar från 1 i for loopen ovanför
                 DataRow[] dr = ds.Tables[0].Select("id=" + i);
@@ -225,7 +224,7 @@ namespace todo
                     name = row["name"].ToString();
                     desc = row["desc"].ToString();
                     deadline = row["deadline"].ToString();
-                    color = row["colorCode"].ToString();
+                    color = row["colorCode"].ToString(); 
                 }
 
                 //skapar en note ruta med user controllern NoteItem
@@ -267,6 +266,7 @@ namespace todo
             DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                //byt ut '1' till id som tillhör noten man vill radera
                 DataRow[] row = ds.Tables[0].Select("id=" + 1);
 
                 for (int i = row.Length - 1; i >= 0; i--)
