@@ -139,7 +139,7 @@ namespace todo
             //Console.WriteLine("detta sätts in i colorCode kolumnen: " + panelColor.BackColor.ToArgb());
             //Console.WriteLine("ToString istället för ToArgb: " + panelColor.BackColor.ToString());
 
-            DataTable table1 = ds.Tables["Note"];
+            DataTable table1 = ds.Tables["Note"]; 
 
             //skapar raden som ska sättas in i tabellen. All data kommer från alla ifyllda fält
             DataRow dr = table1.NewRow();
@@ -310,14 +310,13 @@ namespace todo
         //uppdatera redigerad info
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            //branch test
-
             populateItems();
         }
 
         private void buttonUpdateTest_Click(object sender, EventArgs e)
         {
             //redigerar endast note nummer 1, ändra senare
+            NoteItem noteItem = new NoteItem();
 
             //visar upp rutan
             groupBoxEditNote.Visible = true;
