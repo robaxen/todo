@@ -20,6 +20,7 @@ using System.Diagnostics;
 //för att pusha ut till repo efter commit -> git changes fönstret -> push
 //då sparas alla ändringar till github repo
 
+
 //To do lista för programmet
 /*
 -redigera post
@@ -27,10 +28,6 @@ using System.Diagnostics;
     -länka radera knapp till funktion
     -ta reda på note id och skicka till funktionen 
 -man kan inte ändra datum före checkbox är ikryssad
- 
- 
- 
- 
  */
 
 namespace todo
@@ -286,10 +283,9 @@ namespace todo
             }
             else if (dialogResult == DialogResult.No)
             {
-                
+
             }
         }
-
         //används för att resetta alla id fält så att inga luckor uppstår,
         //behövs för att kunna lista upp notes enligt Id'n med loopningsmetoden jag använt
         public void ResetID()
@@ -314,7 +310,7 @@ namespace todo
         //uppdatera redigerad info
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-
+            //branch test
 
             populateItems();
         }
