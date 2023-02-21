@@ -321,5 +321,11 @@ namespace todo
             //visar upp rutan
             groupBoxEditNote.Visible = true;
         }
+
+        private void buttonRefreshTest_Click(object sender, EventArgs e)
+        {
+            //radar upp alla notes
+            populateItems();
+        }
     }
 }

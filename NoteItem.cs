@@ -17,8 +17,6 @@ namespace todo
         {
             InitializeComponent();
 
-            
-
             Form Form1 = (this.Parent as Form);
         }
 
@@ -50,7 +48,9 @@ namespace todo
         public string ColorCode
         {
             get { return _color; }
-            set { _color = value; 
+            set
+            {
+                _color = value;
                 try
                 {
                     panelColor.BackColor = ColorTranslator.FromHtml(value);
@@ -59,15 +59,12 @@ namespace todo
                 {
                     panelColor.BackColor = Color.Red;
                 };
-            }
-                
+            }   
         }
-
-
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-
+            this.Parent.Controls.Remove(this);
         }
     }
 }
