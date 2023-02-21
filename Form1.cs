@@ -61,6 +61,10 @@ namespace todo
             
             //listar upp alla rader i en flowlayout panel
             populateItems();
+
+            //handler som tar emot radera knapp tryckning från usercontrollen
+            NoteItem noteItem = new NoteItem();
+            noteItem.DataAvailable += new EventHandler(noteItem_DataAvailable);
         }
 
         private void CreateTable()
@@ -324,5 +328,21 @@ namespace todo
             //radar upp alla notes
             populateItems();
         }
+
+
+        void noteItem_DataAvailable(object sender, EventArgs e)
+        {
+            NoteItem noteItem = sender as NoteItem;
+
+            Console.WriteLine("data received!");
+
+            if (noteItem != null)
+            {
+                //skriver ut id som hämtas från usercontrol
+                Console.WriteLine(noteItem.Id);
+            }
+        }
     }
 }
+
+//https://www.codeproject.com/Tips/548131/Transferring-information-between-two-forms-Part-2

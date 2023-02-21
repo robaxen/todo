@@ -70,11 +70,10 @@ namespace todo
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            //raderar control från flowlayout panel, onödigt
-            //this.Parent.Controls.Remove(this);
+            OnDataAvailable(null);
 
             //skriver ut id för noteitem ?? 
-            Console.WriteLine(this.Id);
+            //Console.WriteLine("Current note id = " + this.Id);
         }
 
         //skapar event handler för att skicka knapp tryck till main form
@@ -86,6 +85,8 @@ namespace todo
             if(eh != null)
             {
                 eh(this, e);
+
+                Console.WriteLine("data available for noteitem, button clicked");
             }
         }
 
