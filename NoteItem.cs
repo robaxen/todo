@@ -77,6 +77,20 @@ namespace todo
             Console.WriteLine(this.Id);
         }
 
+        //skapar event handler för att skicka knapp tryck till main form
+        public event EventHandler DataAvailable;
+
+        protected virtual void OnDataAvailable(EventArgs e)
+        {
+            EventHandler eh = DataAvailable;
+            if(eh != null)
+            {
+                eh(this, e);
+            }
+        }
+
+        
+
         //public string Data
         //{
         //    get { return "test"; }
