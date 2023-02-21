@@ -242,6 +242,9 @@ namespace todo
                 noteItems[i].Description = desc;
                 noteItems[i].ColorCode = color;
 
+                //sparar id för noten
+                noteItems[i].Id = i.ToString();
+
                 //skriver endast i deadline om det finns en deadline sparad i tabellen
                 //if (deadline.ToString().Length > 0)
                 if (deadline.ToString().Length > 0)
@@ -305,12 +308,6 @@ namespace todo
         private void buttonDeleteTest_Click(object sender, EventArgs e)
         {
             DeleteNote();
-        }
-
-        //uppdatera redigerad info
-        private void buttonUpdate_Click(object sender, EventArgs e)
-        {
-            populateItems();
         }
 
         private void buttonUpdateTest_Click(object sender, EventArgs e)

@@ -21,11 +21,17 @@ namespace todo
         }
 
         //getters och setters
+        private string _id;
         private string _name;
         private string _description;
         private string _deadline;
         private string _color;
 
+        public string Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
         public string Name
         {
             get { return _name; }
@@ -64,7 +70,17 @@ namespace todo
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            this.Parent.Controls.Remove(this);
+            //raderar control från flowlayout panel, onödigt
+            //this.Parent.Controls.Remove(this);
+
+            //skriver ut id för noteitem ?? 
+            Console.WriteLine(this.Id);
         }
+
+        //public string Data
+        //{
+        //    get { return "test"; }
+        //    set { "test" = value; }
+        //}
     }
 }
