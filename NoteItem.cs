@@ -72,8 +72,7 @@ namespace todo
         {
             OnDataAvailable(null);
 
-            //skriver ut id för noteitem ?? 
-            //Console.WriteLine("Current note id = " + this.Id);
+            Console.WriteLine("button " + this.Id + " clicked");
         }
 
         //skapar event handler för att skicka knapp tryck till main form
@@ -86,7 +85,11 @@ namespace todo
             {
                 eh(this, e);
 
-                Console.WriteLine("data available for noteitem, button clicked");
+                Console.WriteLine("data available for noteitem");
+            }
+            else if (eh == null)
+            {
+                Console.WriteLine("event handler is null");
             }
         }
 
