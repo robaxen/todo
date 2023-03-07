@@ -41,6 +41,7 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonRefreshTest = new System.Windows.Forms.Button();
             this.buttonUpdateTest = new System.Windows.Forms.Button();
             this.groupBoxEditNote = new System.Windows.Forms.GroupBox();
             this.panelColorEdit = new System.Windows.Forms.Panel();
@@ -55,7 +56,7 @@
             this.buttonDeleteTest = new System.Windows.Forms.Button();
             this.buttontableview = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonRefreshTest = new System.Windows.Forms.Button();
+            this.textBoxTest = new System.Windows.Forms.TextBox();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBoxEditNote.SuspendLayout();
@@ -178,6 +179,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Controls.Add(this.textBoxTest);
             this.panel2.Controls.Add(this.buttonRefreshTest);
             this.panel2.Controls.Add(this.buttonUpdateTest);
             this.panel2.Controls.Add(this.groupBoxEditNote);
@@ -190,6 +192,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(263, 1061);
             this.panel2.TabIndex = 24;
+            // 
+            // buttonRefreshTest
+            // 
+            this.buttonRefreshTest.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonRefreshTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonRefreshTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRefreshTest.Location = new System.Drawing.Point(186, 515);
+            this.buttonRefreshTest.Name = "buttonRefreshTest";
+            this.buttonRefreshTest.Size = new System.Drawing.Size(74, 46);
+            this.buttonRefreshTest.TabIndex = 29;
+            this.buttonRefreshTest.Text = "Refresh";
+            this.buttonRefreshTest.UseVisualStyleBackColor = false;
+            this.buttonRefreshTest.Click += new System.EventHandler(this.buttonRefreshTest_Click);
             // 
             // buttonUpdateTest
             // 
@@ -338,18 +353,12 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(705, 1061);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
-            // buttonRefreshTest
+            // textBoxTest
             // 
-            this.buttonRefreshTest.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonRefreshTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonRefreshTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRefreshTest.Location = new System.Drawing.Point(186, 515);
-            this.buttonRefreshTest.Name = "buttonRefreshTest";
-            this.buttonRefreshTest.Size = new System.Drawing.Size(74, 46);
-            this.buttonRefreshTest.TabIndex = 29;
-            this.buttonRefreshTest.Text = "Refresh";
-            this.buttonRefreshTest.UseVisualStyleBackColor = false;
-            this.buttonRefreshTest.Click += new System.EventHandler(this.buttonRefreshTest_Click);
+            this.textBoxTest.Location = new System.Drawing.Point(20, 99);
+            this.textBoxTest.Name = "textBoxTest";
+            this.textBoxTest.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTest.TabIndex = 30;
             // 
             // Form1
             // 
@@ -365,6 +374,7 @@
             this.groupBoxNewNote.ResumeLayout(false);
             this.groupBoxNewNote.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.groupBoxEditNote.ResumeLayout(false);
             this.groupBoxEditNote.PerformLayout();
             this.ResumeLayout(false);
@@ -401,6 +411,7 @@
         private System.Windows.Forms.TextBox textBoxNameEdit;
         private System.Windows.Forms.Button buttonUpdateTest;
         private System.Windows.Forms.Button buttonRefreshTest;
+        private System.Windows.Forms.TextBox textBoxTest;
     }
 }
 

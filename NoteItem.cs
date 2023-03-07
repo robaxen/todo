@@ -68,37 +68,17 @@ namespace todo
             }   
         }
 
+       
+
+        public string ID2
+        {
+            get { return this.Id; }
+        }
+
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            OnDataAvailable(null);
-
+            //skriver ut id för note i console
             Console.WriteLine("button " + this.Id + " clicked");
         }
-
-        //skapar event handler för att skicka knapp tryck till main form
-        public event EventHandler DataAvailable;
-
-        protected virtual void OnDataAvailable(EventArgs e)
-        {
-            EventHandler eh = DataAvailable;
-            if(eh != null)
-            {
-                eh(this, e);
-
-                Console.WriteLine("data available for noteitem");
-            }
-            else if (eh == null)
-            {
-                Console.WriteLine("event handler is null");
-            }
-        }
-
-        
-
-        //public string Data
-        //{
-        //    get { return "test"; }
-        //    set { "test" = value; }
-        //}
     }
 }

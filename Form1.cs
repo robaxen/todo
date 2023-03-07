@@ -64,7 +64,6 @@ namespace todo
 
             //handler som tar emot radera knapp tryckning från usercontrollen
             NoteItem noteItem = new NoteItem();
-            noteItem.DataAvailable += new EventHandler(noteItem_DataAvailable);
         }
 
         private void CreateTable()
@@ -329,18 +328,9 @@ namespace todo
             populateItems();
         }
 
-
-        void noteItem_DataAvailable(object sender, EventArgs e)
+        public string ID2
         {
-            NoteItem noteItem = sender as NoteItem;
-
-            Console.WriteLine("data received!");
-
-            if (noteItem != null)
-            {
-                //skriver ut id som hämtas från usercontrol
-                Console.WriteLine(noteItem.Id);
-            }
+            set { textBoxTest.Text = value; }
         }
     }
 }
