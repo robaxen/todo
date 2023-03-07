@@ -320,7 +320,7 @@ namespace todo
 
         private void buttonEditTest_Click(object sender, EventArgs e)
         {
-            editNote(1, "test", "test", "1111");
+            editNote(1, "test", "test", "-65408");
         }
     }
 }
