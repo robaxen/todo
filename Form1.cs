@@ -272,27 +272,35 @@ namespace todo
 
         public void DeleteNote(int id)
         {
-            //en extra ruta som frågar om man verkligen vill radera note
-            DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+
+            //väljer ut och tilldelar "row" med rad med rätt id(id fås från metoden, skickas från NoteItem usercontrollern)
+            DataRow[] row = ds.Tables[0].Select("id=" + id);
+
+            for (int i = row.Length - 1; i >= 0; i--)
             {
-                //väljer ut och tilldelar "row" med rad med rätt id(id fås från metoden, skickas från NoteItem usercontrollern)
-                DataRow[] row = ds.Tables[0].Select("id=" + id);
-
-                for (int i = row.Length - 1; i >= 0; i--)
-                {
-                    ds.Tables["Note"].Rows.RemoveAt(id);
-                }
-
-                //resettar id fälten och sparar alla ändringar
-                ResetID();
-
+                ds.Tables["Note"].Rows.RemoveAt(id);
             }
-            else if (dialogResult == DialogResult.No)
-            {
 
-            }
+            //resettar id fälten och sparar alla ändringar
+            ResetID();
         }
+
+
+        public void editNote(int id, string name, string desc, string color)
+        {
+            Console.WriteLine("editNote method called");
+            Console.WriteLine(id.ToString() + " " + name + " " + desc + " " + color);
+
+            //visar upp redigerings rutan
+            groupBoxEditNote.Visible = true;
+
+            textBoxNameEdit.Text = "test";
+
+            textBoxNameEdit.Text = name;
+            textBoxDescEdit.Text = desc;
+            panelColorEdit.BackColor = ColorTranslator.FromHtml(color);
+        }
+
         //används för att resetta alla id fält så att inga luckor uppstår,
         //behövs för att kunna lista upp notes enligt Id'n med loopningsmetoden jag använt
         public void ResetID()
@@ -308,28 +316,5 @@ namespace todo
             ds.Tables["Note"].AcceptChanges();
             SaveToXml();
         }
-
-        private void buttonUpdateTest_Click(object sender, EventArgs e)
-        {
-            //redigerar endast note nummer 1, ändra senare
-            NoteItem noteItem = new NoteItem();
-
-            //visar upp rutan
-            groupBoxEditNote.Visible = true;
-        }
-
-        private void buttonRefreshTest_Click(object sender, EventArgs e)
-        {
-            //radar upp alla notes
-            populateItems();
-        }
-
-        //skapar en public metod för att det ska gå att kalla den från NoteItem usercontrol
-        public void testBox(int id)
-        {
-            MessageBox.Show("lol" + id);
-        }
     }
 }
-
-//https://www.codeproject.com/Tips/548131/Transferring-information-between-two-forms-Part-2

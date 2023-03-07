@@ -41,7 +41,6 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonRefreshTest = new System.Windows.Forms.Button();
             this.buttonUpdateTest = new System.Windows.Forms.Button();
             this.groupBoxEditNote = new System.Windows.Forms.GroupBox();
             this.panelColorEdit = new System.Windows.Forms.Panel();
@@ -53,7 +52,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBoxDescEdit = new System.Windows.Forms.TextBox();
             this.textBoxNameEdit = new System.Windows.Forms.TextBox();
-            this.buttonDeleteTest = new System.Windows.Forms.Button();
             this.buttontableview = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxNewNote.SuspendLayout();
@@ -178,10 +176,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Controls.Add(this.buttonRefreshTest);
             this.panel2.Controls.Add(this.buttonUpdateTest);
             this.panel2.Controls.Add(this.groupBoxEditNote);
-            this.panel2.Controls.Add(this.buttonDeleteTest);
             this.panel2.Controls.Add(this.groupBoxNewNote);
             this.panel2.Controls.Add(this.buttontableview);
             this.panel2.Controls.Add(this.buttonNewNote);
@@ -191,31 +187,17 @@
             this.panel2.Size = new System.Drawing.Size(263, 1061);
             this.panel2.TabIndex = 24;
             // 
-            // buttonRefreshTest
-            // 
-            this.buttonRefreshTest.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonRefreshTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonRefreshTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRefreshTest.Location = new System.Drawing.Point(186, 515);
-            this.buttonRefreshTest.Name = "buttonRefreshTest";
-            this.buttonRefreshTest.Size = new System.Drawing.Size(74, 46);
-            this.buttonRefreshTest.TabIndex = 29;
-            this.buttonRefreshTest.Text = "Refresh";
-            this.buttonRefreshTest.UseVisualStyleBackColor = false;
-            this.buttonRefreshTest.Click += new System.EventHandler(this.buttonRefreshTest_Click);
-            // 
             // buttonUpdateTest
             // 
             this.buttonUpdateTest.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonUpdateTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonUpdateTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpdateTest.Location = new System.Drawing.Point(12, 515);
+            this.buttonUpdateTest.Location = new System.Drawing.Point(12, 467);
             this.buttonUpdateTest.Name = "buttonUpdateTest";
             this.buttonUpdateTest.Size = new System.Drawing.Size(171, 42);
             this.buttonUpdateTest.TabIndex = 28;
             this.buttonUpdateTest.Text = "redigera rad med id 1";
             this.buttonUpdateTest.UseVisualStyleBackColor = false;
-            this.buttonUpdateTest.Click += new System.EventHandler(this.buttonUpdateTest_Click);
             // 
             // groupBoxEditNote
             // 
@@ -228,13 +210,12 @@
             this.groupBoxEditNote.Controls.Add(this.button2);
             this.groupBoxEditNote.Controls.Add(this.textBoxDescEdit);
             this.groupBoxEditNote.Controls.Add(this.textBoxNameEdit);
-            this.groupBoxEditNote.Location = new System.Drawing.Point(12, 563);
+            this.groupBoxEditNote.Location = new System.Drawing.Point(12, 515);
             this.groupBoxEditNote.Name = "groupBoxEditNote";
             this.groupBoxEditNote.Size = new System.Drawing.Size(243, 336);
             this.groupBoxEditNote.TabIndex = 25;
             this.groupBoxEditNote.TabStop = false;
             this.groupBoxEditNote.Text = "Redigera note";
-            this.groupBoxEditNote.Visible = false;
             // 
             // panelColorEdit
             // 
@@ -316,18 +297,6 @@
             this.textBoxNameEdit.Size = new System.Drawing.Size(200, 20);
             this.textBoxNameEdit.TabIndex = 11;
             // 
-            // buttonDeleteTest
-            // 
-            this.buttonDeleteTest.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonDeleteTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonDeleteTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDeleteTest.Location = new System.Drawing.Point(12, 467);
-            this.buttonDeleteTest.Name = "buttonDeleteTest";
-            this.buttonDeleteTest.Size = new System.Drawing.Size(171, 42);
-            this.buttonDeleteTest.TabIndex = 27;
-            this.buttonDeleteTest.Text = "radera rad med id 1";
-            this.buttonDeleteTest.UseVisualStyleBackColor = false;
-            // 
             // buttontableview
             // 
             this.buttontableview.BackColor = System.Drawing.Color.Gainsboro;
@@ -387,7 +356,6 @@
         private System.Windows.Forms.Button buttontableview;
         private System.Windows.Forms.CheckBox checkBoxDeadline;
         private System.Windows.Forms.Panel panelColor;
-        private System.Windows.Forms.Button buttonDeleteTest;
         private System.Windows.Forms.GroupBox groupBoxEditNote;
         private System.Windows.Forms.Panel panelColorEdit;
         private System.Windows.Forms.CheckBox checkBoxDeadlineEdit;
@@ -399,7 +367,6 @@
         private System.Windows.Forms.TextBox textBoxDescEdit;
         private System.Windows.Forms.TextBox textBoxNameEdit;
         private System.Windows.Forms.Button buttonUpdateTest;
-        private System.Windows.Forms.Button buttonRefreshTest;
     }
 }
 

@@ -92,6 +92,7 @@
             this.buttonEdit.TabIndex = 22;
             this.buttonEdit.Text = "Redigera";
             this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // NoteItem
             // 
