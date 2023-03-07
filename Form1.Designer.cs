@@ -56,7 +56,6 @@
             this.buttonDeleteTest = new System.Windows.Forms.Button();
             this.buttontableview = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.textBoxTest = new System.Windows.Forms.TextBox();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBoxEditNote.SuspendLayout();
@@ -179,7 +178,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Controls.Add(this.textBoxTest);
             this.panel2.Controls.Add(this.buttonRefreshTest);
             this.panel2.Controls.Add(this.buttonUpdateTest);
             this.panel2.Controls.Add(this.groupBoxEditNote);
@@ -353,13 +351,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(705, 1061);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
-            // textBoxTest
-            // 
-            this.textBoxTest.Location = new System.Drawing.Point(20, 99);
-            this.textBoxTest.Name = "textBoxTest";
-            this.textBoxTest.Size = new System.Drawing.Size(100, 20);
-            this.textBoxTest.TabIndex = 30;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,7 +365,6 @@
             this.groupBoxNewNote.ResumeLayout(false);
             this.groupBoxNewNote.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.groupBoxEditNote.ResumeLayout(false);
             this.groupBoxEditNote.PerformLayout();
             this.ResumeLayout(false);
@@ -411,7 +401,6 @@
         private System.Windows.Forms.TextBox textBoxNameEdit;
         private System.Windows.Forms.Button buttonUpdateTest;
         private System.Windows.Forms.Button buttonRefreshTest;
-        private System.Windows.Forms.TextBox textBoxTest;
     }
 }
 

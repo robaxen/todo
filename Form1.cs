@@ -327,11 +327,6 @@ namespace todo
             //radar upp alla notes
             populateItems();
         }
-
-        public string ID2
-        {
-            set { textBoxTest.Text = value; }
-        }
     }
 }
 

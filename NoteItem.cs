@@ -68,13 +68,6 @@ namespace todo
             }   
         }
 
-       
-
-        public string ID2
-        {
-            get { return this.Id; }
-        }
-
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             //skriver ut id för note i console
