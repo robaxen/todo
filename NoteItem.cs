@@ -72,6 +72,11 @@ namespace todo
         {
             //skriver ut id för note i console
             Console.WriteLine("button " + this.Id + " clicked");
+
+            int id= Int32.Parse(this.Id);
+
+            Form1 form = new Form1();
+            form.DeleteNote(id);
         }
     }
 }

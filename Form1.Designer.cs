@@ -327,7 +327,6 @@
             this.buttonDeleteTest.TabIndex = 27;
             this.buttonDeleteTest.Text = "radera rad med id 1";
             this.buttonDeleteTest.UseVisualStyleBackColor = false;
-            this.buttonDeleteTest.Click += new System.EventHandler(this.buttonDeleteTest_Click);
             // 
             // buttontableview
             // 

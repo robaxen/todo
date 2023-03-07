@@ -270,17 +270,18 @@ namespace todo
             tableView.ShowDialog();
         }
 
-        public void DeleteNote()
+        public void DeleteNote(int id)
         {
+            //en extra ruta som frågar om man verkligen vill radera note
             DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                //byt ut '1' till id som tillhör noten man vill radera
-                DataRow[] row = ds.Tables[0].Select("id=" + 1);
+                //väljer ut och tilldelar "row" med rad med rätt id(id fås från metoden, skickas från NoteItem usercontrollern)
+                DataRow[] row = ds.Tables[0].Select("id=" + id);
 
                 for (int i = row.Length - 1; i >= 0; i--)
                 {
-                    ds.Tables["Note"].Rows.RemoveAt(1);
+                    ds.Tables["Note"].Rows.RemoveAt(id);
                 }
 
                 //resettar id fälten och sparar alla ändringar
@@ -308,11 +309,6 @@ namespace todo
             SaveToXml();
         }
 
-        private void buttonDeleteTest_Click(object sender, EventArgs e)
-        {
-            DeleteNote();
-        }
-
         private void buttonUpdateTest_Click(object sender, EventArgs e)
         {
             //redigerar endast note nummer 1, ändra senare
@@ -326,6 +322,12 @@ namespace todo
         {
             //radar upp alla notes
             populateItems();
+        }
+
+        //skapar en public metod för att det ska gå att kalla den från NoteItem usercontrol
+        public void testBox(int id)
+        {
+            MessageBox.Show("lol" + id);
         }
     }
 }
