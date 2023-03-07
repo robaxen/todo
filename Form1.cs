@@ -317,5 +317,10 @@ namespace todo
             ds.Tables["Note"].AcceptChanges();
             SaveToXml();
         }
+
+        private void buttonEditTest_Click(object sender, EventArgs e)
+        {
+            editNote(1, "test", "test", "1111");
+        }
     }
 }
