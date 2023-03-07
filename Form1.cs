@@ -265,7 +265,7 @@ namespace todo
 
         private void buttontableview_Click(object sender, EventArgs e)
         {
-            //visar upp ett fönster med tabellen, för att kolla tabellens innehåll
+            //visar upp ett fönster med tabellen, för att kolla tabellens innehåll under testning
             TableView tableView = new TableView();
             tableView.ShowDialog();
         }
@@ -295,6 +295,7 @@ namespace todo
             groupBoxEditNote.Visible = true;
 
             textBoxNameEdit.Text = "test";
+            groupBoxEditNote.Text = "Redigerar post " + name;
 
             textBoxNameEdit.Text = name;
             textBoxDescEdit.Text = desc;
@@ -305,7 +306,7 @@ namespace todo
         //behövs för att kunna lista upp notes enligt Id'n med loopningsmetoden jag använt
         public void ResetID()
         {
-            //resettar id efter deletion (väldigt dirty lösning)
+            //resettar id efter deletion (väldigt dålig lösning)
             int counter = -1;
             foreach (DataRow noteRow in ds.Tables["Note"].Rows)
             {

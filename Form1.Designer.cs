@@ -41,7 +41,6 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonUpdateTest = new System.Windows.Forms.Button();
             this.groupBoxEditNote = new System.Windows.Forms.GroupBox();
             this.panelColorEdit = new System.Windows.Forms.Panel();
             this.checkBoxDeadlineEdit = new System.Windows.Forms.CheckBox();
@@ -176,7 +175,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Controls.Add(this.buttonUpdateTest);
             this.panel2.Controls.Add(this.groupBoxEditNote);
             this.panel2.Controls.Add(this.groupBoxNewNote);
             this.panel2.Controls.Add(this.buttontableview);
@@ -186,18 +184,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(263, 1061);
             this.panel2.TabIndex = 24;
-            // 
-            // buttonUpdateTest
-            // 
-            this.buttonUpdateTest.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonUpdateTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonUpdateTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpdateTest.Location = new System.Drawing.Point(12, 467);
-            this.buttonUpdateTest.Name = "buttonUpdateTest";
-            this.buttonUpdateTest.Size = new System.Drawing.Size(171, 42);
-            this.buttonUpdateTest.TabIndex = 28;
-            this.buttonUpdateTest.Text = "redigera rad med id 1";
-            this.buttonUpdateTest.UseVisualStyleBackColor = false;
             // 
             // groupBoxEditNote
             // 
@@ -210,7 +196,7 @@
             this.groupBoxEditNote.Controls.Add(this.button2);
             this.groupBoxEditNote.Controls.Add(this.textBoxDescEdit);
             this.groupBoxEditNote.Controls.Add(this.textBoxNameEdit);
-            this.groupBoxEditNote.Location = new System.Drawing.Point(12, 515);
+            this.groupBoxEditNote.Location = new System.Drawing.Point(12, 476);
             this.groupBoxEditNote.Name = "groupBoxEditNote";
             this.groupBoxEditNote.Size = new System.Drawing.Size(243, 336);
             this.groupBoxEditNote.TabIndex = 25;
@@ -314,9 +300,9 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(268, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(269, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(705, 1061);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(704, 1061);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
             // Form1
@@ -366,7 +352,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBoxDescEdit;
         private System.Windows.Forms.TextBox textBoxNameEdit;
-        private System.Windows.Forms.Button buttonUpdateTest;
     }
 }
 
