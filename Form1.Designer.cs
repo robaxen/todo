@@ -43,6 +43,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonEditTest = new System.Windows.Forms.Button();
             this.groupBoxEditNote = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelColorEdit = new System.Windows.Forms.Panel();
             this.checkBoxDeadlineEdit = new System.Windows.Forms.CheckBox();
             this.dateTimePickerDeadlineEdit = new System.Windows.Forms.DateTimePicker();
@@ -54,7 +55,6 @@
             this.textBoxNameEdit = new System.Windows.Forms.TextBox();
             this.buttontableview = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBoxEditNote.SuspendLayout();
@@ -65,9 +65,9 @@
             this.buttonNewNote.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonNewNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonNewNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewNote.Location = new System.Drawing.Point(29, 20);
+            this.buttonNewNote.Location = new System.Drawing.Point(29, 12);
             this.buttonNewNote.Name = "buttonNewNote";
-            this.buttonNewNote.Size = new System.Drawing.Size(206, 42);
+            this.buttonNewNote.Size = new System.Drawing.Size(214, 99);
             this.buttonNewNote.TabIndex = 0;
             this.buttonNewNote.Text = "Ny note";
             this.buttonNewNote.UseVisualStyleBackColor = false;
@@ -84,9 +84,9 @@
             this.groupBoxNewNote.Controls.Add(this.buttonColor);
             this.groupBoxNewNote.Controls.Add(this.textBoxDesc);
             this.groupBoxNewNote.Controls.Add(this.textBoxName);
-            this.groupBoxNewNote.Location = new System.Drawing.Point(12, 125);
+            this.groupBoxNewNote.Location = new System.Drawing.Point(20, 137);
             this.groupBoxNewNote.Name = "groupBoxNewNote";
-            this.groupBoxNewNote.Size = new System.Drawing.Size(243, 336);
+            this.groupBoxNewNote.Size = new System.Drawing.Size(243, 344);
             this.groupBoxNewNote.TabIndex = 12;
             this.groupBoxNewNote.TabStop = false;
             this.groupBoxNewNote.Text = "Skapa ny note";
@@ -193,7 +193,7 @@
             this.buttonEditTest.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonEditTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonEditTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditTest.Location = new System.Drawing.Point(29, 869);
+            this.buttonEditTest.Location = new System.Drawing.Point(37, 902);
             this.buttonEditTest.Name = "buttonEditTest";
             this.buttonEditTest.Size = new System.Drawing.Size(206, 42);
             this.buttonEditTest.TabIndex = 27;
@@ -212,12 +212,23 @@
             this.groupBoxEditNote.Controls.Add(this.button2);
             this.groupBoxEditNote.Controls.Add(this.textBoxDescEdit);
             this.groupBoxEditNote.Controls.Add(this.textBoxNameEdit);
-            this.groupBoxEditNote.Location = new System.Drawing.Point(12, 476);
+            this.groupBoxEditNote.Location = new System.Drawing.Point(20, 487);
             this.groupBoxEditNote.Name = "groupBoxEditNote";
-            this.groupBoxEditNote.Size = new System.Drawing.Size(248, 387);
+            this.groupBoxEditNote.Size = new System.Drawing.Size(248, 400);
             this.groupBoxEditNote.TabIndex = 25;
             this.groupBoxEditNote.TabStop = false;
             this.groupBoxEditNote.Text = "Redigera note";
+            this.groupBoxEditNote.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(23, 331);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 36);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Avbryt";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelColorEdit
             // 
@@ -304,7 +315,7 @@
             this.buttontableview.BackColor = System.Drawing.Color.Gainsboro;
             this.buttontableview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttontableview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttontableview.Location = new System.Drawing.Point(29, 68);
+            this.buttontableview.Location = new System.Drawing.Point(37, 963);
             this.buttontableview.Name = "buttontableview";
             this.buttontableview.Size = new System.Drawing.Size(206, 42);
             this.buttontableview.TabIndex = 26;
@@ -320,16 +331,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(704, 1061);
             this.flowLayoutPanel1.TabIndex = 25;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(23, 331);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 36);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Avbryt";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 

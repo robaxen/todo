@@ -345,20 +345,25 @@ namespace todo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //flyttar redigerings rutan och ny note rutan ovanpå varann
+            groupBoxEditNote.Location = new Point (20, 137);
+
             populateItems();
         }
 
         void UserControl_Click(object sender, EventArgs e)
         {
-            //user control objekt för att få tillgång till note controls (namn, besk...)
-            NoteItem obj = (NoteItem)sender;  
-            
-            textBoxNameEdit.Text = obj.Name;
-            textBoxDescEdit.Text = obj.Description;
-            panelColorEdit.BackColor = ColorTranslator.FromHtml(obj.ColorCode);
+                //user control objekt för att få tillgång till note controls (namn, besk...)
+                NoteItem obj = (NoteItem)sender;
 
-            groupBoxEditNote.Visible = true;
-            groupBoxNewNote.Visible = false;
+                groupBoxEditNote.Text = "Redigera note " + obj.Name;
+
+                textBoxNameEdit.Text = obj.Name;
+                textBoxDescEdit.Text = obj.Description;
+                panelColorEdit.BackColor = ColorTranslator.FromHtml(obj.ColorCode);
+
+                groupBoxEditNote.Visible = true;
+                groupBoxNewNote.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
