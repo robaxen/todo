@@ -17,33 +17,17 @@ namespace todo
         public NoteItem()
         {
             InitializeComponent();
+
+            labelPostName.ForeColor = Color.Black;
+            labelPostDescription.ForeColor = Color.Black;   
+
+            this.BackColor = default(Color);
         }
-
-        private string stringA;
-
-        public string a
-        {
-            get { return stringA; }
-            set
-            {
-                if (value != stringA)
-                {
-                    stringA = value;
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this, new PropertyChangedEventArgs(a));
-                    }
-                }
-            }
-        }
-
-        //https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events
 
         //getters och setters
         private string _id;
         private string _name;
         private string _description;
-        private string _deadline;
         private string _color;
 
         public string Id
@@ -63,13 +47,6 @@ namespace todo
             set { _description = value; labelPostDescription.Text = value; }
         }
 
-        public string Deadline
-        {
-            get { return _deadline; }
-            set { _deadline = value; labelPostDeadline.Text = value;
-            }
-        }
-
         public string ColorCode
         {
             get { return _color; }
@@ -85,13 +62,6 @@ namespace todo
                     panelColor.BackColor = Color.Red;
                 };
             }   
-        }
-
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-            //this.id för att få variabler
-
-            a = buttonEdit.Text;
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -114,12 +84,20 @@ namespace todo
                 //tar bort controllern från flowlayoutpanelen
                 this.Parent.Controls.Remove(this);
             }
-            else if (dialogResult == DialogResult.No)
-            {
-
-            }
         }
 
-        
+        //-------------------hover effekt-------------------------
+        private void NoteItem_MouseEnter(object sender, EventArgs e)
+        {
+            //ändrar färg då musen är i note
+            this.BackColor = Color.FromArgb(200, 200, 200);
+        }
+
+        private void NoteItem_MouseLeave(object sender, EventArgs e)
+        {
+            //ändrar tillbaka färg då musen lämnar note
+            this.BackColor = Color.FromArgb(255, 255, 255);
+        }
+        //---------------------------------------------------------
     }
 }

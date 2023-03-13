@@ -58,9 +58,6 @@ namespace todo
 
             //läser och sätter in i dataset från "notes.xml"
             ds.ReadXml(@"notes.xml");
-            
-            //listar upp alla rader i en flowlayout panel
-            populateItems();
         }
 
         private void CreateTable()
@@ -94,12 +91,6 @@ namespace todo
             column.ColumnName = "desc";
             table1.Columns.Add(column);
 
-            //deadline kolumn
-            column = new DataColumn();
-            column.DataType = System.Type.GetType("System.String");
-            column.ColumnName = "deadline";
-            table1.Columns.Add(column);
-
             //färg kolumn
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
@@ -124,6 +115,7 @@ namespace todo
 
                 //visar upp rutan ifall den inte redan är synlig
                 groupBoxNewNote.Visible = true;
+                groupBoxEditNote.Visible = false;
             }
         }
 
@@ -132,12 +124,7 @@ namespace todo
             //hämtar all data som användaren skrivit in
             string name = textBoxName.Text;
             string desc = textBoxDesc.Text;
-            string deadline = dateTimePickerDeadline.Text;
             int colorCode = panelColor.BackColor.ToArgb();
-
-            ////tester för att se vald färg kod i olika format
-            //Console.WriteLine("detta sätts in i colorCode kolumnen: " + panelColor.BackColor.ToArgb());
-            //Console.WriteLine("ToString istället för ToArgb: " + panelColor.BackColor.ToString());
 
             DataTable table1 = ds.Tables["Note"]; 
 
@@ -147,17 +134,10 @@ namespace todo
             dr["desc"] = desc;
             dr["colorCode"] = colorCode;
 
-            //sätter endast in deadline datum ifall checkbox är ikryssad
-            if (checkBoxDeadline.Checked)
-            {
-                dr["deadline"] = deadline;
-            }
-            
-
             //sätter in den skapade raden i tabellen
             table1.Rows.Add(dr);
 
-            //reset id och spara data
+            //reset id för varje rad i tabellen och spara data
             ResetID();
 
             //kallar metod för att spara till xml filen
@@ -179,7 +159,6 @@ namespace todo
             //tömmer alla textboxar före "new note" rutan gömms undan
             textBoxName.Clear();
             textBoxDesc.Clear();
-            dateTimePickerDeadline.ResetText();
 
             //gömmer new note rutan igen
             groupBoxNewNote.Visible = false;
@@ -203,6 +182,19 @@ namespace todo
             }
         }
 
+        private void ChooseColorEdit()
+        {
+            //här öppnas det upp ett fönster där man kan välja en färg, colorDialog1 används för det
+            //ändrar färg bara om man väljer "ok"
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //ändrar färg för panel
+                panelColorEdit.BackColor = colorDialog1.Color;
+
+                Color color = colorDialog1.Color;
+            }
+        }
+
         private void populateItems()
         {
             //Sätter in varje rad från tabellen i sina egna rutor, och listar upp dem under varann i en flowlayout panel
@@ -219,7 +211,6 @@ namespace todo
                 //deklarerar data variabler som kommer fyllas med rätt data beroende på rad id
                 string name = "";
                 string desc = "";
-                string deadline = "";
 
                 color = "";
 
@@ -231,7 +222,6 @@ namespace todo
                     //delar ut värden åt variablerna
                     name = row["name"].ToString();
                     desc = row["desc"].ToString();
-                    deadline = row["deadline"].ToString();
                     color = row["colorCode"].ToString(); 
                 }
 
@@ -245,20 +235,14 @@ namespace todo
                 //sparar id för noten
                 noteItems[i].Id = i.ToString();
 
-                //skriver endast i deadline om det finns en deadline sparad i tabellen
-                //if (deadline.ToString().Length > 0)
-                if (deadline.ToString().Length > 0)
-                {
-                    noteItems[i].Deadline = "Deadline: " + deadline;
-                }
-                else
-                {
-                }
-
                 //sätter in alla skapade notes rutor i flowlayout panelen, där de radas upp under varandra
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
+
+                noteItems[i].Click += new System.EventHandler(this.UserControl_Click);
             }
         }
+
+
 
         private void buttontableview_Click(object sender, EventArgs e)
         {
@@ -281,38 +265,6 @@ namespace todo
             ResetID();
         }
 
-
-        public void editNote(string id, string name, string desc, string color)
-        {
-
-            textBoxNameEdit.Text = name;
-            textBoxDescEdit.Text = desc;
-
-            //if (groupBoxEditNote.Visible == false)
-            //{
-            //    //test för att kolla variablerna i konsolen
-            //    Console.WriteLine("editNote method called");
-            //    Console.WriteLine(id + " " + name + " " + desc + " " + color);
-
-            //    //ändrar redigerings rutans rubrik
-            //    groupBoxEditNote.Text = "Redigerar post " + name;
-
-            //    //ändrar värdena i redigerings rutan
-            //    textBoxNameEdit.Text = name;
-            //    textBoxDescEdit.Text = desc;
-            //    panelColorEdit.BackColor = ColorTranslator.FromHtml(color);
-
-            //    //visar upp redigerings rutan
-            //    groupBoxEditNote.Visible = true;
-            //}
-            //else
-            //{
-            //    groupBoxEditNote.Visible = false;
-            //}
-
-
-        }
-
         //används för att resetta alla id fält så att inga luckor uppstår,
         //behövs för att kunna lista upp notes enligt Id'n med loopningsmetoden jag använt
         public void ResetID()
@@ -329,31 +281,73 @@ namespace todo
             SaveToXml();
         }
 
-        private void buttonEditTest_Click(object sender, EventArgs e)
-        {
-                //tillderar värden
-                string id = "1";
-                string name = "name";
-                string desc = "description";
-                string color = "111";
-
-                editNote(id, name, desc, color);
-        }
-
-        NoteItem noteItem = new NoteItem();
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            //listar upp alla rader i en flowlayout panel
+            populateItems();
 
-            noteItem.PropertyChanged += NoteItem_PropertyChanged;
+            //flyttar redigerings rutan och ny note rutan ovanpå varann
+            groupBoxEditNote.Location = new Point (20, 137);
         }
 
-        private void NoteItem_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        void UserControl_Click(object sender, EventArgs e)
         {
-            textBoxNameEdit.Text = noteItem.a;
+                //user control objekt för att få tillgång till note controls (namn, besk...)
+                NoteItem obj = (NoteItem)sender;
 
-            Console.WriteLine("propertychanged");
+                groupBoxEditNote.Text = "Redigera note " + obj.Name;
+
+                textBoxNameEdit.Text = obj.Name;
+                textBoxDescEdit.Text = obj.Description;
+                panelColorEdit.BackColor = ColorTranslator.FromHtml(obj.ColorCode);
+
+                labelID.Text = obj.Id;
+
+                groupBoxEditNote.Visible = true;
+                groupBoxNewNote.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            groupBoxEditNote.Visible = false;
+
+            textBoxNameEdit.Clear() ;
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            DataRow dr = ds.Tables["Note"].Select("id=" + labelID.Text).FirstOrDefault();
+
+            if (dr != null)
+            {
+                dr["name"] = textBoxNameEdit.Text;
+                dr["desc"] = textBoxDescEdit.Text;
+
+                dr["colorCode"] = panelColorEdit.BackColor.ToArgb();
+
+                //sparar till xml filen
+                SaveToXml();
+
+                //tömmer alla fält
+                textBoxNameEdit.Clear();
+                textBoxDescEdit.Clear();
+                panelColorEdit.BackColor = default(Color);
+
+                //gömmer groupbox efter ändringar sparats
+                groupBoxEditNote.Visible = false;
+            }
+
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ChooseColorEdit();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
