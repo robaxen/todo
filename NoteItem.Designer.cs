@@ -33,7 +33,6 @@
             this.labelPostDeadline = new System.Windows.Forms.Label();
             this.panelColor = new System.Windows.Forms.Panel();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelPostName
@@ -75,31 +74,19 @@
             // buttonDelete
             // 
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(568, 94);
+            this.buttonDelete.Location = new System.Drawing.Point(628, 50);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(115, 36);
+            this.buttonDelete.Size = new System.Drawing.Size(55, 45);
             this.buttonDelete.TabIndex = 24;
-            this.buttonDelete.Text = "Radera";
+            this.buttonDelete.Text = "X";
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // buttonEdit
-            // 
-            this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEdit.Location = new System.Drawing.Point(447, 94);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(115, 36);
-            this.buttonEdit.TabIndex = 22;
-            this.buttonEdit.Text = "Redigera";
-            this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // NoteItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.panelColor);
             this.Controls.Add(this.labelPostDeadline);
@@ -118,6 +105,5 @@
         private System.Windows.Forms.Label labelPostDeadline;
         private System.Windows.Forms.Panel panelColor;
         private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Button buttonEdit;
     }
 }

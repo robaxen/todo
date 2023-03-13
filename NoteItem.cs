@@ -19,26 +19,6 @@ namespace todo
             InitializeComponent();
         }
 
-        private string stringA;
-
-        public string a
-        {
-            get { return stringA; }
-            set
-            {
-                if (value != stringA)
-                {
-                    stringA = value;
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this, new PropertyChangedEventArgs(a));
-                    }
-                }
-            }
-        }
-
-        //https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events
-
         //getters och setters
         private string _id;
         private string _name;
@@ -85,13 +65,6 @@ namespace todo
                     panelColor.BackColor = Color.Red;
                 };
             }   
-        }
-
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-            //this.id för att få variabler
-
-            a = buttonEdit.Text;
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)

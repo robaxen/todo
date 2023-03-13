@@ -340,20 +340,9 @@ namespace todo
                 editNote(id, name, desc, color);
         }
 
-        NoteItem noteItem = new NoteItem();
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            
 
-            noteItem.PropertyChanged += NoteItem_PropertyChanged;
-        }
-
-        private void NoteItem_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            textBoxNameEdit.Text = noteItem.a;
-
-            Console.WriteLine("propertychanged");
         }
     }
 }
