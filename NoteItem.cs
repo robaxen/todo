@@ -87,13 +87,9 @@ namespace todo
                 //tar bort controllern från flowlayoutpanelen
                 this.Parent.Controls.Remove(this);
             }
-            else if (dialogResult == DialogResult.No)
-            {
-
-            }
         }
 
-        //hover effekt
+        //-------------------hover effekt-------------------------
         private void NoteItem_MouseEnter(object sender, EventArgs e)
         {
             //ändrar färg då musen är i note
@@ -105,5 +101,6 @@ namespace todo
             //ändrar tillbaka färg då musen lämnar note
             this.BackColor = Color.FromArgb(255, 255, 255);
         }
+        //---------------------------------------------------------
     }
 }

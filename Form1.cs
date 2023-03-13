@@ -331,18 +331,6 @@ namespace todo
             SaveToXml();
         }
 
-        //RADERA !!!!!!!!!!!!
-        //private void buttonEditTest_Click(object sender, EventArgs e)
-        //{
-        //        //tillderar värden
-        //        string id = "1";
-        //        string name = "name";
-        //        string desc = "description";
-        //        string color = "111";
-
-        //        editNote(id, name, desc, color);
-        //}
-
         private void Form1_Load(object sender, EventArgs e)
         {
             //flyttar redigerings rutan och ny note rutan ovanpå varann
