@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.buttonNewNote = new System.Windows.Forms.Button();
             this.groupBoxNewNote = new System.Windows.Forms.GroupBox();
             this.panelColor = new System.Windows.Forms.Panel();
@@ -80,7 +81,7 @@
             this.groupBoxNewNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxNewNote.Location = new System.Drawing.Point(20, 137);
             this.groupBoxNewNote.Name = "groupBoxNewNote";
-            this.groupBoxNewNote.Size = new System.Drawing.Size(243, 344);
+            this.groupBoxNewNote.Size = new System.Drawing.Size(243, 286);
             this.groupBoxNewNote.TabIndex = 12;
             this.groupBoxNewNote.TabStop = false;
             this.groupBoxNewNote.Text = "Skapa ny note";
@@ -110,9 +111,9 @@
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.Location = new System.Drawing.Point(19, 39);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(51, 20);
+            this.labelName.Size = new System.Drawing.Size(38, 20);
             this.labelName.TabIndex = 16;
-            this.labelName.Text = "Namn";
+            this.labelName.Text = "Titel";
             // 
             // buttonAddNote
             // 
@@ -162,7 +163,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(263, 910);
+            this.panel2.Size = new System.Drawing.Size(278, 509);
             this.panel2.TabIndex = 24;
             // 
             // groupBoxEditNote
@@ -179,7 +180,7 @@
             this.groupBoxEditNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEditNote.Location = new System.Drawing.Point(20, 487);
             this.groupBoxEditNote.Name = "groupBoxEditNote";
-            this.groupBoxEditNote.Size = new System.Drawing.Size(248, 400);
+            this.groupBoxEditNote.Size = new System.Drawing.Size(248, 325);
             this.groupBoxEditNote.TabIndex = 25;
             this.groupBoxEditNote.TabStop = false;
             this.groupBoxEditNote.Text = "Redigera note";
@@ -280,9 +281,9 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(269, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(284, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(704, 910);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(715, 509);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
             // Form1
@@ -290,12 +291,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(973, 910);
+            this.ClientSize = new System.Drawing.Size(999, 509);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "To Do";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxNewNote.ResumeLayout(false);
             this.groupBoxNewNote.PerformLayout();
