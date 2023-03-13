@@ -13,11 +13,28 @@ namespace todo
 {
     public partial class NoteItem : UserControl
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public NoteItem()
         {
             InitializeComponent();
+        }
 
-            Form Form1 = (this.Parent as Form);
+        private string stringA;
+
+        public string a
+        {
+            get { return stringA; }
+            set
+            {
+                if (value != stringA)
+                {
+                    stringA = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs(a));
+                    }
+                }
+            }
         }
 
         //getters och setters
@@ -68,6 +85,13 @@ namespace todo
             }   
         }
 
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            //this.id för att få variabler
+
+            a = buttonEdit.Text;
+        }
+
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             //en extra ruta som frågar om man verkligen vill radera note
@@ -94,18 +118,6 @@ namespace todo
             }
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-            //tilldelar rätt id och konverterar till int
-            int id = Int32.Parse(this.Id);
-            string name = this.Name;
-            string desc = this.Description;
-            string color = this.ColorCode;
-
-            Form1 form = new Form1();
-            form.editNote(id, name, desc, color);
-
-
-        }
+        
     }
 }

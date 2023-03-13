@@ -61,9 +61,6 @@ namespace todo
             
             //listar upp alla rader i en flowlayout panel
             populateItems();
-
-            //handler som tar emot radera knapp tryckning från usercontrollen
-            NoteItem noteItem = new NoteItem();
         }
 
         private void CreateTable()
@@ -272,7 +269,6 @@ namespace todo
 
         public void DeleteNote(int id)
         {
-
             //väljer ut och tilldelar "row" med rad med rätt id(id fås från metoden, skickas från NoteItem usercontrollern)
             DataRow[] row = ds.Tables[0].Select("id=" + id);
 
@@ -286,20 +282,35 @@ namespace todo
         }
 
 
-        public void editNote(int id, string name, string desc, string color)
+        public void editNote(string id, string name, string desc, string color)
         {
-            Console.WriteLine("editNote method called");
-            Console.WriteLine(id.ToString() + " " + name + " " + desc + " " + color);
-
-            //visar upp redigerings rutan
-            groupBoxEditNote.Visible = true;
-
-            textBoxNameEdit.Text = "test";
-            groupBoxEditNote.Text = "Redigerar post " + name;
 
             textBoxNameEdit.Text = name;
             textBoxDescEdit.Text = desc;
-            panelColorEdit.BackColor = ColorTranslator.FromHtml(color);
+
+            //if (groupBoxEditNote.Visible == false)
+            //{
+            //    //test för att kolla variablerna i konsolen
+            //    Console.WriteLine("editNote method called");
+            //    Console.WriteLine(id + " " + name + " " + desc + " " + color);
+
+            //    //ändrar redigerings rutans rubrik
+            //    groupBoxEditNote.Text = "Redigerar post " + name;
+
+            //    //ändrar värdena i redigerings rutan
+            //    textBoxNameEdit.Text = name;
+            //    textBoxDescEdit.Text = desc;
+            //    panelColorEdit.BackColor = ColorTranslator.FromHtml(color);
+
+            //    //visar upp redigerings rutan
+            //    groupBoxEditNote.Visible = true;
+            //}
+            //else
+            //{
+            //    groupBoxEditNote.Visible = false;
+            //}
+
+
         }
 
         //används för att resetta alla id fält så att inga luckor uppstår,
@@ -320,7 +331,29 @@ namespace todo
 
         private void buttonEditTest_Click(object sender, EventArgs e)
         {
-            editNote(1, "test", "test", "-65408");
+                //tillderar värden
+                string id = "1";
+                string name = "name";
+                string desc = "description";
+                string color = "111";
+
+                editNote(id, name, desc, color);
+        }
+
+        NoteItem noteItem = new NoteItem();
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+
+            noteItem.PropertyChanged += NoteItem_PropertyChanged;
+        }
+
+        private void NoteItem_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            textBoxNameEdit.Text = noteItem.a;
+
+            Console.WriteLine("propertychanged");
         }
     }
 }
