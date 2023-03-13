@@ -54,6 +54,7 @@
             this.textBoxNameEdit = new System.Windows.Forms.TextBox();
             this.buttontableview = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBoxEditNote.SuspendLayout();
@@ -192,16 +193,16 @@
             this.buttonEditTest.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonEditTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonEditTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditTest.Location = new System.Drawing.Point(29, 831);
+            this.buttonEditTest.Location = new System.Drawing.Point(29, 869);
             this.buttonEditTest.Name = "buttonEditTest";
             this.buttonEditTest.Size = new System.Drawing.Size(206, 42);
             this.buttonEditTest.TabIndex = 27;
             this.buttonEditTest.Text = "redigera test";
             this.buttonEditTest.UseVisualStyleBackColor = false;
-            this.buttonEditTest.Click += new System.EventHandler(this.buttonEditTest_Click);
             // 
             // groupBoxEditNote
             // 
+            this.groupBoxEditNote.Controls.Add(this.button1);
             this.groupBoxEditNote.Controls.Add(this.panelColorEdit);
             this.groupBoxEditNote.Controls.Add(this.checkBoxDeadlineEdit);
             this.groupBoxEditNote.Controls.Add(this.dateTimePickerDeadlineEdit);
@@ -213,7 +214,7 @@
             this.groupBoxEditNote.Controls.Add(this.textBoxNameEdit);
             this.groupBoxEditNote.Location = new System.Drawing.Point(12, 476);
             this.groupBoxEditNote.Name = "groupBoxEditNote";
-            this.groupBoxEditNote.Size = new System.Drawing.Size(243, 336);
+            this.groupBoxEditNote.Size = new System.Drawing.Size(248, 387);
             this.groupBoxEditNote.TabIndex = 25;
             this.groupBoxEditNote.TabStop = false;
             this.groupBoxEditNote.Text = "Redigera note";
@@ -320,6 +321,16 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(704, 1061);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(23, 331);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 36);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Avbryt";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,6 +380,7 @@
         private System.Windows.Forms.TextBox textBoxDescEdit;
         private System.Windows.Forms.TextBox textBoxNameEdit;
         private System.Windows.Forms.Button buttonEditTest;
+        private System.Windows.Forms.Button button1;
     }
 }
 

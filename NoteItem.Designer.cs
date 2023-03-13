@@ -38,6 +38,7 @@
             // labelPostName
             // 
             this.labelPostName.AutoSize = true;
+            this.labelPostName.Enabled = false;
             this.labelPostName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPostName.Location = new System.Drawing.Point(67, 15);
             this.labelPostName.Name = "labelPostName";
@@ -47,6 +48,7 @@
             // 
             // labelPostDescription
             // 
+            this.labelPostDescription.Enabled = false;
             this.labelPostDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPostDescription.Location = new System.Drawing.Point(67, 50);
             this.labelPostDescription.Name = "labelPostDescription";
@@ -56,6 +58,7 @@
             // 
             // labelPostDeadline
             // 
+            this.labelPostDeadline.Enabled = false;
             this.labelPostDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPostDeadline.Location = new System.Drawing.Point(67, 101);
             this.labelPostDeadline.Name = "labelPostDeadline";
@@ -94,6 +97,8 @@
             this.Controls.Add(this.labelPostName);
             this.Name = "NoteItem";
             this.Size = new System.Drawing.Size(695, 143);
+            this.MouseEnter += new System.EventHandler(this.NoteItem_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.NoteItem_MouseLeave);
             this.ResumeLayout(false);
             this.PerformLayout();
 

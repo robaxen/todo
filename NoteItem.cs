@@ -93,6 +93,17 @@ namespace todo
             }
         }
 
-        
+        //hover effekt
+        private void NoteItem_MouseEnter(object sender, EventArgs e)
+        {
+            //ändrar färg då musen är i note
+            this.BackColor = Color.FromArgb(200, 200, 200);
+        }
+
+        private void NoteItem_MouseLeave(object sender, EventArgs e)
+        {
+            //ändrar tillbaka färg då musen lämnar note
+            this.BackColor = Color.FromArgb(255, 255, 255);
+        }
     }
 }

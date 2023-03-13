@@ -124,6 +124,7 @@ namespace todo
 
                 //visar upp rutan ifall den inte redan är synlig
                 groupBoxNewNote.Visible = true;
+                groupBoxEditNote.Visible = false;
             }
         }
 
@@ -251,14 +252,15 @@ namespace todo
                 {
                     noteItems[i].Deadline = "Deadline: " + deadline;
                 }
-                else
-                {
-                }
 
                 //sätter in alla skapade notes rutor i flowlayout panelen, där de radas upp under varandra
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
+
+                noteItems[i].Click += new System.EventHandler(this.UserControl_Click);
             }
         }
+
+
 
         private void buttontableview_Click(object sender, EventArgs e)
         {
@@ -329,20 +331,41 @@ namespace todo
             SaveToXml();
         }
 
-        private void buttonEditTest_Click(object sender, EventArgs e)
-        {
-                //tillderar värden
-                string id = "1";
-                string name = "name";
-                string desc = "description";
-                string color = "111";
+        //RADERA !!!!!!!!!!!!
+        //private void buttonEditTest_Click(object sender, EventArgs e)
+        //{
+        //        //tillderar värden
+        //        string id = "1";
+        //        string name = "name";
+        //        string desc = "description";
+        //        string color = "111";
 
-                editNote(id, name, desc, color);
-        }
+        //        editNote(id, name, desc, color);
+        //}
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            populateItems();
+        }
 
+        void UserControl_Click(object sender, EventArgs e)
+        {
+            //user control objekt för att få tillgång till note controls (namn, besk...)
+            NoteItem obj = (NoteItem)sender;  
+            
+            textBoxNameEdit.Text = obj.Name;
+            textBoxDescEdit.Text = obj.Description;
+            panelColorEdit.BackColor = ColorTranslator.FromHtml(obj.ColorCode);
+
+            groupBoxEditNote.Visible = true;
+            groupBoxNewNote.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            groupBoxEditNote.Visible = false;
+
+            textBoxNameEdit.Clear() ;
         }
     }
 }
