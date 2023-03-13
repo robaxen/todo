@@ -39,8 +39,8 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonEditTest = new System.Windows.Forms.Button();
             this.groupBoxEditNote = new System.Windows.Forms.GroupBox();
+            this.labelID = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panelColorEdit = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,7 +49,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBoxDescEdit = new System.Windows.Forms.TextBox();
             this.textBoxNameEdit = new System.Windows.Forms.TextBox();
-            this.buttontableview = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -78,6 +77,7 @@
             this.groupBoxNewNote.Controls.Add(this.buttonColor);
             this.groupBoxNewNote.Controls.Add(this.textBoxDesc);
             this.groupBoxNewNote.Controls.Add(this.textBoxName);
+            this.groupBoxNewNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxNewNote.Location = new System.Drawing.Point(20, 137);
             this.groupBoxNewNote.Name = "groupBoxNewNote";
             this.groupBoxNewNote.Size = new System.Drawing.Size(243, 344);
@@ -98,7 +98,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 85);
+            this.label2.Location = new System.Drawing.Point(19, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 20);
             this.label2.TabIndex = 17;
@@ -116,6 +116,7 @@
             // 
             // buttonAddNote
             // 
+            this.buttonAddNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddNote.Location = new System.Drawing.Point(23, 233);
             this.buttonAddNote.Name = "buttonAddNote";
             this.buttonAddNote.Size = new System.Drawing.Size(200, 36);
@@ -126,6 +127,7 @@
             // 
             // buttonColor
             // 
+            this.buttonColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonColor.Location = new System.Drawing.Point(23, 191);
             this.buttonColor.Name = "buttonColor";
             this.buttonColor.Size = new System.Drawing.Size(100, 36);
@@ -136,6 +138,7 @@
             // 
             // textBoxDesc
             // 
+            this.textBoxDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDesc.Location = new System.Drawing.Point(23, 114);
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
@@ -144,39 +147,27 @@
             // 
             // textBoxName
             // 
+            this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxName.Location = new System.Drawing.Point(23, 62);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(200, 20);
+            this.textBoxName.Size = new System.Drawing.Size(200, 26);
             this.textBoxName.TabIndex = 11;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Controls.Add(this.buttonEditTest);
             this.panel2.Controls.Add(this.groupBoxEditNote);
             this.panel2.Controls.Add(this.groupBoxNewNote);
-            this.panel2.Controls.Add(this.buttontableview);
             this.panel2.Controls.Add(this.buttonNewNote);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(263, 1061);
+            this.panel2.Size = new System.Drawing.Size(263, 910);
             this.panel2.TabIndex = 24;
-            // 
-            // buttonEditTest
-            // 
-            this.buttonEditTest.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonEditTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonEditTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditTest.Location = new System.Drawing.Point(37, 902);
-            this.buttonEditTest.Name = "buttonEditTest";
-            this.buttonEditTest.Size = new System.Drawing.Size(206, 42);
-            this.buttonEditTest.TabIndex = 27;
-            this.buttonEditTest.Text = "redigera test";
-            this.buttonEditTest.UseVisualStyleBackColor = false;
             // 
             // groupBoxEditNote
             // 
+            this.groupBoxEditNote.Controls.Add(this.labelID);
             this.groupBoxEditNote.Controls.Add(this.button1);
             this.groupBoxEditNote.Controls.Add(this.panelColorEdit);
             this.groupBoxEditNote.Controls.Add(this.label1);
@@ -185,6 +176,7 @@
             this.groupBoxEditNote.Controls.Add(this.button2);
             this.groupBoxEditNote.Controls.Add(this.textBoxDescEdit);
             this.groupBoxEditNote.Controls.Add(this.textBoxNameEdit);
+            this.groupBoxEditNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEditNote.Location = new System.Drawing.Point(20, 487);
             this.groupBoxEditNote.Name = "groupBoxEditNote";
             this.groupBoxEditNote.Size = new System.Drawing.Size(248, 400);
@@ -193,8 +185,21 @@
             this.groupBoxEditNote.Text = "Redigera note";
             this.groupBoxEditNote.Visible = false;
             // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.Enabled = false;
+            this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelID.Location = new System.Drawing.Point(189, 16);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(26, 20);
+            this.labelID.TabIndex = 26;
+            this.labelID.Text = "ID";
+            this.labelID.Visible = false;
+            // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(23, 275);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 36);
@@ -215,11 +220,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 85);
+            this.label1.Location = new System.Drawing.Point(19, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 20);
             this.label1.TabIndex = 17;
             this.label1.Text = "Beskrivning";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -233,24 +239,29 @@
             // 
             // buttonUpdate
             // 
+            this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.Location = new System.Drawing.Point(23, 233);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(200, 36);
             this.buttonUpdate.TabIndex = 15;
             this.buttonUpdate.Text = "Uppdatera";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(23, 191);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 36);
             this.button2.TabIndex = 14;
             this.button2.Text = "Ändra färg";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBoxDescEdit
             // 
+            this.textBoxDescEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDescEdit.Location = new System.Drawing.Point(23, 114);
             this.textBoxDescEdit.Multiline = true;
             this.textBoxDescEdit.Name = "textBoxDescEdit";
@@ -259,23 +270,11 @@
             // 
             // textBoxNameEdit
             // 
+            this.textBoxNameEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNameEdit.Location = new System.Drawing.Point(23, 62);
             this.textBoxNameEdit.Name = "textBoxNameEdit";
-            this.textBoxNameEdit.Size = new System.Drawing.Size(200, 20);
+            this.textBoxNameEdit.Size = new System.Drawing.Size(200, 26);
             this.textBoxNameEdit.TabIndex = 11;
-            // 
-            // buttontableview
-            // 
-            this.buttontableview.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttontableview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttontableview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttontableview.Location = new System.Drawing.Point(37, 963);
-            this.buttontableview.Name = "buttontableview";
-            this.buttontableview.Size = new System.Drawing.Size(206, 42);
-            this.buttontableview.TabIndex = 26;
-            this.buttontableview.Text = "tabell översikt";
-            this.buttontableview.UseVisualStyleBackColor = false;
-            this.buttontableview.Click += new System.EventHandler(this.buttontableview_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -283,7 +282,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(269, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(704, 1061);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(704, 910);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
             // Form1
@@ -291,7 +290,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(973, 1061);
+            this.ClientSize = new System.Drawing.Size(973, 910);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -320,7 +319,6 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button buttontableview;
         private System.Windows.Forms.Panel panelColor;
         private System.Windows.Forms.GroupBox groupBoxEditNote;
         private System.Windows.Forms.Panel panelColorEdit;
@@ -330,8 +328,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBoxDescEdit;
         private System.Windows.Forms.TextBox textBoxNameEdit;
-        private System.Windows.Forms.Button buttonEditTest;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelID;
     }
 }
 

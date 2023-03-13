@@ -58,9 +58,6 @@ namespace todo
 
             //läser och sätter in i dataset från "notes.xml"
             ds.ReadXml(@"notes.xml");
-            
-            //listar upp alla rader i en flowlayout panel
-            populateItems();
         }
 
         private void CreateTable()
@@ -185,6 +182,19 @@ namespace todo
             }
         }
 
+        private void ChooseColorEdit()
+        {
+            //här öppnas det upp ett fönster där man kan välja en färg, colorDialog1 används för det
+            //ändrar färg bara om man väljer "ok"
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //ändrar färg för panel
+                panelColorEdit.BackColor = colorDialog1.Color;
+
+                Color color = colorDialog1.Color;
+            }
+        }
+
         private void populateItems()
         {
             //Sätter in varje rad från tabellen i sina egna rutor, och listar upp dem under varann i en flowlayout panel
@@ -273,10 +283,11 @@ namespace todo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //listar upp alla rader i en flowlayout panel
+            populateItems();
+
             //flyttar redigerings rutan och ny note rutan ovanpå varann
             groupBoxEditNote.Location = new Point (20, 137);
-
-            populateItems();
         }
 
         void UserControl_Click(object sender, EventArgs e)
@@ -290,6 +301,8 @@ namespace todo
                 textBoxDescEdit.Text = obj.Description;
                 panelColorEdit.BackColor = ColorTranslator.FromHtml(obj.ColorCode);
 
+                labelID.Text = obj.Id;
+
                 groupBoxEditNote.Visible = true;
                 groupBoxNewNote.Visible = false;
         }
@@ -299,6 +312,42 @@ namespace todo
             groupBoxEditNote.Visible = false;
 
             textBoxNameEdit.Clear() ;
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            DataRow dr = ds.Tables["Note"].Select("id=" + labelID.Text).FirstOrDefault();
+
+            if (dr != null)
+            {
+                dr["name"] = textBoxNameEdit.Text;
+                dr["desc"] = textBoxDescEdit.Text;
+
+                dr["colorCode"] = panelColorEdit.BackColor.ToArgb();
+
+                //sparar till xml filen
+                SaveToXml();
+
+                //tömmer alla fält
+                textBoxNameEdit.Clear();
+                textBoxDescEdit.Clear();
+                panelColorEdit.BackColor = default(Color);
+
+                //gömmer groupbox efter ändringar sparats
+                groupBoxEditNote.Visible = false;
+            }
+
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ChooseColorEdit();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

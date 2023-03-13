@@ -17,6 +17,11 @@ namespace todo
         public NoteItem()
         {
             InitializeComponent();
+
+            labelPostName.ForeColor = Color.Black;
+            labelPostDescription.ForeColor = Color.Black;   
+
+            this.BackColor = default(Color);
         }
 
         //getters och setters

@@ -30,7 +30,6 @@
         {
             this.labelPostName = new System.Windows.Forms.Label();
             this.labelPostDescription = new System.Windows.Forms.Label();
-            this.labelPostDeadline = new System.Windows.Forms.Label();
             this.panelColor = new System.Windows.Forms.Panel();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -42,9 +41,10 @@
             this.labelPostName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPostName.Location = new System.Drawing.Point(67, 15);
             this.labelPostName.Name = "labelPostName";
-            this.labelPostName.Size = new System.Drawing.Size(61, 24);
+            this.labelPostName.Size = new System.Drawing.Size(59, 27);
             this.labelPostName.TabIndex = 1;
             this.labelPostName.Text = "Name";
+            this.labelPostName.UseCompatibleTextRendering = true;
             // 
             // labelPostDescription
             // 
@@ -55,15 +55,7 @@
             this.labelPostDescription.Size = new System.Drawing.Size(372, 28);
             this.labelPostDescription.TabIndex = 2;
             this.labelPostDescription.Text = "Description";
-            // 
-            // labelPostDeadline
-            // 
-            this.labelPostDeadline.Enabled = false;
-            this.labelPostDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPostDeadline.Location = new System.Drawing.Point(67, 101);
-            this.labelPostDeadline.Name = "labelPostDeadline";
-            this.labelPostDeadline.Size = new System.Drawing.Size(372, 23);
-            this.labelPostDeadline.TabIndex = 3;
+            this.labelPostDescription.UseCompatibleTextRendering = true;
             // 
             // panelColor
             // 
@@ -92,7 +84,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.panelColor);
-            this.Controls.Add(this.labelPostDeadline);
             this.Controls.Add(this.labelPostDescription);
             this.Controls.Add(this.labelPostName);
             this.Name = "NoteItem";
@@ -107,7 +98,6 @@
         #endregion
         private System.Windows.Forms.Label labelPostName;
         private System.Windows.Forms.Label labelPostDescription;
-        private System.Windows.Forms.Label labelPostDeadline;
         private System.Windows.Forms.Panel panelColor;
         private System.Windows.Forms.Button buttonDelete;
     }
