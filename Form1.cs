@@ -94,12 +94,6 @@ namespace todo
             column.ColumnName = "desc";
             table1.Columns.Add(column);
 
-            //deadline kolumn
-            column = new DataColumn();
-            column.DataType = System.Type.GetType("System.String");
-            column.ColumnName = "deadline";
-            table1.Columns.Add(column);
-
             //färg kolumn
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
@@ -133,12 +127,7 @@ namespace todo
             //hämtar all data som användaren skrivit in
             string name = textBoxName.Text;
             string desc = textBoxDesc.Text;
-            string deadline = dateTimePickerDeadline.Text;
             int colorCode = panelColor.BackColor.ToArgb();
-
-            ////tester för att se vald färg kod i olika format
-            //Console.WriteLine("detta sätts in i colorCode kolumnen: " + panelColor.BackColor.ToArgb());
-            //Console.WriteLine("ToString istället för ToArgb: " + panelColor.BackColor.ToString());
 
             DataTable table1 = ds.Tables["Note"]; 
 
@@ -148,17 +137,10 @@ namespace todo
             dr["desc"] = desc;
             dr["colorCode"] = colorCode;
 
-            //sätter endast in deadline datum ifall checkbox är ikryssad
-            if (checkBoxDeadline.Checked)
-            {
-                dr["deadline"] = deadline;
-            }
-            
-
             //sätter in den skapade raden i tabellen
             table1.Rows.Add(dr);
 
-            //reset id och spara data
+            //reset id för varje rad i tabellen och spara data
             ResetID();
 
             //kallar metod för att spara till xml filen
@@ -180,7 +162,6 @@ namespace todo
             //tömmer alla textboxar före "new note" rutan gömms undan
             textBoxName.Clear();
             textBoxDesc.Clear();
-            dateTimePickerDeadline.ResetText();
 
             //gömmer new note rutan igen
             groupBoxNewNote.Visible = false;
@@ -220,7 +201,6 @@ namespace todo
                 //deklarerar data variabler som kommer fyllas med rätt data beroende på rad id
                 string name = "";
                 string desc = "";
-                string deadline = "";
 
                 color = "";
 
@@ -232,7 +212,6 @@ namespace todo
                     //delar ut värden åt variablerna
                     name = row["name"].ToString();
                     desc = row["desc"].ToString();
-                    deadline = row["deadline"].ToString();
                     color = row["colorCode"].ToString(); 
                 }
 
@@ -245,13 +224,6 @@ namespace todo
 
                 //sparar id för noten
                 noteItems[i].Id = i.ToString();
-
-                //skriver endast i deadline om det finns en deadline sparad i tabellen
-                //if (deadline.ToString().Length > 0)
-                if (deadline.ToString().Length > 0)
-                {
-                    noteItems[i].Deadline = "Deadline: " + deadline;
-                }
 
                 //sätter in alla skapade notes rutor i flowlayout panelen, där de radas upp under varandra
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
@@ -281,38 +253,6 @@ namespace todo
 
             //resettar id fälten och sparar alla ändringar
             ResetID();
-        }
-
-
-        public void editNote(string id, string name, string desc, string color)
-        {
-
-            textBoxNameEdit.Text = name;
-            textBoxDescEdit.Text = desc;
-
-            //if (groupBoxEditNote.Visible == false)
-            //{
-            //    //test för att kolla variablerna i konsolen
-            //    Console.WriteLine("editNote method called");
-            //    Console.WriteLine(id + " " + name + " " + desc + " " + color);
-
-            //    //ändrar redigerings rutans rubrik
-            //    groupBoxEditNote.Text = "Redigerar post " + name;
-
-            //    //ändrar värdena i redigerings rutan
-            //    textBoxNameEdit.Text = name;
-            //    textBoxDescEdit.Text = desc;
-            //    panelColorEdit.BackColor = ColorTranslator.FromHtml(color);
-
-            //    //visar upp redigerings rutan
-            //    groupBoxEditNote.Visible = true;
-            //}
-            //else
-            //{
-            //    groupBoxEditNote.Visible = false;
-            //}
-
-
         }
 
         //används för att resetta alla id fält så att inga luckor uppstår,

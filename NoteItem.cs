@@ -23,7 +23,6 @@ namespace todo
         private string _id;
         private string _name;
         private string _description;
-        private string _deadline;
         private string _color;
 
         public string Id
@@ -41,13 +40,6 @@ namespace todo
         {
             get { return _description; }
             set { _description = value; labelPostDescription.Text = value; }
-        }
-
-        public string Deadline
-        {
-            get { return _deadline; }
-            set { _deadline = value; labelPostDeadline.Text = value;
-            }
         }
 
         public string ColorCode
