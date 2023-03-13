@@ -41,9 +41,7 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonDeleteTest = new System.Windows.Forms.Button();
-            this.buttontableview = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonEditTest = new System.Windows.Forms.Button();
             this.groupBoxEditNote = new System.Windows.Forms.GroupBox();
             this.panelColorEdit = new System.Windows.Forms.Panel();
             this.checkBoxDeadlineEdit = new System.Windows.Forms.CheckBox();
@@ -54,7 +52,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBoxDescEdit = new System.Windows.Forms.TextBox();
             this.textBoxNameEdit = new System.Windows.Forms.TextBox();
-            this.buttonUpdateTest = new System.Windows.Forms.Button();
+            this.buttontableview = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBoxEditNote.SuspendLayout();
@@ -177,9 +176,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Controls.Add(this.buttonUpdateTest);
+            this.panel2.Controls.Add(this.buttonEditTest);
             this.panel2.Controls.Add(this.groupBoxEditNote);
-            this.panel2.Controls.Add(this.buttonDeleteTest);
             this.panel2.Controls.Add(this.groupBoxNewNote);
             this.panel2.Controls.Add(this.buttontableview);
             this.panel2.Controls.Add(this.buttonNewNote);
@@ -189,40 +187,18 @@
             this.panel2.Size = new System.Drawing.Size(263, 1061);
             this.panel2.TabIndex = 24;
             // 
-            // buttonDeleteTest
+            // buttonEditTest
             // 
-            this.buttonDeleteTest.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonDeleteTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonDeleteTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDeleteTest.Location = new System.Drawing.Point(29, 467);
-            this.buttonDeleteTest.Name = "buttonDeleteTest";
-            this.buttonDeleteTest.Size = new System.Drawing.Size(206, 42);
-            this.buttonDeleteTest.TabIndex = 27;
-            this.buttonDeleteTest.Text = "radera rad med id 1";
-            this.buttonDeleteTest.UseVisualStyleBackColor = false;
-            this.buttonDeleteTest.Click += new System.EventHandler(this.buttonDeleteTest_Click);
-            // 
-            // buttontableview
-            // 
-            this.buttontableview.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttontableview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttontableview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttontableview.Location = new System.Drawing.Point(29, 68);
-            this.buttontableview.Name = "buttontableview";
-            this.buttontableview.Size = new System.Drawing.Size(206, 42);
-            this.buttontableview.TabIndex = 26;
-            this.buttontableview.Text = "tabell översikt";
-            this.buttontableview.UseVisualStyleBackColor = false;
-            this.buttontableview.Click += new System.EventHandler(this.buttontableview_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(268, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(705, 1061);
-            this.flowLayoutPanel1.TabIndex = 25;
+            this.buttonEditTest.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonEditTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonEditTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditTest.Location = new System.Drawing.Point(29, 831);
+            this.buttonEditTest.Name = "buttonEditTest";
+            this.buttonEditTest.Size = new System.Drawing.Size(206, 42);
+            this.buttonEditTest.TabIndex = 27;
+            this.buttonEditTest.Text = "redigera test";
+            this.buttonEditTest.UseVisualStyleBackColor = false;
+            this.buttonEditTest.Click += new System.EventHandler(this.buttonEditTest_Click);
             // 
             // groupBoxEditNote
             // 
@@ -235,13 +211,12 @@
             this.groupBoxEditNote.Controls.Add(this.button2);
             this.groupBoxEditNote.Controls.Add(this.textBoxDescEdit);
             this.groupBoxEditNote.Controls.Add(this.textBoxNameEdit);
-            this.groupBoxEditNote.Location = new System.Drawing.Point(12, 563);
+            this.groupBoxEditNote.Location = new System.Drawing.Point(12, 476);
             this.groupBoxEditNote.Name = "groupBoxEditNote";
             this.groupBoxEditNote.Size = new System.Drawing.Size(243, 336);
             this.groupBoxEditNote.TabIndex = 25;
             this.groupBoxEditNote.TabStop = false;
             this.groupBoxEditNote.Text = "Redigera note";
-            this.groupBoxEditNote.Visible = false;
             // 
             // panelColorEdit
             // 
@@ -298,7 +273,6 @@
             this.buttonUpdate.TabIndex = 15;
             this.buttonUpdate.Text = "Uppdatera";
             this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // button2
             // 
@@ -324,18 +298,27 @@
             this.textBoxNameEdit.Size = new System.Drawing.Size(200, 20);
             this.textBoxNameEdit.TabIndex = 11;
             // 
-            // buttonUpdateTest
+            // buttontableview
             // 
-            this.buttonUpdateTest.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonUpdateTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonUpdateTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpdateTest.Location = new System.Drawing.Point(29, 515);
-            this.buttonUpdateTest.Name = "buttonUpdateTest";
-            this.buttonUpdateTest.Size = new System.Drawing.Size(206, 42);
-            this.buttonUpdateTest.TabIndex = 28;
-            this.buttonUpdateTest.Text = "redigera rad med id 1";
-            this.buttonUpdateTest.UseVisualStyleBackColor = false;
-            this.buttonUpdateTest.Click += new System.EventHandler(this.buttonUpdateTest_Click);
+            this.buttontableview.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttontableview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttontableview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttontableview.Location = new System.Drawing.Point(29, 68);
+            this.buttontableview.Name = "buttontableview";
+            this.buttontableview.Size = new System.Drawing.Size(206, 42);
+            this.buttontableview.TabIndex = 26;
+            this.buttontableview.Text = "tabell översikt";
+            this.buttontableview.UseVisualStyleBackColor = false;
+            this.buttontableview.Click += new System.EventHandler(this.buttontableview_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(269, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(704, 1061);
+            this.flowLayoutPanel1.TabIndex = 25;
             // 
             // Form1
             // 
@@ -348,6 +331,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxNewNote.ResumeLayout(false);
             this.groupBoxNewNote.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -374,7 +358,6 @@
         private System.Windows.Forms.Button buttontableview;
         private System.Windows.Forms.CheckBox checkBoxDeadline;
         private System.Windows.Forms.Panel panelColor;
-        private System.Windows.Forms.Button buttonDeleteTest;
         private System.Windows.Forms.GroupBox groupBoxEditNote;
         private System.Windows.Forms.Panel panelColorEdit;
         private System.Windows.Forms.CheckBox checkBoxDeadlineEdit;
@@ -385,7 +368,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBoxDescEdit;
         private System.Windows.Forms.TextBox textBoxNameEdit;
-        private System.Windows.Forms.Button buttonUpdateTest;
+        private System.Windows.Forms.Button buttonEditTest;
     }
 }
 

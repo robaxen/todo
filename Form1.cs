@@ -20,6 +20,7 @@ using System.Diagnostics;
 //för att pusha ut till repo efter commit -> git changes fönstret -> push
 //då sparas alla ändringar till github repo
 
+
 //To do lista för programmet
 /*
 -redigera post
@@ -27,10 +28,6 @@ using System.Diagnostics;
     -länka radera knapp till funktion
     -ta reda på note id och skicka till funktionen 
 -man kan inte ändra datum före checkbox är ikryssad
- 
- 
- 
- 
  */
 
 namespace todo
@@ -142,7 +139,7 @@ namespace todo
             //Console.WriteLine("detta sätts in i colorCode kolumnen: " + panelColor.BackColor.ToArgb());
             //Console.WriteLine("ToString istället för ToArgb: " + panelColor.BackColor.ToString());
 
-            DataTable table1 = ds.Tables["Note"];
+            DataTable table1 = ds.Tables["Note"]; 
 
             //skapar raden som ska sättas in i tabellen. All data kommer från alla ifyllda fält
             DataRow dr = table1.NewRow();
@@ -245,6 +242,9 @@ namespace todo
                 noteItems[i].Description = desc;
                 noteItems[i].ColorCode = color;
 
+                //sparar id för noten
+                noteItems[i].Id = i.ToString();
+
                 //skriver endast i deadline om det finns en deadline sparad i tabellen
                 //if (deadline.ToString().Length > 0)
                 if (deadline.ToString().Length > 0)
@@ -262,39 +262,62 @@ namespace todo
 
         private void buttontableview_Click(object sender, EventArgs e)
         {
-            //visar upp ett fönster med tabellen, för att kolla tabellens innehåll
+            //visar upp ett fönster med tabellen, för att kolla tabellens innehåll under testning
             TableView tableView = new TableView();
             tableView.ShowDialog();
         }
 
-        public void DeleteNote()
+        public void DeleteNote(int id)
         {
-            DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            //väljer ut och tilldelar "row" med rad med rätt id(id fås från metoden, skickas från NoteItem usercontrollern)
+            DataRow[] row = ds.Tables[0].Select("id=" + id);
+
+            for (int i = row.Length - 1; i >= 0; i--)
             {
-                //byt ut '1' till id som tillhör noten man vill radera
-                DataRow[] row = ds.Tables[0].Select("id=" + 1);
-
-                for (int i = row.Length - 1; i >= 0; i--)
-                {
-                    ds.Tables["Note"].Rows.RemoveAt(1);
-                }
-
-                //resettar id fälten och sparar alla ändringar
-                ResetID();
-
+                ds.Tables["Note"].Rows.RemoveAt(id);
             }
-            else if (dialogResult == DialogResult.No)
-            {
-                
-            }
+
+            //resettar id fälten och sparar alla ändringar
+            ResetID();
+        }
+
+
+        public void editNote(string id, string name, string desc, string color)
+        {
+
+            textBoxNameEdit.Text = name;
+            textBoxDescEdit.Text = desc;
+
+            //if (groupBoxEditNote.Visible == false)
+            //{
+            //    //test för att kolla variablerna i konsolen
+            //    Console.WriteLine("editNote method called");
+            //    Console.WriteLine(id + " " + name + " " + desc + " " + color);
+
+            //    //ändrar redigerings rutans rubrik
+            //    groupBoxEditNote.Text = "Redigerar post " + name;
+
+            //    //ändrar värdena i redigerings rutan
+            //    textBoxNameEdit.Text = name;
+            //    textBoxDescEdit.Text = desc;
+            //    panelColorEdit.BackColor = ColorTranslator.FromHtml(color);
+
+            //    //visar upp redigerings rutan
+            //    groupBoxEditNote.Visible = true;
+            //}
+            //else
+            //{
+            //    groupBoxEditNote.Visible = false;
+            //}
+
+
         }
 
         //används för att resetta alla id fält så att inga luckor uppstår,
         //behövs för att kunna lista upp notes enligt Id'n med loopningsmetoden jag använt
         public void ResetID()
         {
-            //resettar id efter deletion (väldigt dirty lösning)
+            //resettar id efter deletion (väldigt dålig lösning)
             int counter = -1;
             foreach (DataRow noteRow in ds.Tables["Note"].Rows)
             {
@@ -306,25 +329,31 @@ namespace todo
             SaveToXml();
         }
 
-        private void buttonDeleteTest_Click(object sender, EventArgs e)
+        private void buttonEditTest_Click(object sender, EventArgs e)
         {
-            DeleteNote();
+                //tillderar värden
+                string id = "1";
+                string name = "name";
+                string desc = "description";
+                string color = "111";
+
+                editNote(id, name, desc, color);
         }
 
-        //uppdatera redigerad info
-        private void buttonUpdate_Click(object sender, EventArgs e)
+        NoteItem noteItem = new NoteItem();
+
+        private void Form1_Load(object sender, EventArgs e)
         {
+            
 
-
-            populateItems();
+            noteItem.PropertyChanged += NoteItem_PropertyChanged;
         }
 
-        private void buttonUpdateTest_Click(object sender, EventArgs e)
+        private void NoteItem_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            //redigerar endast note nummer 1, ändra senare
+            textBoxNameEdit.Text = noteItem.a;
 
-            //visar upp rutan
-            groupBoxEditNote.Visible = true;
+            Console.WriteLine("propertychanged");
         }
     }
 }

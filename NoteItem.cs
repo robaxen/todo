@@ -13,21 +13,44 @@ namespace todo
 {
     public partial class NoteItem : UserControl
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public NoteItem()
         {
             InitializeComponent();
-
-            
-
-            Form Form1 = (this.Parent as Form);
         }
 
+        private string stringA;
+
+        public string a
+        {
+            get { return stringA; }
+            set
+            {
+                if (value != stringA)
+                {
+                    stringA = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs(a));
+                    }
+                }
+            }
+        }
+
+        //https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events
+
         //getters och setters
+        private string _id;
         private string _name;
         private string _description;
         private string _deadline;
         private string _color;
 
+        public string Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
         public string Name
         {
             get { return _name; }
@@ -50,7 +73,9 @@ namespace todo
         public string ColorCode
         {
             get { return _color; }
-            set { _color = value; 
+            set
+            {
+                _color = value;
                 try
                 {
                     panelColor.BackColor = ColorTranslator.FromHtml(value);
@@ -59,15 +84,42 @@ namespace todo
                 {
                     panelColor.BackColor = Color.Red;
                 };
-            }
-                
+            }   
         }
 
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            //this.id för att få variabler
 
+            a = buttonEdit.Text;
+        }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            //en extra ruta som frågar om man verkligen vill radera note
+            DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //skriver ut id för note i console
+                Console.WriteLine("button " + this.Id + " clicked");
 
+                //tilldelar rätt id och konverterar till int
+                int id= Int32.Parse(this.Id);
+                Form1 form = new Form1();
+
+                //kallar funktion som finns på main form och skickar med id så att rätt post raderas
+                //funktionen tar bort note från tabellen
+                form.DeleteNote(id);
+
+                //tar bort controllern från flowlayoutpanelen
+                this.Parent.Controls.Remove(this);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
         }
+
+        
     }
 }
