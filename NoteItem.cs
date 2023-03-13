@@ -37,6 +37,8 @@ namespace todo
             }
         }
 
+        //https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events
+
         //getters och setters
         private string _id;
         private string _name;
