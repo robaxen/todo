@@ -37,8 +37,6 @@ namespace todo
         //Datacolumn variabel för tabellen
         DataColumn column;
 
-        string color;
-
         public Form1()
         {
             InitializeComponent();
@@ -154,7 +152,6 @@ namespace todo
         {
             //sparar data från dataset till xml filen
             ds.WriteXml("notes.xml");
-            populateItems();
         }
 
         public void ResetNewNoteBox()
@@ -167,32 +164,7 @@ namespace todo
             groupBoxNewNote.Visible = false;
         }
 
-        private void buttonColor_Click(object sender, EventArgs e)
-        {
-            ChooseColor();
-        }
-
-        private void ChooseColor()
-        {
-            //här öppnas det upp ett fönster där man kan välja en färg, colorDialog1 används för det
-            //ändrar färg bara om man väljer "ok"
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                //ändrar färg för panel
-                panelColor.BackColor = colorDialog1.Color;
-            }
-        }
-
-        private void ChooseColorEdit()
-        {
-            //här öppnas det upp ett fönster där man kan välja en färg, colorDialog1 används för det
-            //ändrar färg bara om man väljer "ok"
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                //ändrar färg för panel
-                panelColorEdit.BackColor = colorDialog1.Color;
-            }
-        }
+        
 
         //Sätter in varje rad från tabellen i sina egna rutor, och listar upp dem under varann i en flowlayout panel
         private void populateItems()
@@ -200,16 +172,17 @@ namespace todo
             //tömmer flowlayout panel före nya laddas in
             flowLayoutPanel1.Controls.Clear();
 
-            //skapar noteItem från en user control
+            //skapar en array, får sin längd från antal rader i dataTable "Note"
             NoteItem[] noteItems = new NoteItem[ds.Tables["Note"].Rows.Count];
+            Console.WriteLine("array längd: " + noteItems.Length); 
 
-            //för varje rad i "note" tabellen
+            //för varje "fack" i noteItems arrayn
             for (int i = 0; i < ds.Tables["Note"].Rows.Count; i++)
             {
                 //deklarerar data variabler som kommer fyllas med rätt data beroende på rad id
                 string name = "";
                 string desc = "";
-                color = "";
+                string color = "";
 
                 //leta i rad där id = i, börjar från 1 i for loopen ovanför
                 DataRow[] dr = ds.Tables[0].Select("id=" + i);
@@ -224,22 +197,24 @@ namespace todo
 
                 //skapar en note ruta med user controllern NoteItem
                 noteItems[i] = new NoteItem();
+
+                //sparar id för noten
+                noteItems[i].Id = i.ToString();
                 //variablernas värde sätts in i text labels som finns på user controllern, alltså note rutorna
                 noteItems[i].Name = name;
                 noteItems[i].Description = desc;
                 noteItems[i].ColorCode = color;
 
-                //sparar id för noten
-                noteItems[i].Id = i.ToString();
-
                 //sätter in alla skapade notes rutor i flowlayout panelen, där de radas upp under varandra
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
 
+                //skapar click event för varje note
                 noteItems[i].Click += new System.EventHandler(this.UserControl_Click);
+
+                
             }
+            SaveToXml();
         }
-
-
 
         private void buttontableview_Click(object sender, EventArgs e)
         {
@@ -254,7 +229,7 @@ namespace todo
             DataRow[] dr = ds.Tables["Note"].Select("id='" + id + "'");
             for (int i = 0; i < dr.Length; i++)
             {
-                Console.WriteLine("attempting to delete " + dr[i]);
+                Console.WriteLine("deleteing post w/ id " + id.ToString());
                 dr[i].Delete();
             }
             ds.Tables["Note"].AcceptChanges();
@@ -326,6 +301,9 @@ namespace todo
                 //sparar till xml filen
                 SaveToXml();
 
+                //radar upp notes igen
+                populateItems();
+
                 //tömmer alla fält
                 textBoxNameEdit.Clear();
                 textBoxDescEdit.Clear();
@@ -334,19 +312,52 @@ namespace todo
                 //gömmer groupbox efter ändringar sparats
                 groupBoxEditNote.Visible = false;
             }
-
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ChooseColorEdit();
-        }
-
+        //visar upp ruta som innehåller datatabellen "Note"
         private void buttonTableView_Click_1(object sender, EventArgs e)
         {
             TableView tbl = new TableView();
             tbl.ShowDialog();
         }
+
+        //-------------------------------------för att välja färg-----------------------------------
+        private void buttonColor_Click(object sender, EventArgs e)
+        {
+            ChooseColor();
+        }
+        
+        private void buttonColorEdit_Click(object sender, EventArgs e)
+        {
+            ChooseColorEdit();
+        }
+
+        private void ChooseColor()
+        {
+            //här öppnas det upp ett fönster där man kan välja en färg, colorDialog1 används för det
+            //ändrar färg bara om man väljer "ok"
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //ändrar färg för panel
+                panelColor.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void ChooseColorEdit()
+        {
+            //här öppnas det upp ett fönster där man kan välja en färg, colorDialog1 används för det
+            //ändrar färg bara om man väljer "ok"
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //ändrar färg för panel
+                panelColorEdit.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void buttonPopulate_Click(object sender, EventArgs e)
+        {
+            populateItems();
+        }
+        //--------------------------------------------------------------------------------------------
     }
 }
