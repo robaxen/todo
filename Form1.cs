@@ -41,9 +41,9 @@ namespace todo
 
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();                                                                                                                                                                          
 
-            //Skapar tabellen som kommer innehålla 
+            //Skapar tabellen som kommer innehålla alla notes
             CreateTable();
 
             //skapar xml filen om den inte redan finns
@@ -134,6 +134,8 @@ namespace todo
             //sätter in den skapade raden i tabellen
             table1.Rows.Add(dr);
 
+            
+
             //reset id för varje rad i tabellen och spara data
             ResetID();
 
@@ -174,8 +176,6 @@ namespace todo
             {
                 //ändrar färg för panel
                 panelColor.BackColor = colorDialog1.Color;
-
-                Color color = colorDialog1.Color;
             }
         }
 
@@ -216,7 +216,7 @@ namespace todo
                     //delar ut värden åt variablerna
                     name = row["name"].ToString();
                     desc = row["desc"].ToString();
-                    color = row["colorCode"].ToString(); 
+                    color = row["colorCode"].ToString();
                 }
 
                 //skapar en note ruta med user controllern NoteItem
