@@ -210,7 +210,6 @@ namespace todo
 
             //skapar en array, får sin längd från antal rader i dataTable "Note"
             NoteItem[] noteItems = new NoteItem[ds.Tables["Note"].Rows.Count];
-            Console.WriteLine("array längd: " + noteItems.Length); 
 
             //för varje "fack" i noteItems arrayn
             for (int i = 0; i < ds.Tables["Note"].Rows.Count; i++)

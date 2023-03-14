@@ -13,7 +13,6 @@ namespace todo
 {
     public partial class NoteItem : UserControl
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         public NoteItem()
         {
             InitializeComponent();
@@ -64,58 +63,28 @@ namespace todo
             }   
         }
 
-        private string a;
-
-        public string A
-        {
-            get { return a; }
-            set
-            {
-                if (value != a)
-                {
-                    a = value;
-                    if (PropertyChanged != null)
-                    {
-                        Console.WriteLine("propertychanged != null");
-                        PropertyChanged(this, new PropertyChangedEventArgs("A"));
-                    }
-                }
-            }
-        }
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            Console.WriteLine("Propertychanged");
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
+        
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            A = Id;
 
-            Console.WriteLine("id för klickad note: " + A);
-            
-            ////en extra ruta som frågar om man verkligen vill radera note
-            //DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-            //    //skriver ut id för note i console
-            //    Debug.WriteLine("calling delete method for id=" + this.Id);
+            //en extra ruta som frågar om man verkligen vill radera note
+            DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //skriver ut id för note i console
+                Debug.WriteLine("calling delete method for id=" + this.Id);
 
-            //    //tilldelar rätt id och konverterar till int
-            //    int id= Int32.Parse(this.Id);
-            //    Form1 form = new Form1();
+                //tilldelar rätt id och konverterar till int
+                int id = Int32.Parse(this.Id);
+                Form1 form = new Form1();
 
-            //    //kallar funktion som finns på main form och skickar med id så att rätt post raderas
-            //    //funktionen tar bort note från tabellen
-            //    //form.DeleteNote(id);
+                //kallar funktion som finns på main form och skickar med id så att rätt post raderas
+                //funktionen tar bort note från tabellen
+                //form.DeleteNote(id);
 
-            //    //tar bort controllern från flowlayoutpanelen(onödigt)
-                //this.Parent.Controls.Remove(this);
-            //}
+                //tar bort controllern från flowlayoutpanelen(onödigt)
+                this.Parent.Controls.Remove(this);
+            }
         }
 
         //-------------------hover effekt-------------------------
