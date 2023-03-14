@@ -71,7 +71,7 @@ namespace todo
             if (dialogResult == DialogResult.Yes)
             {
                 //skriver ut id för note i console
-                Console.WriteLine("button " + this.Id + " clicked");
+                Debug.WriteLine("calling delete method for id=" + this.Id);
 
                 //tilldelar rätt id och konverterar till int
                 int id= Int32.Parse(this.Id);
@@ -81,8 +81,8 @@ namespace todo
                 //funktionen tar bort note från tabellen
                 form.DeleteNote(id);
 
-                //tar bort controllern från flowlayoutpanelen
-                this.Parent.Controls.Remove(this);
+                //tar bort controllern från flowlayoutpanelen(onödigt)
+                //this.Parent.Controls.Remove(this);
             }
         }
 

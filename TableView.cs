@@ -18,7 +18,7 @@ namespace todo
 
             //binder datagridview med datasettet som innehåller xml filens tabell
             Form1 mainForm = new Form1();
-            dataGridView1.DataSource = mainForm.ds.Tables[0];
+            dataGridView1.DataSource = mainForm.ds.Tables["Note"];
 
             
 
