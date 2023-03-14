@@ -40,6 +40,7 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonTableView = new System.Windows.Forms.Button();
             this.groupBoxEditNote = new System.Windows.Forms.GroupBox();
             this.labelID = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.textBoxDescEdit = new System.Windows.Forms.TextBox();
             this.textBoxNameEdit = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonTableView = new System.Windows.Forms.Button();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBoxEditNote.SuspendLayout();
@@ -168,6 +168,19 @@
             this.panel2.Size = new System.Drawing.Size(278, 487);
             this.panel2.TabIndex = 24;
             // 
+            // buttonTableView
+            // 
+            this.buttonTableView.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonTableView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonTableView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTableView.Location = new System.Drawing.Point(239, 90);
+            this.buttonTableView.Name = "buttonTableView";
+            this.buttonTableView.Size = new System.Drawing.Size(39, 31);
+            this.buttonTableView.TabIndex = 26;
+            this.buttonTableView.Text = "Ny note";
+            this.buttonTableView.UseVisualStyleBackColor = false;
+            this.buttonTableView.Click += new System.EventHandler(this.buttonTableView_Click_1);
+            // 
             // groupBoxEditNote
             // 
             this.groupBoxEditNote.Controls.Add(this.labelID);
@@ -228,7 +241,6 @@
             this.label1.Size = new System.Drawing.Size(90, 20);
             this.label1.TabIndex = 17;
             this.label1.Text = "Beskrivning";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -287,19 +299,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(715, 487);
             this.flowLayoutPanel1.TabIndex = 25;
-            // 
-            // buttonTableView
-            // 
-            this.buttonTableView.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonTableView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonTableView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTableView.Location = new System.Drawing.Point(239, 90);
-            this.buttonTableView.Name = "buttonTableView";
-            this.buttonTableView.Size = new System.Drawing.Size(39, 31);
-            this.buttonTableView.TabIndex = 26;
-            this.buttonTableView.Text = "Ny note";
-            this.buttonTableView.UseVisualStyleBackColor = false;
-            this.buttonTableView.Click += new System.EventHandler(this.buttonTableView_Click_1);
             // 
             // Form1
             // 

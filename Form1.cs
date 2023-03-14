@@ -140,11 +140,14 @@ namespace todo
             //reset id för varje rad i tabellen och spara data
             ResetID();
 
-            //kallar metod för att spara till xml filen
+            //kallar metod för att spara från tabell till xml filen
             SaveToXml();
 
             //tömmer alla fält i new note rutan
             ResetNewNoteBox();
+
+            //radar upp alla notes igen
+            populateItems();
         }
 
         public void SaveToXml()
@@ -248,23 +251,13 @@ namespace todo
         public void DeleteNote(int id)
         {
             //väljer ut och tilldelar "row" med rad med rätt id(id fås från metoden, skickas från NoteItem usercontrollern)
-            DataRow[] row = ds.Tables["Note"].Select("id=" + id);
-
-            for (int i = row.Length - 1; i >= 0; i--)
+            DataRow[] dr = ds.Tables["Note"].Select("id='" + id + "'");
+            for (int i = 0; i < dr.Length; i++)
             {
-                Debug.WriteLine(ds.Tables["Note"].Rows);
-                ds.Tables["Note"].Rows.RemoveAt(id);
+                Console.WriteLine("attempting to delete " + dr[i]);
+                dr[i].Delete();
             }
-
-            //for (int i = ds.Tables["Note"].Rows.Count - 1; i >= 0; i--) {
-            //    DataRow dr = ds.Tables["Note"].Rows[i];
-
-            //    if (dr["id"] == "0")
-            //    {
-            //        Debug.WriteLine("datarow id to delete= " + dr["id"]);
-            //        dr.Delete();
-            //    }
-            //}
+            ds.Tables["Note"].AcceptChanges();
 
             //resettar id fälten och sparar alla ändringar
             ResetID();
@@ -348,11 +341,6 @@ namespace todo
         private void button2_Click(object sender, EventArgs e)
         {
             ChooseColorEdit();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonTableView_Click_1(object sender, EventArgs e)

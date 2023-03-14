@@ -82,7 +82,7 @@ namespace todo
                 form.DeleteNote(id);
 
                 //tar bort controllern från flowlayoutpanelen(onödigt)
-                //this.Parent.Controls.Remove(this);
+                this.Parent.Controls.Remove(this);
             }
         }
 
