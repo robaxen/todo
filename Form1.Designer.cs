@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.buttonNewNote = new System.Windows.Forms.Button();
             this.groupBoxNewNote = new System.Windows.Forms.GroupBox();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.panelColor = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
@@ -40,8 +41,6 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonPopulate = new System.Windows.Forms.Button();
-            this.buttonTableView = new System.Windows.Forms.Button();
             this.groupBoxEditNote = new System.Windows.Forms.GroupBox();
             this.labelID = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -52,6 +51,8 @@
             this.buttonColorEdit = new System.Windows.Forms.Button();
             this.textBoxDescEdit = new System.Windows.Forms.TextBox();
             this.textBoxNameEdit = new System.Windows.Forms.TextBox();
+            this.buttonPopulate = new System.Windows.Forms.Button();
+            this.buttonTableView = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // groupBoxNewNote
             // 
+            this.groupBoxNewNote.Controls.Add(this.buttonCancel);
             this.groupBoxNewNote.Controls.Add(this.panelColor);
             this.groupBoxNewNote.Controls.Add(this.label2);
             this.groupBoxNewNote.Controls.Add(this.labelName);
@@ -88,6 +90,17 @@
             this.groupBoxNewNote.TabStop = false;
             this.groupBoxNewNote.Text = "Skapa ny note";
             this.groupBoxNewNote.Visible = false;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.Location = new System.Drawing.Point(346, 223);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(129, 48);
+            this.buttonCancel.TabIndex = 27;
+            this.buttonCancel.Text = "Avbryt";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // panelColor
             // 
@@ -120,7 +133,7 @@
             // buttonAddNote
             // 
             this.buttonAddNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddNote.Location = new System.Drawing.Point(412, 223);
+            this.buttonAddNote.Location = new System.Drawing.Point(503, 223);
             this.buttonAddNote.Name = "buttonAddNote";
             this.buttonAddNote.Size = new System.Drawing.Size(129, 48);
             this.buttonAddNote.TabIndex = 15;
@@ -170,32 +183,6 @@
             this.panel2.Size = new System.Drawing.Size(1008, 745);
             this.panel2.TabIndex = 24;
             // 
-            // buttonPopulate
-            // 
-            this.buttonPopulate.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonPopulate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonPopulate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPopulate.Location = new System.Drawing.Point(12, 94);
-            this.buttonPopulate.Name = "buttonPopulate";
-            this.buttonPopulate.Size = new System.Drawing.Size(984, 31);
-            this.buttonPopulate.TabIndex = 27;
-            this.buttonPopulate.Text = "populate";
-            this.buttonPopulate.UseVisualStyleBackColor = false;
-            this.buttonPopulate.Click += new System.EventHandler(this.buttonPopulate_Click);
-            // 
-            // buttonTableView
-            // 
-            this.buttonTableView.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonTableView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonTableView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTableView.Location = new System.Drawing.Point(12, 57);
-            this.buttonTableView.Name = "buttonTableView";
-            this.buttonTableView.Size = new System.Drawing.Size(984, 31);
-            this.buttonTableView.TabIndex = 26;
-            this.buttonTableView.Text = "tabell";
-            this.buttonTableView.UseVisualStyleBackColor = false;
-            this.buttonTableView.Click += new System.EventHandler(this.buttonTableView_Click_1);
-            // 
             // groupBoxEditNote
             // 
             this.groupBoxEditNote.Controls.Add(this.labelID);
@@ -231,7 +218,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(346, 228);
+            this.button1.Location = new System.Drawing.Point(346, 223);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 48);
             this.button1.TabIndex = 25;
@@ -270,7 +257,7 @@
             // buttonUpdate
             // 
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpdate.Location = new System.Drawing.Point(503, 228);
+            this.buttonUpdate.Location = new System.Drawing.Point(503, 223);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(129, 48);
             this.buttonUpdate.TabIndex = 15;
@@ -305,6 +292,32 @@
             this.textBoxNameEdit.Name = "textBoxNameEdit";
             this.textBoxNameEdit.Size = new System.Drawing.Size(722, 26);
             this.textBoxNameEdit.TabIndex = 11;
+            // 
+            // buttonPopulate
+            // 
+            this.buttonPopulate.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonPopulate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonPopulate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPopulate.Location = new System.Drawing.Point(12, 94);
+            this.buttonPopulate.Name = "buttonPopulate";
+            this.buttonPopulate.Size = new System.Drawing.Size(984, 31);
+            this.buttonPopulate.TabIndex = 27;
+            this.buttonPopulate.Text = "populate";
+            this.buttonPopulate.UseVisualStyleBackColor = false;
+            this.buttonPopulate.Click += new System.EventHandler(this.buttonPopulate_Click);
+            // 
+            // buttonTableView
+            // 
+            this.buttonTableView.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonTableView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonTableView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTableView.Location = new System.Drawing.Point(12, 57);
+            this.buttonTableView.Name = "buttonTableView";
+            this.buttonTableView.Size = new System.Drawing.Size(984, 31);
+            this.buttonTableView.TabIndex = 26;
+            this.buttonTableView.Text = "tabell";
+            this.buttonTableView.UseVisualStyleBackColor = false;
+            this.buttonTableView.Click += new System.EventHandler(this.buttonTableView_Click_1);
             // 
             // flowLayoutPanel1
             // 
@@ -362,6 +375,7 @@
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.Button buttonTableView;
         private System.Windows.Forms.Button buttonPopulate;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }
 

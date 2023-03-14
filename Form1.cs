@@ -73,7 +73,7 @@ namespace todo
             note.PropertyChanged += Note_PropertyChanged;
 
             //flyttar redigerings rutan och ny note rutan ovanpå varann
-            groupBoxEditNote.Location = new Point(26, 147);
+            groupBoxEditNote.Location = new Point(12, 147);
 
             //flyttar flowlayout panel till rätt ställe
             flowLayoutPanel1.Size = new Size(976, 639);
@@ -318,6 +318,20 @@ namespace todo
             groupBoxEditNote.Visible = false;
 
             textBoxNameEdit.Clear();
+            textBoxDescEdit.Clear();
+
+            panelColorEdit.BackColor = default(Color);
+
+            flowLayoutPanel1.Size = new Size(976, 639);
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+
+            textBoxName.Clear();
+            textBoxDesc.Clear();
+
+            panelColorEdit.BackColor = default(Color);
 
             flowLayoutPanel1.Size = new Size(976, 639);
         }
