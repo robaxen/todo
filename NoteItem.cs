@@ -80,7 +80,7 @@ namespace todo
 
                 //kallar funktion som finns på main form och skickar med id så att rätt post raderas
                 //funktionen tar bort note från tabellen
-                //form.DeleteNote(id);
+                form.DeleteNote(id);
 
                 //tar bort controllern från flowlayoutpanelen(onödigt)
                 this.Parent.Controls.Remove(this);

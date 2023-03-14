@@ -56,7 +56,7 @@ namespace todo
             }
 
             //läser av notes.xml och sätter in i dataset
-            ds.ReadXml(@"notes.xml");
+            LoadXml();
 
             //listar upp alla rader i en flowlayout panel
             populateItems();
@@ -68,21 +68,19 @@ namespace todo
             flowLayoutPanel1.AutoScroll = true;
         }
 
+        private void LoadXml()
+        {
+            //läser av notes.xml och sätter in i dataset
+            ds.ReadXml(@"notes.xml");
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            note.PropertyChanged += Note_PropertyChanged;
-
             //flyttar redigerings rutan och ny note rutan ovanpå varann
             groupBoxEditNote.Location = new Point(12, 147);
 
             //flyttar flowlayout panel till rätt ställe
             flowLayoutPanel1.Size = new Size(976, 639);
-        }
-
-        private void Note_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            Console.WriteLine("Note_PropertyChanged called");
-            Console.WriteLine(note);
         }
 
         private void CreateTable()
@@ -205,6 +203,7 @@ namespace todo
         //Sätter in varje rad från tabellen i sina egna rutor, och listar upp dem under varann i en flowlayout panel
         private void populateItems()
         {
+
             //tömmer flowlayout panel före nya laddas in
             flowLayoutPanel1.Controls.Clear();
 
@@ -258,7 +257,7 @@ namespace todo
             tableView.ShowDialog();
         }
 
-        private void DeleteNote(int id)
+        public void DeleteNote(int id)
         {
             //väljer ut och tilldelar "row" med rad med rätt id(id fås från metoden, skickas från NoteItem usercontrollern)
             DataRow[] dr = ds.Tables["Note"].Select("id='" + id + "'");
@@ -305,6 +304,7 @@ namespace todo
 
             labelID.Text = obj.Id;
 
+            //tar fram/undan olika rutor
             groupBoxEditNote.Visible = true;
             groupBoxNewNote.Visible = false;
 
