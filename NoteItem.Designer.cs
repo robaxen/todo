@@ -69,7 +69,7 @@
             // buttonDelete
             // 
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(924, 50);
+            this.buttonDelete.Location = new System.Drawing.Point(914, 50);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(55, 45);
             this.buttonDelete.TabIndex = 24;
@@ -87,7 +87,7 @@
             this.Controls.Add(this.labelPostDescription);
             this.Controls.Add(this.labelPostName);
             this.Name = "NoteItem";
-            this.Size = new System.Drawing.Size(991, 143);
+            this.Size = new System.Drawing.Size(982, 143);
             this.MouseEnter += new System.EventHandler(this.NoteItem_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.NoteItem_MouseLeave);
             this.ResumeLayout(false);

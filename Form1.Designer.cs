@@ -64,9 +64,9 @@
             this.buttonNewNote.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonNewNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonNewNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewNote.Location = new System.Drawing.Point(12, 12);
+            this.buttonNewNote.Location = new System.Drawing.Point(35, 12);
             this.buttonNewNote.Name = "buttonNewNote";
-            this.buttonNewNote.Size = new System.Drawing.Size(984, 38);
+            this.buttonNewNote.Size = new System.Drawing.Size(937, 38);
             this.buttonNewNote.TabIndex = 0;
             this.buttonNewNote.Text = "Ny note";
             this.buttonNewNote.UseVisualStyleBackColor = false;
@@ -298,9 +298,9 @@
             this.buttonPopulate.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonPopulate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonPopulate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPopulate.Location = new System.Drawing.Point(12, 94);
+            this.buttonPopulate.Location = new System.Drawing.Point(35, 94);
             this.buttonPopulate.Name = "buttonPopulate";
-            this.buttonPopulate.Size = new System.Drawing.Size(984, 31);
+            this.buttonPopulate.Size = new System.Drawing.Size(937, 31);
             this.buttonPopulate.TabIndex = 27;
             this.buttonPopulate.Text = "populate";
             this.buttonPopulate.UseVisualStyleBackColor = false;
@@ -311,9 +311,9 @@
             this.buttonTableView.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonTableView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonTableView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTableView.Location = new System.Drawing.Point(12, 57);
+            this.buttonTableView.Location = new System.Drawing.Point(35, 57);
             this.buttonTableView.Name = "buttonTableView";
-            this.buttonTableView.Size = new System.Drawing.Size(984, 31);
+            this.buttonTableView.Size = new System.Drawing.Size(937, 31);
             this.buttonTableView.TabIndex = 26;
             this.buttonTableView.Text = "tabell";
             this.buttonTableView.UseVisualStyleBackColor = false;
