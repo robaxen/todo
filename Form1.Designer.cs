@@ -40,6 +40,7 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonPopulate = new System.Windows.Forms.Button();
             this.buttonTableView = new System.Windows.Forms.Button();
             this.groupBoxEditNote = new System.Windows.Forms.GroupBox();
             this.labelID = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.textBoxDescEdit = new System.Windows.Forms.TextBox();
             this.textBoxNameEdit = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonPopulate = new System.Windows.Forms.Button();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBoxEditNote.SuspendLayout();
@@ -63,9 +63,9 @@
             this.buttonNewNote.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonNewNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonNewNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewNote.Location = new System.Drawing.Point(29, 12);
+            this.buttonNewNote.Location = new System.Drawing.Point(12, 12);
             this.buttonNewNote.Name = "buttonNewNote";
-            this.buttonNewNote.Size = new System.Drawing.Size(214, 38);
+            this.buttonNewNote.Size = new System.Drawing.Size(984, 38);
             this.buttonNewNote.TabIndex = 0;
             this.buttonNewNote.Text = "Ny note";
             this.buttonNewNote.UseVisualStyleBackColor = false;
@@ -81,9 +81,9 @@
             this.groupBoxNewNote.Controls.Add(this.textBoxDesc);
             this.groupBoxNewNote.Controls.Add(this.textBoxName);
             this.groupBoxNewNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxNewNote.Location = new System.Drawing.Point(20, 137);
+            this.groupBoxNewNote.Location = new System.Drawing.Point(12, 147);
             this.groupBoxNewNote.Name = "groupBoxNewNote";
-            this.groupBoxNewNote.Size = new System.Drawing.Size(243, 286);
+            this.groupBoxNewNote.Size = new System.Drawing.Size(984, 286);
             this.groupBoxNewNote.TabIndex = 12;
             this.groupBoxNewNote.TabStop = false;
             this.groupBoxNewNote.Text = "Skapa ny note";
@@ -92,9 +92,9 @@
             // panelColor
             // 
             this.panelColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelColor.Location = new System.Drawing.Point(129, 191);
+            this.panelColor.Location = new System.Drawing.Point(801, 114);
             this.panelColor.Name = "panelColor";
-            this.panelColor.Size = new System.Drawing.Size(94, 36);
+            this.panelColor.Size = new System.Drawing.Size(159, 92);
             this.panelColor.TabIndex = 24;
             // 
             // label2
@@ -120,9 +120,9 @@
             // buttonAddNote
             // 
             this.buttonAddNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddNote.Location = new System.Drawing.Point(23, 233);
+            this.buttonAddNote.Location = new System.Drawing.Point(412, 223);
             this.buttonAddNote.Name = "buttonAddNote";
-            this.buttonAddNote.Size = new System.Drawing.Size(200, 36);
+            this.buttonAddNote.Size = new System.Drawing.Size(129, 48);
             this.buttonAddNote.TabIndex = 15;
             this.buttonAddNote.Text = "Lägg till";
             this.buttonAddNote.UseVisualStyleBackColor = true;
@@ -131,9 +131,9 @@
             // buttonColor
             // 
             this.buttonColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonColor.Location = new System.Drawing.Point(23, 191);
+            this.buttonColor.Location = new System.Drawing.Point(801, 62);
             this.buttonColor.Name = "buttonColor";
-            this.buttonColor.Size = new System.Drawing.Size(100, 36);
+            this.buttonColor.Size = new System.Drawing.Size(159, 36);
             this.buttonColor.TabIndex = 14;
             this.buttonColor.Text = "Ändra färg";
             this.buttonColor.UseVisualStyleBackColor = true;
@@ -145,7 +145,7 @@
             this.textBoxDesc.Location = new System.Drawing.Point(23, 114);
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
-            this.textBoxDesc.Size = new System.Drawing.Size(200, 71);
+            this.textBoxDesc.Size = new System.Drawing.Size(722, 92);
             this.textBoxDesc.TabIndex = 12;
             // 
             // textBoxName
@@ -153,31 +153,44 @@
             this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxName.Location = new System.Drawing.Point(23, 62);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(200, 26);
+            this.textBoxName.Size = new System.Drawing.Size(722, 26);
             this.textBoxName.TabIndex = 11;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Controls.Add(this.groupBoxEditNote);
             this.panel2.Controls.Add(this.buttonPopulate);
             this.panel2.Controls.Add(this.buttonTableView);
-            this.panel2.Controls.Add(this.groupBoxEditNote);
             this.panel2.Controls.Add(this.groupBoxNewNote);
             this.panel2.Controls.Add(this.buttonNewNote);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(278, 840);
+            this.panel2.Size = new System.Drawing.Size(1008, 745);
             this.panel2.TabIndex = 24;
+            // 
+            // buttonPopulate
+            // 
+            this.buttonPopulate.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonPopulate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonPopulate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPopulate.Location = new System.Drawing.Point(12, 94);
+            this.buttonPopulate.Name = "buttonPopulate";
+            this.buttonPopulate.Size = new System.Drawing.Size(984, 31);
+            this.buttonPopulate.TabIndex = 27;
+            this.buttonPopulate.Text = "populate";
+            this.buttonPopulate.UseVisualStyleBackColor = false;
+            this.buttonPopulate.Click += new System.EventHandler(this.buttonPopulate_Click);
             // 
             // buttonTableView
             // 
             this.buttonTableView.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonTableView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonTableView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTableView.Location = new System.Drawing.Point(29, 56);
+            this.buttonTableView.Location = new System.Drawing.Point(12, 57);
             this.buttonTableView.Name = "buttonTableView";
-            this.buttonTableView.Size = new System.Drawing.Size(214, 31);
+            this.buttonTableView.Size = new System.Drawing.Size(984, 31);
             this.buttonTableView.TabIndex = 26;
             this.buttonTableView.Text = "tabell";
             this.buttonTableView.UseVisualStyleBackColor = false;
@@ -195,9 +208,9 @@
             this.groupBoxEditNote.Controls.Add(this.textBoxDescEdit);
             this.groupBoxEditNote.Controls.Add(this.textBoxNameEdit);
             this.groupBoxEditNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxEditNote.Location = new System.Drawing.Point(20, 487);
+            this.groupBoxEditNote.Location = new System.Drawing.Point(12, 439);
             this.groupBoxEditNote.Name = "groupBoxEditNote";
-            this.groupBoxEditNote.Size = new System.Drawing.Size(248, 325);
+            this.groupBoxEditNote.Size = new System.Drawing.Size(984, 286);
             this.groupBoxEditNote.TabIndex = 25;
             this.groupBoxEditNote.TabStop = false;
             this.groupBoxEditNote.Text = "Redigera note";
@@ -218,9 +231,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(23, 275);
+            this.button1.Location = new System.Drawing.Point(346, 228);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 36);
+            this.button1.Size = new System.Drawing.Size(129, 48);
             this.button1.TabIndex = 25;
             this.button1.Text = "Avbryt";
             this.button1.UseVisualStyleBackColor = true;
@@ -229,9 +242,9 @@
             // panelColorEdit
             // 
             this.panelColorEdit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelColorEdit.Location = new System.Drawing.Point(129, 191);
+            this.panelColorEdit.Location = new System.Drawing.Point(801, 114);
             this.panelColorEdit.Name = "panelColorEdit";
-            this.panelColorEdit.Size = new System.Drawing.Size(94, 36);
+            this.panelColorEdit.Size = new System.Drawing.Size(159, 92);
             this.panelColorEdit.TabIndex = 24;
             // 
             // label1
@@ -257,9 +270,9 @@
             // buttonUpdate
             // 
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpdate.Location = new System.Drawing.Point(23, 233);
+            this.buttonUpdate.Location = new System.Drawing.Point(503, 228);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(200, 36);
+            this.buttonUpdate.Size = new System.Drawing.Size(129, 48);
             this.buttonUpdate.TabIndex = 15;
             this.buttonUpdate.Text = "Uppdatera";
             this.buttonUpdate.UseVisualStyleBackColor = true;
@@ -268,9 +281,9 @@
             // buttonColorEdit
             // 
             this.buttonColorEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonColorEdit.Location = new System.Drawing.Point(23, 191);
+            this.buttonColorEdit.Location = new System.Drawing.Point(801, 62);
             this.buttonColorEdit.Name = "buttonColorEdit";
-            this.buttonColorEdit.Size = new System.Drawing.Size(100, 36);
+            this.buttonColorEdit.Size = new System.Drawing.Size(159, 36);
             this.buttonColorEdit.TabIndex = 14;
             this.buttonColorEdit.Text = "Ändra färg";
             this.buttonColorEdit.UseVisualStyleBackColor = true;
@@ -282,7 +295,7 @@
             this.textBoxDescEdit.Location = new System.Drawing.Point(23, 114);
             this.textBoxDescEdit.Multiline = true;
             this.textBoxDescEdit.Name = "textBoxDescEdit";
-            this.textBoxDescEdit.Size = new System.Drawing.Size(200, 71);
+            this.textBoxDescEdit.Size = new System.Drawing.Size(722, 92);
             this.textBoxDescEdit.TabIndex = 12;
             // 
             // textBoxNameEdit
@@ -290,37 +303,23 @@
             this.textBoxNameEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNameEdit.Location = new System.Drawing.Point(23, 62);
             this.textBoxNameEdit.Name = "textBoxNameEdit";
-            this.textBoxNameEdit.Size = new System.Drawing.Size(200, 26);
+            this.textBoxNameEdit.Size = new System.Drawing.Size(722, 26);
             this.textBoxNameEdit.TabIndex = 11;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(281, 0);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 751);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(715, 840);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1008, 19);
             this.flowLayoutPanel1.TabIndex = 25;
-            // 
-            // buttonPopulate
-            // 
-            this.buttonPopulate.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonPopulate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonPopulate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPopulate.Location = new System.Drawing.Point(29, 93);
-            this.buttonPopulate.Name = "buttonPopulate";
-            this.buttonPopulate.Size = new System.Drawing.Size(214, 31);
-            this.buttonPopulate.TabIndex = 27;
-            this.buttonPopulate.Text = "populate";
-            this.buttonPopulate.UseVisualStyleBackColor = false;
-            this.buttonPopulate.Click += new System.EventHandler(this.buttonPopulate_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(996, 840);
+            this.ClientSize = new System.Drawing.Size(1008, 770);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

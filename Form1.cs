@@ -37,9 +37,13 @@ namespace todo
         //Datacolumn variabel för tabellen
         DataColumn column;
 
+        private NoteItem note;
+
         public Form1()
         {
             InitializeComponent();
+
+            note = new NoteItem();
 
             //Skapar tabellen som kommer innehålla alla notes
             CreateTable();
@@ -56,6 +60,29 @@ namespace todo
 
             //listar upp alla rader i en flowlayout panel
             populateItems();
+
+            //disable horizontal scroll i flowlayout panelen
+            flowLayoutPanel1.HorizontalScroll.Maximum = 0;
+            flowLayoutPanel1.AutoScroll = false;
+            flowLayoutPanel1.VerticalScroll.Visible = false;
+            flowLayoutPanel1.AutoScroll = true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            note.PropertyChanged += Note_PropertyChanged;
+
+            //flyttar redigerings rutan och ny note rutan ovanpå varann
+            groupBoxEditNote.Location = new Point(26, 147);
+
+            //flyttar flowlayout panel till rätt ställe
+            flowLayoutPanel1.Size = new Size(976, 639);
+        }
+
+        private void Note_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            Console.WriteLine("Note_PropertyChanged called");
+            Console.WriteLine(note);
         }
 
         private void CreateTable()
@@ -101,11 +128,15 @@ namespace todo
 
         private void buttonNewNote_Click(object sender, EventArgs e)
         {
+            
             //knappen ska stänga 'ny note' rutan ifall den redan är uppe. 
             if (groupBoxNewNote.Visible == true)
             {
                 //tömmer alla boxar från new note rutan
                 ResetNewNoteBox();
+
+                //flyttar undan flowlayout panelen
+                flowLayoutPanel1.Size = new Size(995, 639);
             }
             else
             {
@@ -114,6 +145,9 @@ namespace todo
                 //visar upp rutan ifall den inte redan är synlig
                 groupBoxNewNote.Visible = true;
                 groupBoxEditNote.Visible = false;
+
+                //flyttar tillbaka flowlayout panelen
+                flowLayoutPanel1.Size = new Size(976, 331);
             }
         }
 
@@ -145,7 +179,9 @@ namespace todo
             ResetNewNoteBox();
 
             //radar upp alla notes igen
-            populateItems(); 
+            populateItems();
+
+            flowLayoutPanel1.Size = new Size(976, 639);
         }
 
         public void SaveToXml()
@@ -211,7 +247,7 @@ namespace todo
                 //skapar click event för varje note
                 noteItems[i].Click += new System.EventHandler(this.UserControl_Click);
 
-                
+
             }
             SaveToXml();
         }
@@ -223,7 +259,7 @@ namespace todo
             tableView.ShowDialog();
         }
 
-        public void DeleteNote(int id)
+        private void DeleteNote(int id)
         {
             //väljer ut och tilldelar "row" med rad med rätt id(id fås från metoden, skickas från NoteItem usercontrollern)
             DataRow[] dr = ds.Tables["Note"].Select("id='" + id + "'");
@@ -257,12 +293,6 @@ namespace todo
             SaveToXml();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //flyttar redigerings rutan och ny note rutan ovanpå varann
-            groupBoxEditNote.Location = new Point(20, 137);
-        }
-
         void UserControl_Click(object sender, EventArgs e)
         {
             //user control objekt för att få tillgång till note controls (namn, besk...)
@@ -278,6 +308,9 @@ namespace todo
 
             groupBoxEditNote.Visible = true;
             groupBoxNewNote.Visible = false;
+
+            //flyttar undan flowlayout panel
+            flowLayoutPanel1.Size = new Size(976, 331);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -285,6 +318,8 @@ namespace todo
             groupBoxEditNote.Visible = false;
 
             textBoxNameEdit.Clear();
+
+            flowLayoutPanel1.Size = new Size(976, 639);
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
@@ -311,6 +346,9 @@ namespace todo
 
                 //gömmer groupbox efter ändringar sparats
                 groupBoxEditNote.Visible = false;
+
+                //flyttar tillbaka flowlayout panel
+                flowLayoutPanel1.Size = new Size(976, 639);
             }
         }
 
