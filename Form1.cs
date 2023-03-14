@@ -23,11 +23,8 @@ using System.Diagnostics;
 
 //To do lista för programmet
 /*
--redigera post
 -radera post
-    -länka radera knapp till funktion
-    -ta reda på note id och skicka till funktionen 
--man kan inte ändra datum före checkbox är ikryssad
+    -post raderas inte helt, gamla raderade poster dyker upp igen om man lägger till ny post
  */
 
 namespace todo
@@ -53,10 +50,10 @@ namespace todo
             if (!File.Exists(@"notes.xml"))
             {
                 ds.WriteXml("notes.xml");
-                Console.WriteLine("notes.xml does not exist, creating...");
+                Debug.Write("notes.xml does not exist, creating...");
             }
 
-            //läser och sätter in i dataset från "notes.xml"
+            //läser av notes.xml och sätter in i dataset
             ds.ReadXml(@"notes.xml");
         }
 
@@ -65,7 +62,7 @@ namespace todo
             //skapar tabellenv
             DataTable table1 = new DataTable("Note");
 
-            //Skapar och sätter in  alla tabellens kolumner
+            //--Skapar och sätter in  alla tabellens kolumner--
 
             //id kolumn
             //startar id vid 0 för att alla loops ska fungera
@@ -143,7 +140,7 @@ namespace todo
             //kallar metod för att spara till xml filen
             SaveToXml();
 
-            //tömmer alla boxar från new note rutan
+            //tömmer alla fält i new note rutan
             ResetNewNoteBox();
         }
 
@@ -190,8 +187,6 @@ namespace todo
             {
                 //ändrar färg för panel
                 panelColorEdit.BackColor = colorDialog1.Color;
-
-                Color color = colorDialog1.Color;
             }
         }
 
@@ -202,7 +197,7 @@ namespace todo
             //tömmer flowlayout panel före nya laddas in
             flowLayoutPanel1.Controls.Clear();
 
-            //skapar noteItems från en user control
+            //skapar noteItem från en user control
             NoteItem[] noteItems = new NoteItem[ds.Tables["Note"].Rows.Count];
 
             //för varje rad i "note" tabellen
@@ -211,7 +206,6 @@ namespace todo
                 //deklarerar data variabler som kommer fyllas med rätt data beroende på rad id
                 string name = "";
                 string desc = "";
-
                 color = "";
 
                 //leta i rad där id = i, börjar från 1 i for loopen ovanför
