@@ -147,7 +147,7 @@ namespace todo
             ResetNewNoteBox();
 
             //radar upp alla notes igen
-            populateItems();
+            populateItems(); 
         }
 
         public void SaveToXml()
