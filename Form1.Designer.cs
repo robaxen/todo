@@ -54,6 +54,7 @@
             this.buttonPopulate = new System.Windows.Forms.Button();
             this.buttonTableView = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonDeleteTest = new System.Windows.Forms.Button();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBoxEditNote.SuspendLayout();
@@ -172,6 +173,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Controls.Add(this.buttonDeleteTest);
             this.panel2.Controls.Add(this.groupBoxEditNote);
             this.panel2.Controls.Add(this.buttonPopulate);
             this.panel2.Controls.Add(this.buttonTableView);
@@ -327,6 +329,16 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1008, 19);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
+            // buttonDeleteTest
+            // 
+            this.buttonDeleteTest.Location = new System.Drawing.Point(412, 131);
+            this.buttonDeleteTest.Name = "buttonDeleteTest";
+            this.buttonDeleteTest.Size = new System.Drawing.Size(382, 26);
+            this.buttonDeleteTest.TabIndex = 27;
+            this.buttonDeleteTest.Text = "delete id 1";
+            this.buttonDeleteTest.UseVisualStyleBackColor = true;
+            this.buttonDeleteTest.Click += new System.EventHandler(this.buttonDeleteTest_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,6 +388,7 @@
         private System.Windows.Forms.Button buttonTableView;
         private System.Windows.Forms.Button buttonPopulate;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonDeleteTest;
     }
 }
 

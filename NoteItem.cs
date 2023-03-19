@@ -71,19 +71,7 @@ namespace todo
             DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                //skriver ut id för note i console
-                Debug.WriteLine("calling delete method for id=" + this.Id);
 
-                //tilldelar rätt id och konverterar till int
-                int id = Int32.Parse(this.Id);
-                Form1 form = new Form1();
-
-                //kallar funktion som finns på main form och skickar med id så att rätt post raderas
-                //funktionen tar bort note från tabellen
-                form.DeleteNote(id);
-
-                //tar bort controllern från flowlayoutpanelen(onödigt)
-                this.Parent.Controls.Remove(this);
             }
         }
 

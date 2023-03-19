@@ -405,6 +405,12 @@ namespace todo
         {
             populateItems();
         }
+
+        private void buttonDeleteTest_Click(object sender, EventArgs e)
+        {
+            //raderar rad med id 1
+            DeleteNote(1);
+        }
         //--------------------------------------------------------------------------------------------
     }
 }
