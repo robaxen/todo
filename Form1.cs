@@ -37,13 +37,9 @@ namespace todo
         //Datacolumn variabel för tabellen
         DataColumn column;
 
-        private NoteItem note;
-
         public Form1()
         {
             InitializeComponent();
-
-            note = new NoteItem();
 
             //Skapar tabellen som kommer innehålla alla notes
             CreateTable();
