@@ -13,6 +13,9 @@ namespace todo
 {
     public partial class NoteItem : UserControl
     {
+        //definierar en event med namnet PropertyChanged. Kommer notifiera subscribers när ett värde ändras. 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public NoteItem()
         {
             InitializeComponent();
@@ -21,6 +24,29 @@ namespace todo
             labelPostDescription.ForeColor = Color.Black;
 
             this.BackColor = Color.FromArgb(255, 255, 255);
+        }
+
+        private string stringA;
+
+        public string a
+        {
+            get { return stringA; }
+            set
+            {
+                //kollar om värdet ändrats
+                if (value != stringA)
+                {
+                    //sätter nytt värde
+                    stringA = value;
+
+                    //kollar om det finns subscribers till eventet
+                    if (PropertyChanged != null)
+                    {
+                        //notifierar subscribers att värdet på a har ändrats
+                        PropertyChanged(this, new PropertyChangedEventArgs(a));
+                    }
+                }
+            }
         }
 
         //getters och setters
@@ -66,13 +92,17 @@ namespace todo
         
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            //ändrar värdet på a till id för post
+            a = Id;
+            Console.WriteLine("delete button clicked, value of a: " + a);
 
-            //en extra ruta som frågar om man verkligen vill radera note
-            DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
 
-            }
+            ////en extra ruta som frågar om man verkligen vill radera note
+            //DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+            //{
+
+            //}
         }
 
         //-------------------hover effekt-------------------------
