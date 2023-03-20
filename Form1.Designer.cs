@@ -51,8 +51,6 @@
             this.buttonColorEdit = new System.Windows.Forms.Button();
             this.textBoxDescEdit = new System.Windows.Forms.TextBox();
             this.textBoxNameEdit = new System.Windows.Forms.TextBox();
-            this.buttonPopulate = new System.Windows.Forms.Button();
-            this.buttonTableView = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxNewNote.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -66,7 +64,7 @@
             this.buttonNewNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNewNote.Location = new System.Drawing.Point(35, 12);
             this.buttonNewNote.Name = "buttonNewNote";
-            this.buttonNewNote.Size = new System.Drawing.Size(937, 38);
+            this.buttonNewNote.Size = new System.Drawing.Size(937, 105);
             this.buttonNewNote.TabIndex = 0;
             this.buttonNewNote.Text = "Ny note";
             this.buttonNewNote.UseVisualStyleBackColor = false;
@@ -173,8 +171,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
             this.panel2.Controls.Add(this.groupBoxEditNote);
-            this.panel2.Controls.Add(this.buttonPopulate);
-            this.panel2.Controls.Add(this.buttonTableView);
             this.panel2.Controls.Add(this.groupBoxNewNote);
             this.panel2.Controls.Add(this.buttonNewNote);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -293,32 +289,6 @@
             this.textBoxNameEdit.Size = new System.Drawing.Size(722, 26);
             this.textBoxNameEdit.TabIndex = 11;
             // 
-            // buttonPopulate
-            // 
-            this.buttonPopulate.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonPopulate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonPopulate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPopulate.Location = new System.Drawing.Point(35, 94);
-            this.buttonPopulate.Name = "buttonPopulate";
-            this.buttonPopulate.Size = new System.Drawing.Size(937, 31);
-            this.buttonPopulate.TabIndex = 27;
-            this.buttonPopulate.Text = "populate";
-            this.buttonPopulate.UseVisualStyleBackColor = false;
-            this.buttonPopulate.Click += new System.EventHandler(this.buttonPopulate_Click);
-            // 
-            // buttonTableView
-            // 
-            this.buttonTableView.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonTableView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonTableView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTableView.Location = new System.Drawing.Point(35, 57);
-            this.buttonTableView.Name = "buttonTableView";
-            this.buttonTableView.Size = new System.Drawing.Size(937, 31);
-            this.buttonTableView.TabIndex = 26;
-            this.buttonTableView.Text = "tabell";
-            this.buttonTableView.UseVisualStyleBackColor = false;
-            this.buttonTableView.Click += new System.EventHandler(this.buttonTableView_Click_1);
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -373,8 +343,6 @@
         private System.Windows.Forms.TextBox textBoxNameEdit;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelID;
-        private System.Windows.Forms.Button buttonTableView;
-        private System.Windows.Forms.Button buttonPopulate;
         private System.Windows.Forms.Button buttonCancel;
     }
 }

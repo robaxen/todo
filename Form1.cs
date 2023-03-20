@@ -41,6 +41,12 @@ namespace todo
         {
             InitializeComponent();
 
+            ////skapar instans av user control
+            //noteItem = new NoteItem();
+
+            ////subscribe till PropertyChanged event som finns i user control
+            //noteItem.PropertyChanged += NoteItem_PropertyChanged;
+
             //Skapar tabellen som kommer innehålla alla notes
             CreateTable();
 
@@ -194,8 +200,6 @@ namespace todo
             groupBoxNewNote.Visible = false;
         }
 
-        
-
         //Sätter in varje rad från tabellen i sina egna rutor, och listar upp dem under varann i en flowlayout panel
         private void populateItems()
         {
@@ -210,6 +214,7 @@ namespace todo
             for (int i = 0; i < ds.Tables["Note"].Rows.Count; i++)
             {
                 //deklarerar data variabler som kommer fyllas med rätt data beroende på rad id
+                string id = "";
                 string name = "";
                 string desc = "";
                 string color = "";
@@ -238,12 +243,20 @@ namespace todo
                 //sätter in alla skapade notes rutor i flowlayout panelen, där de radas upp under varandra
                 flowLayoutPanel1.Controls.Add(noteItems[i]);
 
-                //skapar click event för varje note
+                //subscribe till click event för varje note
                 noteItems[i].Click += new System.EventHandler(this.UserControl_Click);
 
-
+                //skapar item för att se till att lambda funktionen alltid refererar till rätt control, även om värdet på i ändras
+                NoteItem item = noteItems[i];
+                //subscribe till PropertyChanged event och skickar med notens id(noteItems[i].id
+                item.PropertyChanged += (Sender, e) => NoteItem_PropertyChanged(Sender, e, item.Id);
             }
             SaveToXml();
+        }
+        private void NoteItem_PropertyChanged(object sender, PropertyChangedEventArgs e, string id)
+        {
+            Console.WriteLine("propertychanged method called");
+            DeleteNote(Int32.Parse(id));
         }
 
         private void buttontableview_Click(object sender, EventArgs e)
@@ -404,6 +417,12 @@ namespace todo
         private void buttonPopulate_Click(object sender, EventArgs e)
         {
             populateItems();
+        }
+
+        private void buttonDeleteTest_Click(object sender, EventArgs e)
+        {
+            //raderar rad med id 1
+            DeleteNote(1);
         }
         //--------------------------------------------------------------------------------------------
     }
