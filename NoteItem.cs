@@ -92,17 +92,14 @@ namespace todo
         
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            //ändrar värdet på a till id för post
-            a = Id;
-            Console.WriteLine("delete button clicked, value of a: " + a);
-
-
-            ////en extra ruta som frågar om man verkligen vill radera note
-            //DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-
-            //}
+            //en extra ruta som frågar om man verkligen vill radera note
+            DialogResult dialogResult = MessageBox.Show("Radera vald note?", "Radera", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //ändrar värdet på a till id för post
+                a = Id;
+                Console.WriteLine("delete button clicked, value of a: " + a);
+            }
         }
 
         //-------------------hover effekt-------------------------
